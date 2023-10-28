@@ -17,6 +17,9 @@
 		F65F70B62AECCCA20038E05F /* Busking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70B52AECCCA20038E05F /* Busking.swift */; };
 		F65F70B92AECCE170038E05F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F65F70B82AECCE170038E05F /* Alamofire */; };
 		F65F70BC2AECD0030038E05F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70BB2AECD0030038E05F /* Service.swift */; };
+		F65F70C12AECD78B0038E05F /* MyArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70C02AECD78B0038E05F /* MyArtist.swift */; };
+		F65F70C42AECD7A70038E05F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70C32AECD7A70038E05F /* MapView.swift */; };
+		F65F70C72AECD7C30038E05F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70C62AECD7C30038E05F /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		F65F70B32AECCAA70038E05F /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		F65F70B52AECCCA20038E05F /* Busking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Busking.swift; sourceTree = "<group>"; };
 		F65F70BB2AECD0030038E05F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		F65F70C02AECD78B0038E05F /* MyArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArtist.swift; sourceTree = "<group>"; };
+		F65F70C32AECD7A70038E05F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F65F70C62AECD7C30038E05F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				F65F709F2AECC5540038E05F /* DonsNoteStreetApp.swift */,
-				F65F70A12AECC5540038E05F /* ContentView.swift */,
+				F65F70BD2AECD53C0038E05F /* View */,
+				F65F70BE2AECD54D0038E05F /* ViewModel */,
 				F65F70BA2AECCFC60038E05F /* Service */,
 				F65F70AE2AECC58F0038E05F /* Model */,
 				F65F70A32AECC5560038E05F /* Assets.xcassets */,
@@ -100,6 +107,48 @@
 				F65F70BB2AECD0030038E05F /* Service.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		F65F70BD2AECD53C0038E05F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F65F70A12AECC5540038E05F /* ContentView.swift */,
+				F65F70BF2AECD7600038E05F /* MyArtist */,
+				F65F70C22AECD7940038E05F /* Map */,
+				F65F70C52AECD7AE0038E05F /* Profile */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F65F70BE2AECD54D0038E05F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F65F70BF2AECD7600038E05F /* MyArtist */ = {
+			isa = PBXGroup;
+			children = (
+				F65F70C02AECD78B0038E05F /* MyArtist.swift */,
+			);
+			path = MyArtist;
+			sourceTree = "<group>";
+		};
+		F65F70C22AECD7940038E05F /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				F65F70C32AECD7A70038E05F /* MapView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		F65F70C52AECD7AE0038E05F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F65F70C62AECD7C30038E05F /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,10 +230,13 @@
 			files = (
 				F65F70A22AECC5540038E05F /* ContentView.swift in Sources */,
 				F65F70BC2AECD0030038E05F /* Service.swift in Sources */,
+				F65F70C72AECD7C30038E05F /* ProfileView.swift in Sources */,
 				F65F70A02AECC5540038E05F /* DonsNoteStreetApp.swift in Sources */,
 				F65F70B22AECC8180038E05F /* Artist.swift in Sources */,
 				F65F70B02AECC5A80038E05F /* User.swift in Sources */,
 				F65F70B42AECCAA70038E05F /* Member.swift in Sources */,
+				F65F70C12AECD78B0038E05F /* MyArtist.swift in Sources */,
+				F65F70C42AECD7A70038E05F /* MapView.swift in Sources */,
 				F65F70B62AECCCA20038E05F /* Busking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
