@@ -9,12 +9,12 @@ import Foundation
 
 struct Busking : Codable {
     
-    var id : Int?
-    var buskingInfo : String?
-    var startTime : Date?
-    var endTime : Date?
-    var latitude : Double?
-    var longitude : Double?
+    var id : Int
+    var buskingInfo : String
+    var startTime : Date
+    var endTime : Date
+    var latitude : Double
+    var longitude : Double
     
     init (
         

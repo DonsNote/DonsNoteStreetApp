@@ -9,15 +9,15 @@ import Foundation
 
 struct Artist : Codable {
     
-    var id : Int?
-    var artistName : String?
-    var artistInfo : String?
-    var artistImage : String?
+    var id : Int
+    var artistName : String
+    var artistInfo : String
+    var artistImage : String
     
-    var genres : String?
-    var youtubeURL : String?
-    var instagramURL : String?
-    var soundcloudURL : String?
+    var genres : String
+    var youtubeURL : String
+    var instagramURL : String
+    var soundcloudURL : String
     
     var members : [Member]?
     var buskings : [Busking]?

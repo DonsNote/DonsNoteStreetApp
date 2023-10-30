@@ -9,10 +9,10 @@ import Foundation
 
 struct User : Codable {
     
-    var id : Int?
-    var userName : String?
-    var userInfo : String?
-    var userImageURL : String?
+    var id : Int
+    var userName : String
+    var userInfo : String
+    var userImageURL : String
     var userArtist : Artist?
     
     init(

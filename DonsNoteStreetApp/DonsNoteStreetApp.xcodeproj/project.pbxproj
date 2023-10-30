@@ -20,6 +20,36 @@
 		F65F70C12AECD78B0038E05F /* MyArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70C02AECD78B0038E05F /* MyArtist.swift */; };
 		F65F70C42AECD7A70038E05F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70C32AECD7A70038E05F /* MapView.swift */; };
 		F65F70C72AECD7C30038E05F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70C62AECD7C30038E05F /* ProfileView.swift */; };
+		F65F70CA2AECDC9E0038E05F /* AppleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70C92AECDC9E0038E05F /* AppleLoginView.swift */; };
+		F65F70CD2AECE9680038E05F /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70CC2AECE9680038E05F /* MapViewModel.swift */; };
+		F65F70D82AECF70B0038E05F /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F65F70D02AECF70B0038E05F /* Pretendard-Regular.otf */; };
+		F65F70D92AECF70B0038E05F /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F65F70D12AECF70B0038E05F /* Pretendard-Black.otf */; };
+		F65F70DA2AECF70B0038E05F /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F65F70D22AECF70B0038E05F /* Pretendard-Medium.otf */; };
+		F65F70DB2AECF70B0038E05F /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F65F70D32AECF70B0038E05F /* Pretendard-Light.otf */; };
+		F65F70DC2AECF70B0038E05F /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F65F70D42AECF70B0038E05F /* Pretendard-ExtraBold.otf */; };
+		F65F70DD2AECF70B0038E05F /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F65F70D52AECF70B0038E05F /* Pretendard-Bold.otf */; };
+		F65F70DE2AECF70B0038E05F /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70D62AECF70B0038E05F /* Font.swift */; };
+		F65F70DF2AECF70B0038E05F /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F65F70D72AECF70B0038E05F /* Pretendard-SemiBold.otf */; };
+		F65F70E32AECF7700038E05F /* dropShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70E12AECF7700038E05F /* dropShadowModifier.swift */; };
+		F65F70E42AECF7700038E05F /* mainpageTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70E22AECF7700038E05F /* mainpageTitleModifier.swift */; };
+		F65F70E62AECF7860038E05F /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70E52AECF7860038E05F /* Components.swift */; };
+		F65F70E82AECF7900038E05F /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70E72AECF7900038E05F /* UIScreen.swift */; };
+		F65F70EB2AECFC8F0038E05F /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70EA2AECFC8F0038E05F /* BackgroundView.swift */; };
+		F65F70ED2AECFCC60038E05F /* CircleBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70EC2AECFCC60038E05F /* CircleBlur.swift */; };
+		F65F70EF2AECFD720038E05F /* DonationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70EE2AECFD720038E05F /* DonationBar.swift */; };
+		F65F70F22AECFE290038E05F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70F12AECFE290038E05F /* ProfileViewModel.swift */; };
+		F65F70F42AECFEB80038E05F /* EditUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70F32AECFEB80038E05F /* EditUserProfileView.swift */; };
+		F65F70F62AED00640038E05F /* EditFollowingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70F52AED00640038E05F /* EditFollowingListView.swift */; };
+		F65F70F82AED00890038E05F /* DonationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70F72AED00890038E05F /* DonationListView.swift */; };
+		F65F70FA2AED00BA0038E05F /* MakeUserArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70F92AED00BA0038E05F /* MakeUserArtistView.swift */; };
+		F65F70FC2AED00E30038E05F /* EditUserAcountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70FB2AED00E30038E05F /* EditUserAcountView.swift */; };
+		F65F70FF2AED011A0038E05F /* UserArtistProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70FE2AED011A0038E05F /* UserArtistProfileView.swift */; };
+		F65F71012AED4FCA0038E05F /* PopOverText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71002AED4FC90038E05F /* PopOverText.swift */; };
+		F65F71032AED50760038E05F /* UserPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71022AED50760038E05F /* UserPageViewModel.swift */; };
+		F65F71052AED51400038E05F /* ImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71042AED51400038E05F /* ImageCropper.swift */; };
+		F65F71072AED52B20038E05F /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71062AED52B20038E05F /* AccessToken.swift */; };
+		F65F71092AED57670038E05F /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71082AED57670038E05F /* KeychainItem.swift */; };
+		F65F710C2AEE1A370038E05F /* AppleLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F710B2AEE1A370038E05F /* AppleLoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +67,36 @@
 		F65F70C02AECD78B0038E05F /* MyArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArtist.swift; sourceTree = "<group>"; };
 		F65F70C32AECD7A70038E05F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F65F70C62AECD7C30038E05F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F65F70C92AECDC9E0038E05F /* AppleLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginView.swift; sourceTree = "<group>"; };
+		F65F70CC2AECE9680038E05F /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		F65F70D02AECF70B0038E05F /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		F65F70D12AECF70B0038E05F /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		F65F70D22AECF70B0038E05F /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		F65F70D32AECF70B0038E05F /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		F65F70D42AECF70B0038E05F /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		F65F70D52AECF70B0038E05F /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		F65F70D62AECF70B0038E05F /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		F65F70D72AECF70B0038E05F /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		F65F70E12AECF7700038E05F /* dropShadowModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dropShadowModifier.swift; sourceTree = "<group>"; };
+		F65F70E22AECF7700038E05F /* mainpageTitleModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainpageTitleModifier.swift; sourceTree = "<group>"; };
+		F65F70E52AECF7860038E05F /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		F65F70E72AECF7900038E05F /* UIScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
+		F65F70EA2AECFC8F0038E05F /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		F65F70EC2AECFCC60038E05F /* CircleBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleBlur.swift; sourceTree = "<group>"; };
+		F65F70EE2AECFD720038E05F /* DonationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationBar.swift; sourceTree = "<group>"; };
+		F65F70F12AECFE290038E05F /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		F65F70F32AECFEB80038E05F /* EditUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileView.swift; sourceTree = "<group>"; };
+		F65F70F52AED00640038E05F /* EditFollowingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFollowingListView.swift; sourceTree = "<group>"; };
+		F65F70F72AED00890038E05F /* DonationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationListView.swift; sourceTree = "<group>"; };
+		F65F70F92AED00BA0038E05F /* MakeUserArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeUserArtistView.swift; sourceTree = "<group>"; };
+		F65F70FB2AED00E30038E05F /* EditUserAcountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserAcountView.swift; sourceTree = "<group>"; };
+		F65F70FE2AED011A0038E05F /* UserArtistProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistProfileView.swift; sourceTree = "<group>"; };
+		F65F71002AED4FC90038E05F /* PopOverText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverText.swift; sourceTree = "<group>"; };
+		F65F71022AED50760038E05F /* UserPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPageViewModel.swift; sourceTree = "<group>"; };
+		F65F71042AED51400038E05F /* ImageCropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropper.swift; sourceTree = "<group>"; };
+		F65F71062AED52B20038E05F /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		F65F71082AED57670038E05F /* KeychainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
+		F65F710B2AEE1A370038E05F /* AppleLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +135,7 @@
 				F65F70BE2AECD54D0038E05F /* ViewModel */,
 				F65F70BA2AECCFC60038E05F /* Service */,
 				F65F70AE2AECC58F0038E05F /* Model */,
+				F65F70CE2AECF6420038E05F /* Extension */,
 				F65F70A32AECC5560038E05F /* Assets.xcassets */,
 				F65F70A52AECC5560038E05F /* DonsNoteStreetApp.entitlements */,
 				F65F70A62AECC5560038E05F /* Preview Content */,
@@ -97,6 +158,7 @@
 				F65F70B12AECC8180038E05F /* Artist.swift */,
 				F65F70B32AECCAA70038E05F /* Member.swift */,
 				F65F70B52AECCCA20038E05F /* Busking.swift */,
+				F65F71062AED52B20038E05F /* AccessToken.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				F65F70A12AECC5540038E05F /* ContentView.swift */,
+				F65F70C82AECDC7F0038E05F /* Auth */,
 				F65F70BF2AECD7600038E05F /* MyArtist */,
 				F65F70C22AECD7940038E05F /* Map */,
 				F65F70C52AECD7AE0038E05F /* Profile */,
@@ -123,6 +186,9 @@
 		F65F70BE2AECD54D0038E05F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F65F710A2AEE1A1A0038E05F /* Auth */,
+				F65F70CB2AECE9520038E05F /* Map */,
+				F65F70F02AECFDFF0038E05F /* Profile */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -147,8 +213,104 @@
 			isa = PBXGroup;
 			children = (
 				F65F70C62AECD7C30038E05F /* ProfileView.swift */,
+				F65F70F32AECFEB80038E05F /* EditUserProfileView.swift */,
+				F65F70F52AED00640038E05F /* EditFollowingListView.swift */,
+				F65F70F72AED00890038E05F /* DonationListView.swift */,
+				F65F70F92AED00BA0038E05F /* MakeUserArtistView.swift */,
+				F65F70FB2AED00E30038E05F /* EditUserAcountView.swift */,
+				F65F70FD2AED01030038E05F /* UserArtist */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		F65F70C82AECDC7F0038E05F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F65F70C92AECDC9E0038E05F /* AppleLoginView.swift */,
+				F65F71082AED57670038E05F /* KeychainItem.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		F65F70CB2AECE9520038E05F /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				F65F70CC2AECE9680038E05F /* MapViewModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		F65F70CE2AECF6420038E05F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F65F70E92AECFC6C0038E05F /* Component */,
+				F65F70CF2AECF70B0038E05F /* Font */,
+				F65F70E02AECF7700038E05F /* Modifier */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F65F70CF2AECF70B0038E05F /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F65F70D62AECF70B0038E05F /* Font.swift */,
+				F65F70D02AECF70B0038E05F /* Pretendard-Regular.otf */,
+				F65F70D12AECF70B0038E05F /* Pretendard-Black.otf */,
+				F65F70D22AECF70B0038E05F /* Pretendard-Medium.otf */,
+				F65F70D32AECF70B0038E05F /* Pretendard-Light.otf */,
+				F65F70D42AECF70B0038E05F /* Pretendard-ExtraBold.otf */,
+				F65F70D52AECF70B0038E05F /* Pretendard-Bold.otf */,
+				F65F70D72AECF70B0038E05F /* Pretendard-SemiBold.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		F65F70E02AECF7700038E05F /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				F65F70E12AECF7700038E05F /* dropShadowModifier.swift */,
+				F65F70E22AECF7700038E05F /* mainpageTitleModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		F65F70E92AECFC6C0038E05F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F65F70E52AECF7860038E05F /* Components.swift */,
+				F65F70EA2AECFC8F0038E05F /* BackgroundView.swift */,
+				F65F70EC2AECFCC60038E05F /* CircleBlur.swift */,
+				F65F70EE2AECFD720038E05F /* DonationBar.swift */,
+				F65F71042AED51400038E05F /* ImageCropper.swift */,
+				F65F71002AED4FC90038E05F /* PopOverText.swift */,
+				F65F70E72AECF7900038E05F /* UIScreen.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		F65F70F02AECFDFF0038E05F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F65F70F12AECFE290038E05F /* ProfileViewModel.swift */,
+				F65F71022AED50760038E05F /* UserPageViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F65F70FD2AED01030038E05F /* UserArtist */ = {
+			isa = PBXGroup;
+			children = (
+				F65F70FE2AED011A0038E05F /* UserArtistProfileView.swift */,
+			);
+			path = UserArtist;
+			sourceTree = "<group>";
+		};
+		F65F710A2AEE1A1A0038E05F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F65F710B2AEE1A370038E05F /* AppleLoginViewModel.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,7 +379,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F65F70A82AECC5560038E05F /* Preview Assets.xcassets in Resources */,
+				F65F70DD2AECF70B0038E05F /* Pretendard-Bold.otf in Resources */,
+				F65F70DA2AECF70B0038E05F /* Pretendard-Medium.otf in Resources */,
+				F65F70DC2AECF70B0038E05F /* Pretendard-ExtraBold.otf in Resources */,
+				F65F70D82AECF70B0038E05F /* Pretendard-Regular.otf in Resources */,
+				F65F70D92AECF70B0038E05F /* Pretendard-Black.otf in Resources */,
+				F65F70DF2AECF70B0038E05F /* Pretendard-SemiBold.otf in Resources */,
 				F65F70A42AECC5560038E05F /* Assets.xcassets in Resources */,
+				F65F70DB2AECF70B0038E05F /* Pretendard-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,16 +397,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F65F70EB2AECFC8F0038E05F /* BackgroundView.swift in Sources */,
+				F65F70ED2AECFCC60038E05F /* CircleBlur.swift in Sources */,
 				F65F70A22AECC5540038E05F /* ContentView.swift in Sources */,
+				F65F70FF2AED011A0038E05F /* UserArtistProfileView.swift in Sources */,
+				F65F70F42AECFEB80038E05F /* EditUserProfileView.swift in Sources */,
+				F65F71052AED51400038E05F /* ImageCropper.swift in Sources */,
+				F65F70E62AECF7860038E05F /* Components.swift in Sources */,
+				F65F71032AED50760038E05F /* UserPageViewModel.swift in Sources */,
+				F65F71092AED57670038E05F /* KeychainItem.swift in Sources */,
 				F65F70BC2AECD0030038E05F /* Service.swift in Sources */,
+				F65F71072AED52B20038E05F /* AccessToken.swift in Sources */,
+				F65F70FA2AED00BA0038E05F /* MakeUserArtistView.swift in Sources */,
 				F65F70C72AECD7C30038E05F /* ProfileView.swift in Sources */,
 				F65F70A02AECC5540038E05F /* DonsNoteStreetApp.swift in Sources */,
+				F65F70F22AECFE290038E05F /* ProfileViewModel.swift in Sources */,
 				F65F70B22AECC8180038E05F /* Artist.swift in Sources */,
+				F65F70E82AECF7900038E05F /* UIScreen.swift in Sources */,
 				F65F70B02AECC5A80038E05F /* User.swift in Sources */,
+				F65F70E42AECF7700038E05F /* mainpageTitleModifier.swift in Sources */,
 				F65F70B42AECCAA70038E05F /* Member.swift in Sources */,
+				F65F70DE2AECF70B0038E05F /* Font.swift in Sources */,
 				F65F70C12AECD78B0038E05F /* MyArtist.swift in Sources */,
+				F65F70CA2AECDC9E0038E05F /* AppleLoginView.swift in Sources */,
 				F65F70C42AECD7A70038E05F /* MapView.swift in Sources */,
 				F65F70B62AECCCA20038E05F /* Busking.swift in Sources */,
+				F65F70EF2AECFD720038E05F /* DonationBar.swift in Sources */,
+				F65F70FC2AED00E30038E05F /* EditUserAcountView.swift in Sources */,
+				F65F70F82AED00890038E05F /* DonationListView.swift in Sources */,
+				F65F71012AED4FCA0038E05F /* PopOverText.swift in Sources */,
+				F65F70CD2AECE9680038E05F /* MapViewModel.swift in Sources */,
+				F65F70F62AED00640038E05F /* EditFollowingListView.swift in Sources */,
+				F65F710C2AEE1A370038E05F /* AppleLoginViewModel.swift in Sources */,
+				F65F70E32AECF7700038E05F /* dropShadowModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,8 +563,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = DonsNoteStreet;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -412,8 +603,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = DonsNoteStreet;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

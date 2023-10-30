@@ -9,10 +9,10 @@ import Foundation
 
 struct Member : Codable {
     
-    var id : Int?
-    var memberName : String?
-    var memberInfo : String?
-    var memberImage : String?
+    var id : Int
+    var memberName : String
+    var memberInfo : String
+    var memberImage : String
     
     init (
         

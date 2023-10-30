@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 @main
 struct DonsNoteStreetAppApp: App {
+//MARK: - 1. PROPERTY
+    @StateObject var service = Service()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(service)
         }
     }
 }
