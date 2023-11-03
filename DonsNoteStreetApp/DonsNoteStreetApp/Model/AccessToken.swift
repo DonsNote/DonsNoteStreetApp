@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct AccessToken : Codable {
+struct SignResponse : Codable {
     
-    var accessToken : String
+    var token : String
     
 }

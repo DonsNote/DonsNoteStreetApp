@@ -8,8 +8,44 @@
 import SwiftUI
 
 struct EditUserAcountView: View {
+    //MARK: -1.PROPERTY
+    @EnvironmentObject var service : Service
+    @EnvironmentObject var appleLogin : AppleLoginViewModel
+    
+    //MARK: -2.BODY
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .topLeading) {
+            backgroundView().ignoresSafeArea()
+            VStack(alignment: .leading) {
+                //로그아웃
+                Button {
+                    KeychainItem.deletetokenResponseFromKeychain()
+//                    appleLogin.showLoginView = false
+                    print("Log Out : delete User Identifier From Keychain")
+                } label: {
+                    Text("로그아웃")
+                        .font(.custom13bold())
+                        .padding(UIScreen.getWidth(20))
+                        .shadow(color: .black.opacity(0.4),radius: UIScreen.getHeight(5))
+                }
+                //탈퇴
+                Button {
+                    KeychainItem.deleteIdentityTokenFromKeychain()
+                    KeychainItem.deletetokenResponseFromKeychain()
+                    KeychainItem.deleteUserIdentifierFromKeychain()
+                    KeychainItem.deleteRefreshTokenFromKeychain()
+                    KeychainItem.deleteAuthorizationCodeFromKeychain()
+//                    appleLogin.showLoginView = false
+                    print("탈퇴")
+                } label: {
+                    Text("탈퇴")
+                        .foregroundStyle(Color(appRed))
+                        .font(.custom13bold())
+                        .padding(UIScreen.getWidth(20))
+                        .shadow(color: .black.opacity(0.4),radius: UIScreen.getHeight(5))
+                }
+            }.padding(.top, UIScreen.getHeight(100))
+        }
     }
 }
 

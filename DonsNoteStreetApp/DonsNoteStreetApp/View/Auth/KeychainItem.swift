@@ -112,10 +112,19 @@ struct KeychainItem {
     
     static var currentUserIdentifier: String {
         do {
-            let storedIdentifier = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "userIdentifier").readItem()
+            let storedIdentifier = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "UserIdentifier").readItem()
             return storedIdentifier
         } catch {
             return "currentUserIdentifier error!"
+        }
+    }
+    
+    static var currentAuthorizationCode: String {
+        do {
+            let storedIdentifier = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "AuthorizationCode").readItem()
+            return storedIdentifier
+        } catch {
+            return "AuthorizationCode error!"
         }
     }
     
@@ -124,22 +133,39 @@ struct KeychainItem {
             let storedIdentityToken = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "IdentityToken").readItem()
             return storedIdentityToken
         } catch {
-            return "currentTokenResponse error!"
+            return "IdentityToken error!"
         }
     }
     
-    static var currentTokenResponse: String {
+    static var currentServerToken: String {
         do {
-            let storedTokenResponse = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "tokenResponse").readItem()
+            let storedTokenResponse = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "ServerToken").readItem()
             return storedTokenResponse
         } catch {
-            return "currentTokenResponse error!"
+            return "currentServerToken error!"
+        }
+    }
+    
+    static var currentRefreshToken: String {
+        do {
+            let storedTokenResponse = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "RefreshToken").readItem()
+            return storedTokenResponse
+        } catch {
+            return "currentRefreshToken error!"
+        }
+    }
+    
+    static func deleteAuthorizationCodeFromKeychain() {
+        do {
+            try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "AuthorizationCode").deleteItem()
+        } catch {
+            print("Keychain.deleteAuthorizationCodeFromKeychain.error : Unable to delete AuthorizationCode from keychain")
         }
     }
     
     static func deleteUserIdentifierFromKeychain() {
         do {
-            try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "userIdentifier").deleteItem()
+            try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "UserIdentifier").deleteItem()
         } catch {
             print("Keychain.deleteUserIdentifierFromKeychain.error : Unable to delete userIdentifier from keychain")
         }
@@ -149,15 +175,23 @@ struct KeychainItem {
         do {
             try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "IdentityToken").deleteItem()
         } catch {
-            print("Keychain.deleteIdentityTokenFromKeychain.error : Unable to delete userIdentifier from keychain")
+            print("Keychain.deleteIdentityTokenFromKeychain.error : Unable to delete IdentityToken from keychain")
         }
     }
     
     static func deletetokenResponseFromKeychain() {
         do {
-            try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "tokenResponse").deleteItem()
+            try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "ServerToken").deleteItem()
         } catch {
-            print("Keychain.deletetokenResponseFromKeychain.error : Unable to delete userIdentifier from keychain")
+            print("Keychain.deleteServerTokenFromKeychain.error : Unable to delete ServerToken from keychain")
+        }
+    }
+    
+    static func deleteRefreshTokenFromKeychain() {
+        do {
+            try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "RefreshToken").deleteItem()
+        } catch {
+            print("Keychain.deleteRefreshTokenFromKeychain.error : Unable to delete RefreshToken from keychain")
         }
     }
 }

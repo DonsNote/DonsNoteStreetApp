@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
 //MARK: - 2. BODY
         
-        TabView(selection: .constant(1), content: {
+        TabView(selection: .constant(2), content: {
             
             MyArtist()
                 .tabItem {

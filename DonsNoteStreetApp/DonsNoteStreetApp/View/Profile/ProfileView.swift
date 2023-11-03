@@ -106,7 +106,7 @@ extension ProfileView {
     
     var artistAccount: some View {
         VStack(spacing: 0) {
-            if service.user.userArtist?.artistName != "" {
+            if service.userArtist.artistName != "" {
                 Button {
                     viewModel.popArtistProfile = true
                 } label: {
