@@ -233,7 +233,6 @@ extension EditUserProfileView {
                 //TODO: 세이브하는 거 구현
 
                 service.croppedImage = viewModel.croppedImage
-                service.patchUserProfile()
             } label: {
                 toolbarButtonLabel(buttonLabel: "Save").shadow(color: .black.opacity(0.5),radius: UIScreen.getWidth(8))
             })

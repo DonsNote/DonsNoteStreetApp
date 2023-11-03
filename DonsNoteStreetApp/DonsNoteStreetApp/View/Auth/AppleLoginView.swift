@@ -21,7 +21,7 @@ struct AppleLoginView: View {
 
 struct AppleSigninButton : View {
     
-    @EnvironmentObject var appleLogin : AppleLoginViewModel
+//    @EnvironmentObject var appleLogin : AppleLoginViewModel
     @EnvironmentObject var service : Service
     
     var body: some View {
@@ -38,7 +38,7 @@ struct AppleSigninButton : View {
                         do {
                             service.appleSign(authCode: AuthorizationCode ?? "")
                         }
-                        print("Apple Login Successful")
+                        print("Get AuthorizationCode")
                     default:
                         break
                     }

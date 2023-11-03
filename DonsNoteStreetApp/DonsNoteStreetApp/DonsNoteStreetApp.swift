@@ -11,15 +11,15 @@ import AuthenticationServices
 @main
 struct DonsNoteStreetAppApp: App {
 //MARK: - 1. PROPERTY
-    @StateObject var appleLogin = AppleLoginViewModel()
+//    @StateObject var appleLogin = AppleLoginViewModel()
     @StateObject var service = Service()
     
     var body: some Scene {
         WindowGroup {
-            if appleLogin.showLoginView {
-                AppleLoginView().environmentObject(service)
-            } else {
+            if service.isLogin {
                 ContentView().environmentObject(service)
+            } else {
+                AppleLoginView().environmentObject(service)
             }
         }
     }

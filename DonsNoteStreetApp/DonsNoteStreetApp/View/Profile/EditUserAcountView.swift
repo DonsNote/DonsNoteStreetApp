@@ -10,7 +10,7 @@ import SwiftUI
 struct EditUserAcountView: View {
     //MARK: -1.PROPERTY
     @EnvironmentObject var service : Service
-    @EnvironmentObject var appleLogin : AppleLoginViewModel
+//    @EnvironmentObject var appleLogin : AppleLoginViewModel
     
     //MARK: -2.BODY
     var body: some View {
@@ -19,9 +19,9 @@ struct EditUserAcountView: View {
             VStack(alignment: .leading) {
                 //로그아웃
                 Button {
-                    KeychainItem.deletetokenResponseFromKeychain()
-//                    appleLogin.showLoginView = false
-                    print("Log Out : delete User Identifier From Keychain")
+                    KeychainItem.deleteServerTokenFromKeychain()
+                    service.isLogin = false
+                    UserDefaults.standard.set(false, forKey: "isLogin")
                 } label: {
                     Text("로그아웃")
                         .font(.custom13bold())
@@ -30,13 +30,8 @@ struct EditUserAcountView: View {
                 }
                 //탈퇴
                 Button {
-                    KeychainItem.deleteIdentityTokenFromKeychain()
-                    KeychainItem.deletetokenResponseFromKeychain()
-                    KeychainItem.deleteUserIdentifierFromKeychain()
-                    KeychainItem.deleteRefreshTokenFromKeychain()
-                    KeychainItem.deleteAuthorizationCodeFromKeychain()
-//                    appleLogin.showLoginView = false
-                    print("탈퇴")
+                    KeychainItem.deleteServerTokenFromKeychain()
+                    service.appleRevoke()
                 } label: {
                     Text("탈퇴")
                         .foregroundStyle(Color(appRed))

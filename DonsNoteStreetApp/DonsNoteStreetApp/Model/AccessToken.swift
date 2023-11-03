@@ -10,5 +10,4 @@ import Foundation
 struct SignResponse : Codable {
     
     var token : String
-    
 }
