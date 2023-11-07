@@ -11,8 +11,8 @@ struct User : Codable {
     
     var id : Int
     var artistId : Int?
-    var follow : [Int]?
-    var block : [Int]?
+    var follow : [Int]
+    var block : [Int]
     var userName : String
     var userInfo : String
     var userImageURL : String

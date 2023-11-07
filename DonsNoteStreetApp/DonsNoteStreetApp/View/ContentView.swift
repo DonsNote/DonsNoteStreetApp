@@ -17,7 +17,7 @@ struct ContentView: View {
         //MARK: - 2. BODY
         
         TabView(selection: $selection) {
-            MyArtist()
+            MyArtistView()
                 .tabItem {
                     Image(systemName: "music.note.list")
                     Text("My Artist")

@@ -11,6 +11,8 @@ import Alamofire
 
 class Service : ObservableObject {
     
+    let serverDomain : String = "https://aesopos.co.kr/"
+    
     @Published var serverToken : String? = KeychainItem.currentServerToken
     @Published var refreshToken : String? = KeychainItem.currentRefreshToken
     @Published var isLogin : Bool = UserDefaults.standard.bool(forKey: "isLogin")
@@ -18,6 +20,9 @@ class Service : ObservableObject {
     @Published var user : User = User()
     @Published var userArtist : Artist = Artist()
     @Published var myArtist : [Artist] = []
+    @Published var myArtistBusking : [Busking] = []
+    @Published var myArtistBuskingInt : [Int] = []
+    @Published var allArtist : [Artist] = []
     @Published var croppedImage : UIImage?
     @Published var userArtistCroppedImage : UIImage?
     @Published var patchUserArtistCroppedImage : UIImage?
@@ -33,7 +38,7 @@ class Service : ObservableObject {
         let parameters: [String: String] = [
             "code" : authCode
         ]
-        AF.request("https://aesopos.co.kr/auth/apple-login", method: .post, parameters: parameters)
+        AF.request("\(serverDomain)auth/apple-login", method: .post, parameters: parameters)
             .responseDecodable(of: SignResponse.self) { response in
                 switch response.result {
                 case .success(let reData):
@@ -60,7 +65,7 @@ class Service : ObservableObject {
     
     func appleRevoke() {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
-        AF.request("https://aesopos.co.kr/auth/apple-revoke", method: .post, headers: headers)
+        AF.request("\(serverDomain)auth/apple-revoke", method: .post, headers: headers)
             .response { response in
                 switch response.result {
                 case .success:
@@ -79,7 +84,7 @@ class Service : ObservableObject {
     
     func extToken() {
         let headers: HTTPHeaders = [.authorization(bearerToken: refreshToken ?? "")]
-        AF.request("https://aesopos.co.kr/auth/token", method: .get, headers: headers)
+        AF.request("\(serverDomain)auth/token", method: .get, headers: headers)
             .responseDecodable(of: SignResponse.self) { response in
                 switch response.result {
                 case .success(let reData):
@@ -100,7 +105,7 @@ class Service : ObservableObject {
     
     func getUserProfile() {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
-        AF.request("https://aesopos.co.kr/users/", method: .get, headers: headers)
+        AF.request("\(serverDomain)users/", method: .get, headers: headers)
             .responseDecodable(of: User.self) { response in
                 switch response.result {
                 case .success(let userProfile):
@@ -138,7 +143,7 @@ class Service : ObservableObject {
             for (key, value) in parameters {
                 multipartFormData.append(value.data(using: .utf8)!, withName: key)
             }
-        }, to: "https://aesopos.co.kr/users/", method: .patch, headers: headers)
+        }, to: "\(serverDomain)users/", method: .patch, headers: headers)
         .response { response in
             switch response.result {
             case .success:
@@ -170,7 +175,7 @@ class Service : ObservableObject {
             for (key, value) in parameters {
                 multipartFormData.append(value.data(using: .utf8)!, withName: key)
             }
-        }, to: "https://aesopos.co.kr/artists/", method: .post, headers: headers)
+        }, to: "\(serverDomain)artists/", method: .post, headers: headers)
         .responseDecodable(of: Artist.self) { response in
             switch response.result {
             case .success(let reData):
@@ -186,7 +191,7 @@ class Service : ObservableObject {
     
     func getUserArtistProfile() {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
-        AF.request("https://aesopos.co.kr/artists/", method: .get, headers: headers)
+        AF.request("\(serverDomain)artists/", method: .get, headers: headers)
             .responseDecodable(of: Artist.self) { response in
                 switch response.result {
                 case .success(let reData):
@@ -219,12 +224,12 @@ class Service : ObservableObject {
             for (key, value) in parameters {
                 multipartFormData.append(value.data(using: .utf8)!, withName: key)
             }
-        }, to: "https://aesopos.co.kr/artists/", method: .patch, headers: headers)
+        }, to: "\(serverDomain)artists/", method: .patch, headers: headers)
         .response { response in
             switch response.result {
             case .success:
                 self.getUserArtistProfile()
-                print("User Profile Update Success!")
+                print("User Artist Profile Update Success!")
             case .failure(let error):
                 print("Error : \(error.localizedDescription)")
             }
@@ -233,16 +238,84 @@ class Service : ObservableObject {
     
     func deleteUserArtist() {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
-        AF.request("https://aesopos.co.kr/artists/", method: .delete, headers: headers)
+        AF.request("\(serverDomain)artists/", method: .delete, headers: headers)
             .response { response in
                 switch response.result {
                 case .success:
-                    self.getUserArtistProfile()
+                    self.getUserProfile()
                     print("Delete User Artist Acount Success")
                 case .failure(let error):
                     print("Error : \(error)")
                 }
             }
+    }
+    
+    func follow(artistId : Int) {
+        let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        let parameters: [String: Int] = [
+            "artistId" : artistId
+        ]
+        AF.request("\(serverDomain)users/follow/", method: .post, parameters: parameters, headers: headers)
+            .response { response in
+                switch response.result {
+                case .success:
+                    print("Follow Success")
+                case .failure(let error):
+                    print("Error : \(error)")
+                }
+            }
+    }
+    
+    func unfollow(artistId : Int) {
+        let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        let parameters: [String: Int] = [
+            "artistId" : artistId
+        ]
+        AF.request("\(serverDomain)users/unfollow/", method: .post, parameters: parameters, headers: headers)
+            .response { response in
+                switch response.result {
+                case .success:
+                    print("Follow Success")
+                case .failure(let error):
+                    print("Error : \(error)")
+                }
+            }
+    }
+    
+    func getAllArtist() {
+        let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        AF.request("\(serverDomain)artists/all/", method: .get, headers: headers)
+            .responseDecodable(of: [Artist].self) { response in
+                switch response.result {
+                case .success(let reData):
+                    self.allArtist = reData
+                    print(reData)
+                    print("Get User Artist Profile Success")
+                case .failure(let error):
+                    print("Error : \(error)")
+                }
+            }
+
+    }
+    
+    func getMyArtist() {
+        let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        AF.request("\(serverDomain)artists/myArt/", method: .get, headers: headers)
+            .responseDecodable(of: [Artist].self) { response in
+                switch response.result {
+                case .success(let reData):
+                    self.myArtist = reData
+                    self.myArtistBuskingInt = self.myArtist.flatMap {$0.buskings ?? []}
+                    print(reData)
+                    print("Get User Artist Profile Success")
+                case .failure(let error):
+                    print("Error : \(error)")
+                }
+            }
+    }
+    
+    func getMyArtistBusking() {
+        
     }
     
 }

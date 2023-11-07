@@ -11,10 +11,11 @@ struct ProfileView: View {
 //MARK: -1.PROPERTY
     @EnvironmentObject var service : Service
     @StateObject var viewModel = ProfileViewModel()
+    @State var isartistDelete : Bool = false
     
 //MARK: -2.BODY
     var body: some View {
-        NavigationView {
+        NavigationView() {
             VStack(alignment: .leading) {
                 
                 profileSection
@@ -33,7 +34,7 @@ struct ProfileView: View {
             .background(backgroundView().ignoresSafeArea())
             .navigationTitle("")
         }
-        .fullScreenCover(isPresented: $viewModel.popArtistProfile) {UserArtistProfileView()}
+        .fullScreenCover(isPresented: $isartistDelete) {UserArtistProfileView(isartistDelete: $isartistDelete)}
     }
 }
 
@@ -109,7 +110,8 @@ extension ProfileView {
             if service.user.artistId ?? 0 > 0 {
                 Button {
                     service.getUserArtistProfile()
-                    viewModel.popArtistProfile = true
+                    isartistDelete = true
+
                 } label: {
                     Text("아티스트 계정 전환")
                         .font(.custom13bold())

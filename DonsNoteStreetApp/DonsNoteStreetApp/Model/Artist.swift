@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Artist : Codable {
+struct Artist : Identifiable, Codable {
     
     var id : Int
     var artistName : String
@@ -19,7 +19,7 @@ struct Artist : Codable {
     var instagramURL : String?
     var soundcloudURL : String?
     
-    var follower : [Int]?
+    var followers : [Int]?
     var members : [Int]?
     var buskings : [Int]?
     
@@ -35,7 +35,7 @@ struct Artist : Codable {
         instagramURL : String = "",
         soundcloudURL : String = "",
         
-        follower : [Int] = [],
+        followers : [Int] = [],
         members : [Int] = [],
         buskings : [Int] = []
         
@@ -51,7 +51,7 @@ struct Artist : Codable {
         self.instagramURL = instagramURL
         self.soundcloudURL = soundcloudURL
         
-        self.follower = follower
+        self.followers = followers
         self.members = members
         self.buskings = buskings
     }

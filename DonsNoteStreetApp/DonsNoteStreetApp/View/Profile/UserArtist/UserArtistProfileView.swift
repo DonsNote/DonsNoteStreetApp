@@ -14,6 +14,8 @@ struct UserArtistProfileView: View {
     @StateObject var viewModel = UserArtistProfileViewModel()
     @Environment(\.dismiss) var dismiss
     
+    @Binding var isartistDelete : Bool
+    
     //MARK: -2.BODY
     var body: some View {
         NavigationView {
@@ -41,7 +43,7 @@ struct UserArtistProfileView: View {
 
 //MARK: -3.PREVIEW
 #Preview {
-    UserArtistProfileView().environmentObject(Service())
+    UserArtistProfileView(isartistDelete: .constant(true)).environmentObject(Service())
 }
 
 //MARK: -4.EXTENSION
@@ -139,7 +141,7 @@ extension UserArtistProfileView {
             }
             
             NavigationLink {
-                EditUserArtistAcountView()
+                EditUserArtistAcountView(isartistDelete: $isartistDelete)
             } label: {
                 Text("아티스트 계정 관리")
                     .font(.custom13bold())

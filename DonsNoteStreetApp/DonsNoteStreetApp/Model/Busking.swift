@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Busking : Codable {
+struct Busking : Identifiable, Codable {
     
     var id : Int
     var artistImageURL : String

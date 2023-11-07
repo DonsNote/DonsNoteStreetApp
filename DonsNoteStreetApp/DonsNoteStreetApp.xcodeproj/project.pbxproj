@@ -17,7 +17,7 @@
 		F65F70B62AECCCA20038E05F /* Busking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70B52AECCCA20038E05F /* Busking.swift */; };
 		F65F70B92AECCE170038E05F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F65F70B82AECCE170038E05F /* Alamofire */; };
 		F65F70BC2AECD0030038E05F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70BB2AECD0030038E05F /* Service.swift */; };
-		F65F70C12AECD78B0038E05F /* MyArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70C02AECD78B0038E05F /* MyArtist.swift */; };
+		F65F70C12AECD78B0038E05F /* MyArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70C02AECD78B0038E05F /* MyArtistView.swift */; };
 		F65F70C42AECD7A70038E05F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70C32AECD7A70038E05F /* MapView.swift */; };
 		F65F70C72AECD7C30038E05F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70C62AECD7C30038E05F /* ProfileView.swift */; };
 		F65F70CA2AECDC9E0038E05F /* AppleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70C92AECDC9E0038E05F /* AppleLoginView.swift */; };
@@ -58,6 +58,15 @@
 		F6A176DA2AF94AF80014774A /* EditUserArtistAcountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D92AF94AF80014774A /* EditUserArtistAcountView.swift */; };
 		F6A176DC2AF94B4C0014774A /* AddBuskingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176DB2AF94B4C0014774A /* AddBuskingViewModel.swift */; };
 		F6A176DE2AF94EE70014774A /* UserArtistPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176DD2AF94EE70014774A /* UserArtistPageView.swift */; };
+		F6A176E02AFA2C8A0014774A /* UserArtistPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176DF2AFA2C8A0014774A /* UserArtistPageViewModel.swift */; };
+		F6A176E22AFA3D250014774A /* ArtistListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176E12AFA3D250014774A /* ArtistListView.swift */; };
+		F6A176E42AFA3DAB0014774A /* ArtistPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176E32AFA3DAB0014774A /* ArtistPageView.swift */; };
+		F6A176E72AFA3DF40014774A /* ArtistPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176E62AFA3DF40014774A /* ArtistPageViewModel.swift */; };
+		F6A176E92AFA3E2C0014774A /* MyArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176E82AFA3E2C0014774A /* MyArtistViewModel.swift */; };
+		F6A176EC2AFA4BC10014774A /* ProfileRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176EB2AFA4BC10014774A /* ProfileRectangle.swift */; };
+		F6A176EE2AFA96AF0014774A /* BuskingListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176ED2AFA96AF0014774A /* BuskingListRow.swift */; };
+		F6A176F12AFA99460014774A /* MapBuskingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F02AFA99460014774A /* MapBuskingModalView.swift */; };
+		F6A176F42AFA9AA40014774A /* MapBuskingModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F32AFA9AA40014774A /* MapBuskingModalViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +81,7 @@
 		F65F70B32AECCAA70038E05F /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		F65F70B52AECCCA20038E05F /* Busking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Busking.swift; sourceTree = "<group>"; };
 		F65F70BB2AECD0030038E05F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		F65F70C02AECD78B0038E05F /* MyArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArtist.swift; sourceTree = "<group>"; };
+		F65F70C02AECD78B0038E05F /* MyArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArtistView.swift; sourceTree = "<group>"; };
 		F65F70C32AECD7A70038E05F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F65F70C62AECD7C30038E05F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F65F70C92AECDC9E0038E05F /* AppleLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginView.swift; sourceTree = "<group>"; };
@@ -114,6 +123,15 @@
 		F6A176D92AF94AF80014774A /* EditUserArtistAcountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserArtistAcountView.swift; sourceTree = "<group>"; };
 		F6A176DB2AF94B4C0014774A /* AddBuskingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingViewModel.swift; sourceTree = "<group>"; };
 		F6A176DD2AF94EE70014774A /* UserArtistPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistPageView.swift; sourceTree = "<group>"; };
+		F6A176DF2AFA2C8A0014774A /* UserArtistPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistPageViewModel.swift; sourceTree = "<group>"; };
+		F6A176E12AFA3D250014774A /* ArtistListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListView.swift; sourceTree = "<group>"; };
+		F6A176E32AFA3DAB0014774A /* ArtistPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPageView.swift; sourceTree = "<group>"; };
+		F6A176E62AFA3DF40014774A /* ArtistPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPageViewModel.swift; sourceTree = "<group>"; };
+		F6A176E82AFA3E2C0014774A /* MyArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArtistViewModel.swift; sourceTree = "<group>"; };
+		F6A176EB2AFA4BC10014774A /* ProfileRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRectangle.swift; sourceTree = "<group>"; };
+		F6A176ED2AFA96AF0014774A /* BuskingListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuskingListRow.swift; sourceTree = "<group>"; };
+		F6A176F02AFA99460014774A /* MapBuskingModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuskingModalView.swift; sourceTree = "<group>"; };
+		F6A176F32AFA9AA40014774A /* MapBuskingModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuskingModalViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +222,7 @@
 		F65F70BE2AECD54D0038E05F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F6A176E52AFA3DDA0014774A /* MyArtist */,
 				F65F70CB2AECE9520038E05F /* Map */,
 				F65F70F02AECFDFF0038E05F /* Profile */,
 			);
@@ -213,7 +232,11 @@
 		F65F70BF2AECD7600038E05F /* MyArtist */ = {
 			isa = PBXGroup;
 			children = (
-				F65F70C02AECD78B0038E05F /* MyArtist.swift */,
+				F65F70C02AECD78B0038E05F /* MyArtistView.swift */,
+				F6A176E12AFA3D250014774A /* ArtistListView.swift */,
+				F6A176E32AFA3DAB0014774A /* ArtistPageView.swift */,
+				F6A176EF2AFA99090014774A /* Modal */,
+				F6A176EA2AFA4B900014774A /* ViewComponent */,
 			);
 			path = MyArtist;
 			sourceTree = "<group>";
@@ -335,8 +358,44 @@
 			children = (
 				F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */,
 				F6A176DB2AF94B4C0014774A /* AddBuskingViewModel.swift */,
+				F6A176DF2AFA2C8A0014774A /* UserArtistPageViewModel.swift */,
 			);
 			path = UserArtist;
+			sourceTree = "<group>";
+		};
+		F6A176E52AFA3DDA0014774A /* MyArtist */ = {
+			isa = PBXGroup;
+			children = (
+				F6A176E82AFA3E2C0014774A /* MyArtistViewModel.swift */,
+				F6A176E62AFA3DF40014774A /* ArtistPageViewModel.swift */,
+				F6A176F22AFA9A810014774A /* Modal */,
+			);
+			path = MyArtist;
+			sourceTree = "<group>";
+		};
+		F6A176EA2AFA4B900014774A /* ViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				F6A176EB2AFA4BC10014774A /* ProfileRectangle.swift */,
+				F6A176ED2AFA96AF0014774A /* BuskingListRow.swift */,
+			);
+			path = ViewComponent;
+			sourceTree = "<group>";
+		};
+		F6A176EF2AFA99090014774A /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				F6A176F02AFA99460014774A /* MapBuskingModalView.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		F6A176F22AFA9A810014774A /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				F6A176F32AFA9AA40014774A /* MapBuskingModalViewModel.swift */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,9 +487,11 @@
 				F65F70ED2AECFCC60038E05F /* CircleBlur.swift in Sources */,
 				F6A176D42AF94A390014774A /* EditFanView.swift in Sources */,
 				F65F70A22AECC5540038E05F /* ContentView.swift in Sources */,
+				F6A176E72AFA3DF40014774A /* ArtistPageViewModel.swift in Sources */,
 				F69076AB2AF78AB3007B62A6 /* AddUserArtistViewModel.swift in Sources */,
 				F65F70FF2AED011A0038E05F /* AddUserArtistView.swift in Sources */,
 				F65F70F42AECFEB80038E05F /* UserPageView.swift in Sources */,
+				F6A176E02AFA2C8A0014774A /* UserArtistPageViewModel.swift in Sources */,
 				F65F71052AED51400038E05F /* ImageCropper.swift in Sources */,
 				F65F70E62AECF7860038E05F /* Components.swift in Sources */,
 				F6A176D62AF94A510014774A /* EditDonationView.swift in Sources */,
@@ -443,16 +504,22 @@
 				F65F70A02AECC5540038E05F /* DonsNoteStreetApp.swift in Sources */,
 				F65F70F22AECFE290038E05F /* ProfileViewModel.swift in Sources */,
 				F65F70B22AECC8180038E05F /* Artist.swift in Sources */,
+				F6A176EE2AFA96AF0014774A /* BuskingListRow.swift in Sources */,
 				F65F70E82AECF7900038E05F /* UIScreen.swift in Sources */,
+				F6A176E42AFA3DAB0014774A /* ArtistPageView.swift in Sources */,
+				F6A176F42AFA9AA40014774A /* MapBuskingModalViewModel.swift in Sources */,
 				F65F70B02AECC5A80038E05F /* User.swift in Sources */,
 				F65F70E42AECF7700038E05F /* mainpageTitleModifier.swift in Sources */,
 				F6A176DA2AF94AF80014774A /* EditUserArtistAcountView.swift in Sources */,
 				F65F70B42AECCAA70038E05F /* Member.swift in Sources */,
 				F65F70DE2AECF70B0038E05F /* Font.swift in Sources */,
-				F65F70C12AECD78B0038E05F /* MyArtist.swift in Sources */,
+				F6A176E22AFA3D250014774A /* ArtistListView.swift in Sources */,
+				F65F70C12AECD78B0038E05F /* MyArtistView.swift in Sources */,
 				F65F70CA2AECDC9E0038E05F /* AppleLoginView.swift in Sources */,
 				F65F70C42AECD7A70038E05F /* MapView.swift in Sources */,
 				F6A176DC2AF94B4C0014774A /* AddBuskingViewModel.swift in Sources */,
+				F6A176EC2AFA4BC10014774A /* ProfileRectangle.swift in Sources */,
+				F6A176F12AFA99460014774A /* MapBuskingModalView.swift in Sources */,
 				F65F70B62AECCCA20038E05F /* Busking.swift in Sources */,
 				F65F70EF2AECFD720038E05F /* DonationBar.swift in Sources */,
 				F65F70FC2AED00E30038E05F /* EditUserAcountView.swift in Sources */,
@@ -462,6 +529,7 @@
 				F65F70CD2AECE9680038E05F /* MapViewModel.swift in Sources */,
 				F6A176D82AF94A8B0014774A /* EditBuskingView.swift in Sources */,
 				F65F70F62AED00640038E05F /* EditFollowingListView.swift in Sources */,
+				F6A176E92AFA3E2C0014774A /* MyArtistViewModel.swift in Sources */,
 				F65F70E32AECF7700038E05F /* dropShadowModifier.swift in Sources */,
 				F6A176CD2AF9471A0014774A /* UserArtistProfileView.swift in Sources */,
 			);
