@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import Alamofire
-import UIKit
 import AuthenticationServices
 
 struct AppleLoginView: View {
@@ -15,13 +13,13 @@ struct AppleLoginView: View {
         VStack {
             AppleSigninButton()
         }
-        .frame(height:UIScreen.main.bounds.height).background(Color.white)
+        .frame(height:UIScreen.main.bounds.height)
+        .background(Color.white)
     }
 }
 
 struct AppleSigninButton : View {
     
-//    @EnvironmentObject var appleLogin : AppleLoginViewModel
     @EnvironmentObject var service : Service
     
     var body: some View {
@@ -32,13 +30,12 @@ struct AppleSigninButton : View {
             onCompletion: { result in
                 switch result {
                 case .success(let authResults):
-                    switch authResults.credential{
+                    switch authResults.credential {
                     case let appleIDCredential as ASAuthorizationAppleIDCredential :
-                        let AuthorizationCode = String(data: appleIDCredential.authorizationCode ?? Data(), encoding: .utf8)
+                        let AuthorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
                         do {
                             service.appleSign(authCode: AuthorizationCode ?? "")
                         }
-                        print("Get AuthorizationCode")
                     default:
                         break
                     }
@@ -47,8 +44,8 @@ struct AppleSigninButton : View {
                 }
             }
         )
-        .frame(height:UIScreen.getHeight(50))
-        .cornerRadius(UIScreen.getHeight(25))
+        .frame(width : UIScreen.main.bounds.width * 0.9, height:50)
+        .cornerRadius(5)
     }
 }
 

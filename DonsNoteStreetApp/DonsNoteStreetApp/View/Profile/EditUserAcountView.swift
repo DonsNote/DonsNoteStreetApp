@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct EditUserAcountView: View {
-    //MARK: -1.PROPERTY
+//MARK: -1.PROPERTY
     @EnvironmentObject var service : Service
-//    @EnvironmentObject var appleLogin : AppleLoginViewModel
     
-    //MARK: -2.BODY
+//MARK: -2.BODY
     var body: some View {
         ZStack(alignment: .topLeading) {
             backgroundView().ignoresSafeArea()
             VStack(alignment: .leading) {
-                //로그아웃
                 Button {
                     KeychainItem.deleteServerTokenFromKeychain()
                     service.isLogin = false
@@ -28,10 +26,8 @@ struct EditUserAcountView: View {
                         .padding(UIScreen.getWidth(20))
                         .shadow(color: .black.opacity(0.4),radius: UIScreen.getHeight(5))
                 }
-                //탈퇴
                 Button {
-                    KeychainItem.deleteServerTokenFromKeychain()
-                    service.appleRevoke()
+                    service.appleRevoke()                    
                 } label: {
                     Text("탈퇴")
                         .foregroundStyle(Color(appRed))
@@ -44,6 +40,7 @@ struct EditUserAcountView: View {
     }
 }
 
+//MARK: - 3. PREVIEW
 #Preview {
     EditUserAcountView()
 }

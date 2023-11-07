@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileView: View {
 //MARK: -1.PROPERTY
     @EnvironmentObject var service : Service
-    @ObservedObject var viewModel = ProfileViewModel()
+    @StateObject var viewModel = ProfileViewModel()
     
 //MARK: -2.BODY
     var body: some View {
@@ -31,7 +31,7 @@ struct ProfileView: View {
                 
             }
             .background(backgroundView().ignoresSafeArea())
-//            .navigationTitle("")
+            .navigationTitle("")
         }
         .fullScreenCover(isPresented: $viewModel.popArtistProfile) {UserArtistProfileView()}
     }
@@ -63,7 +63,7 @@ extension ProfileView {
     
     var profileSetting: some View {
         NavigationLink {
-            EditUserProfileView()
+            UserPageView()
         } label: {
             Text("프로필 관리")
                 .font(.custom13bold())
@@ -106,8 +106,9 @@ extension ProfileView {
     
     var artistAccount: some View {
         VStack(spacing: 0) {
-            if service.userArtist.artistName != "" {
+            if service.user.artistId ?? 0 > 0 {
                 Button {
+                    service.getUserArtistProfile()
                     viewModel.popArtistProfile = true
                 } label: {
                     Text("아티스트 계정 전환")
@@ -117,7 +118,7 @@ extension ProfileView {
                 }
             } else {
                 NavigationLink {
-                    MakeUserArtistView()
+                    AddUserArtistView()
                 } label: {
                     Text("아티스트 계정 등록")
                         .font(.custom13bold())

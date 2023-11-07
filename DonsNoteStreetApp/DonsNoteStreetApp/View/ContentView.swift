@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-//MARK: - 1. PROPERTY
+    //MARK: - 1. PROPERTY
     
     @EnvironmentObject var service : Service
+    @State private var selection = 2
     
     var body: some View {
-//MARK: - 2. BODY
+        //MARK: - 2. BODY
         
-        TabView(selection: .constant(2), content: {
-            
+        TabView(selection: $selection) {
             MyArtist()
                 .tabItem {
-                    Image(systemName: "person.3.fill")
+                    Image(systemName: "music.note.list")
                     Text("My Artist")
                 }
                 .tag(0)
@@ -37,7 +37,19 @@ struct ContentView: View {
                     Text("Profile")
                 }
                 .tag(2)
-        })
+        }
+        .onChange(of: selection) { newSelection in
+            switch newSelection {
+            case 0 :
+                service.getUserProfile()
+            case 1 :
+                service.getUserProfile()
+            case 2 :
+                service.getUserProfile()
+            default :
+                break
+            }
+        }
     }
 }
 

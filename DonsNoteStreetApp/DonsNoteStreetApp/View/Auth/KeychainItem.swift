@@ -110,33 +110,6 @@ struct KeychainItem {
         return query
     }
     
-//    static var currentUserIdentifier: String {
-//        do {
-//            let storedIdentifier = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "UserIdentifier").readItem()
-//            return storedIdentifier
-//        } catch {
-//            return "currentUserIdentifier error!"
-//        }
-//    }
-    
-//    static var currentAuthorizationCode: String {
-//        do {
-//            let storedIdentifier = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "AuthorizationCode").readItem()
-//            return storedIdentifier
-//        } catch {
-//            return "AuthorizationCode error!"
-//        }
-//    }
-    
-//    static var currentIdentityToken: String {
-//        do {
-//            let storedIdentityToken = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "IdentityToken").readItem()
-//            return storedIdentityToken
-//        } catch {
-//            return "IdentityToken error!"
-//        }
-//    }
-    
     static var currentServerToken: String {
         do {
             let storedTokenResponse = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "ServerToken").readItem()
@@ -146,38 +119,14 @@ struct KeychainItem {
         }
     }
     
-//    static var currentRefreshToken: String {
-//        do {
-//            let storedTokenResponse = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "RefreshToken").readItem()
-//            return storedTokenResponse
-//        } catch {
-//            return "currentRefreshToken error!"
-//        }
-//    }
-    
-//    static func deleteAuthorizationCodeFromKeychain() {
-//        do {
-//            try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "AuthorizationCode").deleteItem()
-//        } catch {
-//            print("Keychain.deleteAuthorizationCodeFromKeychain.error : Unable to delete AuthorizationCode from keychain")
-//        }
-//    }
-    
-//    static func deleteUserIdentifierFromKeychain() {
-//        do {
-//            try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "UserIdentifier").deleteItem()
-//        } catch {
-//            print("Keychain.deleteUserIdentifierFromKeychain.error : Unable to delete userIdentifier from keychain")
-//        }
-//    }
-    
-//    static func deleteIdentityTokenFromKeychain() {
-//        do {
-//            try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "IdentityToken").deleteItem()
-//        } catch {
-//            print("Keychain.deleteIdentityTokenFromKeychain.error : Unable to delete IdentityToken from keychain")
-//        }
-//    }
+    static var currentRefreshToken: String {
+        do {
+            let storedTokenResponse = try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "RefreshToken").readItem()
+            return storedTokenResponse
+        } catch {
+            return "currentRefreshTokenToken error!"
+        }
+    }
     
     static func deleteServerTokenFromKeychain() {
         do {
@@ -187,11 +136,11 @@ struct KeychainItem {
         }
     }
     
-//    static func deleteRefreshTokenFromKeychain() {
-//        do {
-//            try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "RefreshToken").deleteItem()
-//        } catch {
-//            print("Keychain.deleteRefreshTokenFromKeychain.error : Unable to delete RefreshToken from keychain")
-//        }
-//    }
+    static func deleteRefreshTokenFromKeychain() {
+        do {
+            try KeychainItem(service: "DonsNote.DonsNoteStreetApp", account: "RefreshToken").deleteItem()
+        } catch {
+            print("Keychain.deleteRefreshTokenTokenFromKeychain.error : Unable to delete ServerToken from keychain")
+        }
+    }
 }

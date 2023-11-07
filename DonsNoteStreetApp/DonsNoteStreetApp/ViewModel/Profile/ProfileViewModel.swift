@@ -10,7 +10,6 @@ import Foundation
 class ProfileViewModel: ObservableObject {
     
     @Published var switchNotiToggle: Bool = false
-    @Published var isArtistAccount: Bool = true
     @Published var popArtistProfile: Bool = false
     
 }

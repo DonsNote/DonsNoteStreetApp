@@ -38,18 +38,26 @@
 		F65F70ED2AECFCC60038E05F /* CircleBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70EC2AECFCC60038E05F /* CircleBlur.swift */; };
 		F65F70EF2AECFD720038E05F /* DonationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70EE2AECFD720038E05F /* DonationBar.swift */; };
 		F65F70F22AECFE290038E05F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70F12AECFE290038E05F /* ProfileViewModel.swift */; };
-		F65F70F42AECFEB80038E05F /* EditUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70F32AECFEB80038E05F /* EditUserProfileView.swift */; };
+		F65F70F42AECFEB80038E05F /* UserPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70F32AECFEB80038E05F /* UserPageView.swift */; };
 		F65F70F62AED00640038E05F /* EditFollowingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70F52AED00640038E05F /* EditFollowingListView.swift */; };
 		F65F70F82AED00890038E05F /* DonationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70F72AED00890038E05F /* DonationListView.swift */; };
-		F65F70FA2AED00BA0038E05F /* MakeUserArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70F92AED00BA0038E05F /* MakeUserArtistView.swift */; };
 		F65F70FC2AED00E30038E05F /* EditUserAcountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70FB2AED00E30038E05F /* EditUserAcountView.swift */; };
-		F65F70FF2AED011A0038E05F /* UserArtistProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70FE2AED011A0038E05F /* UserArtistProfileView.swift */; };
+		F65F70FF2AED011A0038E05F /* AddUserArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70FE2AED011A0038E05F /* AddUserArtistView.swift */; };
 		F65F71012AED4FCA0038E05F /* PopOverText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71002AED4FC90038E05F /* PopOverText.swift */; };
 		F65F71032AED50760038E05F /* UserPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71022AED50760038E05F /* UserPageViewModel.swift */; };
 		F65F71052AED51400038E05F /* ImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71042AED51400038E05F /* ImageCropper.swift */; };
 		F65F71072AED52B20038E05F /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71062AED52B20038E05F /* AccessToken.swift */; };
 		F65F71092AED57670038E05F /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71082AED57670038E05F /* KeychainItem.swift */; };
-		F65F710C2AEE1A370038E05F /* AppleLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F710B2AEE1A370038E05F /* AppleLoginViewModel.swift */; };
+		F69076AB2AF78AB3007B62A6 /* AddUserArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69076AA2AF78AB3007B62A6 /* AddUserArtistViewModel.swift */; };
+		F6A176CD2AF9471A0014774A /* UserArtistProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */; };
+		F6A176D02AF948E30014774A /* UserArtistProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */; };
+		F6A176D22AF94A080014774A /* AddBuskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D12AF94A080014774A /* AddBuskingView.swift */; };
+		F6A176D42AF94A390014774A /* EditFanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D32AF94A390014774A /* EditFanView.swift */; };
+		F6A176D62AF94A510014774A /* EditDonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D52AF94A510014774A /* EditDonationView.swift */; };
+		F6A176D82AF94A8B0014774A /* EditBuskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D72AF94A8B0014774A /* EditBuskingView.swift */; };
+		F6A176DA2AF94AF80014774A /* EditUserArtistAcountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D92AF94AF80014774A /* EditUserArtistAcountView.swift */; };
+		F6A176DC2AF94B4C0014774A /* AddBuskingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176DB2AF94B4C0014774A /* AddBuskingViewModel.swift */; };
+		F6A176DE2AF94EE70014774A /* UserArtistPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176DD2AF94EE70014774A /* UserArtistPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,19 +93,27 @@
 		F65F70EC2AECFCC60038E05F /* CircleBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleBlur.swift; sourceTree = "<group>"; };
 		F65F70EE2AECFD720038E05F /* DonationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationBar.swift; sourceTree = "<group>"; };
 		F65F70F12AECFE290038E05F /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		F65F70F32AECFEB80038E05F /* EditUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileView.swift; sourceTree = "<group>"; };
+		F65F70F32AECFEB80038E05F /* UserPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageView.swift; sourceTree = "<group>"; };
 		F65F70F52AED00640038E05F /* EditFollowingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFollowingListView.swift; sourceTree = "<group>"; };
 		F65F70F72AED00890038E05F /* DonationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationListView.swift; sourceTree = "<group>"; };
-		F65F70F92AED00BA0038E05F /* MakeUserArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeUserArtistView.swift; sourceTree = "<group>"; };
 		F65F70FB2AED00E30038E05F /* EditUserAcountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserAcountView.swift; sourceTree = "<group>"; };
-		F65F70FE2AED011A0038E05F /* UserArtistProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistProfileView.swift; sourceTree = "<group>"; };
+		F65F70FE2AED011A0038E05F /* AddUserArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserArtistView.swift; sourceTree = "<group>"; };
 		F65F71002AED4FC90038E05F /* PopOverText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverText.swift; sourceTree = "<group>"; };
 		F65F71022AED50760038E05F /* UserPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPageViewModel.swift; sourceTree = "<group>"; };
 		F65F71042AED51400038E05F /* ImageCropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropper.swift; sourceTree = "<group>"; };
 		F65F71062AED52B20038E05F /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		F65F71082AED57670038E05F /* KeychainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
-		F65F710B2AEE1A370038E05F /* AppleLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewModel.swift; sourceTree = "<group>"; };
 		F690767C2AF374DC007B62A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F69076AA2AF78AB3007B62A6 /* AddUserArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserArtistViewModel.swift; sourceTree = "<group>"; };
+		F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistProfileView.swift; sourceTree = "<group>"; };
+		F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistProfileViewModel.swift; sourceTree = "<group>"; };
+		F6A176D12AF94A080014774A /* AddBuskingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingView.swift; sourceTree = "<group>"; };
+		F6A176D32AF94A390014774A /* EditFanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFanView.swift; sourceTree = "<group>"; };
+		F6A176D52AF94A510014774A /* EditDonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDonationView.swift; sourceTree = "<group>"; };
+		F6A176D72AF94A8B0014774A /* EditBuskingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBuskingView.swift; sourceTree = "<group>"; };
+		F6A176D92AF94AF80014774A /* EditUserArtistAcountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserArtistAcountView.swift; sourceTree = "<group>"; };
+		F6A176DB2AF94B4C0014774A /* AddBuskingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingViewModel.swift; sourceTree = "<group>"; };
+		F6A176DD2AF94EE70014774A /* UserArtistPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,7 +204,6 @@
 		F65F70BE2AECD54D0038E05F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F65F710A2AEE1A1A0038E05F /* Auth */,
 				F65F70CB2AECE9520038E05F /* Map */,
 				F65F70F02AECFDFF0038E05F /* Profile */,
 			);
@@ -215,11 +230,11 @@
 			isa = PBXGroup;
 			children = (
 				F65F70C62AECD7C30038E05F /* ProfileView.swift */,
-				F65F70F32AECFEB80038E05F /* EditUserProfileView.swift */,
+				F65F70F32AECFEB80038E05F /* UserPageView.swift */,
 				F65F70F52AED00640038E05F /* EditFollowingListView.swift */,
 				F65F70F72AED00890038E05F /* DonationListView.swift */,
-				F65F70F92AED00BA0038E05F /* MakeUserArtistView.swift */,
 				F65F70FB2AED00E30038E05F /* EditUserAcountView.swift */,
+				F65F70FE2AED011A0038E05F /* AddUserArtistView.swift */,
 				F65F70FD2AED01030038E05F /* UserArtist */,
 			);
 			path = Profile;
@@ -295,6 +310,8 @@
 			children = (
 				F65F70F12AECFE290038E05F /* ProfileViewModel.swift */,
 				F65F71022AED50760038E05F /* UserPageViewModel.swift */,
+				F69076AA2AF78AB3007B62A6 /* AddUserArtistViewModel.swift */,
+				F6A176CE2AF948220014774A /* UserArtist */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -302,17 +319,24 @@
 		F65F70FD2AED01030038E05F /* UserArtist */ = {
 			isa = PBXGroup;
 			children = (
-				F65F70FE2AED011A0038E05F /* UserArtistProfileView.swift */,
+				F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */,
+				F6A176DD2AF94EE70014774A /* UserArtistPageView.swift */,
+				F6A176D12AF94A080014774A /* AddBuskingView.swift */,
+				F6A176D32AF94A390014774A /* EditFanView.swift */,
+				F6A176D52AF94A510014774A /* EditDonationView.swift */,
+				F6A176D72AF94A8B0014774A /* EditBuskingView.swift */,
+				F6A176D92AF94AF80014774A /* EditUserArtistAcountView.swift */,
 			);
 			path = UserArtist;
 			sourceTree = "<group>";
 		};
-		F65F710A2AEE1A1A0038E05F /* Auth */ = {
+		F6A176CE2AF948220014774A /* UserArtist */ = {
 			isa = PBXGroup;
 			children = (
-				F65F710B2AEE1A370038E05F /* AppleLoginViewModel.swift */,
+				F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */,
+				F6A176DB2AF94B4C0014774A /* AddBuskingViewModel.swift */,
 			);
-			path = Auth;
+			path = UserArtist;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,17 +424,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				F65F70EB2AECFC8F0038E05F /* BackgroundView.swift in Sources */,
+				F6A176DE2AF94EE70014774A /* UserArtistPageView.swift in Sources */,
 				F65F70ED2AECFCC60038E05F /* CircleBlur.swift in Sources */,
+				F6A176D42AF94A390014774A /* EditFanView.swift in Sources */,
 				F65F70A22AECC5540038E05F /* ContentView.swift in Sources */,
-				F65F70FF2AED011A0038E05F /* UserArtistProfileView.swift in Sources */,
-				F65F70F42AECFEB80038E05F /* EditUserProfileView.swift in Sources */,
+				F69076AB2AF78AB3007B62A6 /* AddUserArtistViewModel.swift in Sources */,
+				F65F70FF2AED011A0038E05F /* AddUserArtistView.swift in Sources */,
+				F65F70F42AECFEB80038E05F /* UserPageView.swift in Sources */,
 				F65F71052AED51400038E05F /* ImageCropper.swift in Sources */,
 				F65F70E62AECF7860038E05F /* Components.swift in Sources */,
+				F6A176D62AF94A510014774A /* EditDonationView.swift in Sources */,
+				F6A176D02AF948E30014774A /* UserArtistProfileViewModel.swift in Sources */,
 				F65F71032AED50760038E05F /* UserPageViewModel.swift in Sources */,
 				F65F71092AED57670038E05F /* KeychainItem.swift in Sources */,
 				F65F70BC2AECD0030038E05F /* Service.swift in Sources */,
 				F65F71072AED52B20038E05F /* AccessToken.swift in Sources */,
-				F65F70FA2AED00BA0038E05F /* MakeUserArtistView.swift in Sources */,
 				F65F70C72AECD7C30038E05F /* ProfileView.swift in Sources */,
 				F65F70A02AECC5540038E05F /* DonsNoteStreetApp.swift in Sources */,
 				F65F70F22AECFE290038E05F /* ProfileViewModel.swift in Sources */,
@@ -418,20 +446,24 @@
 				F65F70E82AECF7900038E05F /* UIScreen.swift in Sources */,
 				F65F70B02AECC5A80038E05F /* User.swift in Sources */,
 				F65F70E42AECF7700038E05F /* mainpageTitleModifier.swift in Sources */,
+				F6A176DA2AF94AF80014774A /* EditUserArtistAcountView.swift in Sources */,
 				F65F70B42AECCAA70038E05F /* Member.swift in Sources */,
 				F65F70DE2AECF70B0038E05F /* Font.swift in Sources */,
 				F65F70C12AECD78B0038E05F /* MyArtist.swift in Sources */,
 				F65F70CA2AECDC9E0038E05F /* AppleLoginView.swift in Sources */,
 				F65F70C42AECD7A70038E05F /* MapView.swift in Sources */,
+				F6A176DC2AF94B4C0014774A /* AddBuskingViewModel.swift in Sources */,
 				F65F70B62AECCCA20038E05F /* Busking.swift in Sources */,
 				F65F70EF2AECFD720038E05F /* DonationBar.swift in Sources */,
 				F65F70FC2AED00E30038E05F /* EditUserAcountView.swift in Sources */,
+				F6A176D22AF94A080014774A /* AddBuskingView.swift in Sources */,
 				F65F70F82AED00890038E05F /* DonationListView.swift in Sources */,
 				F65F71012AED4FCA0038E05F /* PopOverText.swift in Sources */,
 				F65F70CD2AECE9680038E05F /* MapViewModel.swift in Sources */,
+				F6A176D82AF94A8B0014774A /* EditBuskingView.swift in Sources */,
 				F65F70F62AED00640038E05F /* EditFollowingListView.swift in Sources */,
-				F65F710C2AEE1A370038E05F /* AppleLoginViewModel.swift in Sources */,
 				F65F70E32AECF7700038E05F /* dropShadowModifier.swift in Sources */,
+				F6A176CD2AF9471A0014774A /* UserArtistProfileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
