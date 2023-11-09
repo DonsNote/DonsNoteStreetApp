@@ -20,6 +20,7 @@ struct Artist : Identifiable, Codable {
     var soundcloudURL : String?
     
     var followers : [Int]?
+    var block : [Int]?
     var members : [Int]?
     var buskings : [Int]?
     
@@ -36,6 +37,7 @@ struct Artist : Identifiable, Codable {
         soundcloudURL : String = "",
         
         followers : [Int] = [],
+        block : [Int] = [],
         members : [Int] = [],
         buskings : [Int] = []
         
@@ -52,6 +54,7 @@ struct Artist : Identifiable, Codable {
         self.soundcloudURL = soundcloudURL
         
         self.followers = followers
+        self.block = block
         self.members = members
         self.buskings = buskings
     }

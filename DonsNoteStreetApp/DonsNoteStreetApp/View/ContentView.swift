@@ -11,7 +11,7 @@ struct ContentView: View {
     //MARK: - 1. PROPERTY
     
     @EnvironmentObject var service : Service
-    @State private var selection = 2
+    @State private var selection = 1
     
     var body: some View {
         //MARK: - 2. BODY
@@ -41,9 +41,10 @@ struct ContentView: View {
         .onChange(of: selection) { newSelection in
             switch newSelection {
             case 0 :
-                service.getUserProfile()
+                service.getMyArtist()
+                service.getMyArtistBusking()
             case 1 :
-                service.getUserProfile()
+                service.getNowBusking()
             case 2 :
                 service.getUserProfile()
             default :

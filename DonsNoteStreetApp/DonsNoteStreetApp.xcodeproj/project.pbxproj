@@ -67,6 +67,7 @@
 		F6A176EE2AFA96AF0014774A /* BuskingListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176ED2AFA96AF0014774A /* BuskingListRow.swift */; };
 		F6A176F12AFA99460014774A /* MapBuskingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F02AFA99460014774A /* MapBuskingModalView.swift */; };
 		F6A176F42AFA9AA40014774A /* MapBuskingModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F32AFA9AA40014774A /* MapBuskingModalViewModel.swift */; };
+		F6A176F82AFB56140014774A /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F72AFB56140014774A /* MapAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +133,7 @@
 		F6A176ED2AFA96AF0014774A /* BuskingListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuskingListRow.swift; sourceTree = "<group>"; };
 		F6A176F02AFA99460014774A /* MapBuskingModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuskingModalView.swift; sourceTree = "<group>"; };
 		F6A176F32AFA9AA40014774A /* MapBuskingModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuskingModalViewModel.swift; sourceTree = "<group>"; };
+		F6A176F72AFB56140014774A /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				F65F70C32AECD7A70038E05F /* MapView.swift */,
+				F6A176F72AFB56140014774A /* MapAnnotationView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				F65F70C42AECD7A70038E05F /* MapView.swift in Sources */,
 				F6A176DC2AF94B4C0014774A /* AddBuskingViewModel.swift in Sources */,
 				F6A176EC2AFA4BC10014774A /* ProfileRectangle.swift in Sources */,
+				F6A176F82AFB56140014774A /* MapAnnotationView.swift in Sources */,
 				F6A176F12AFA99460014774A /* MapBuskingModalView.swift in Sources */,
 				F65F70B62AECCCA20038E05F /* Busking.swift in Sources */,
 				F65F70EF2AECFD720038E05F /* DonationBar.swift in Sources */,
@@ -666,7 +670,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DonsNoteStreetApp/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치를 기반으로 주변 거리공연 정보를 제공하기 위해 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 기반으로 주변 거리공연 정보를 제공하기 위해 권한이 필요합니다.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -707,7 +712,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DonsNoteStreetApp/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치를 기반으로 주변 거리공연 정보를 제공하기 위해 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 기반으로 주변 거리공연 정보를 제공하기 위해 권한이 필요합니다.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

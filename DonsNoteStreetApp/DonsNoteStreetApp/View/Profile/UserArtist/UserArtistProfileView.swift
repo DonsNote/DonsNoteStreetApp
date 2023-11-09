@@ -132,6 +132,7 @@ extension UserArtistProfileView {
     var thirdSection: some View {
         VStack(alignment: .leading) {
             Button{
+                service.getUserProfile()
                 dismiss()
             } label: {
                 Text("개인 계정 전환")

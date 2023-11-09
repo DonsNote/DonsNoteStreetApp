@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import MapKit
 
 struct Busking : Identifiable, Codable {
     
     var id : Int
+    var artistId : Int
     var artistImageURL : String
     var buskingInfo : String
     var startTime : Date
@@ -20,6 +22,7 @@ struct Busking : Identifiable, Codable {
     init (
         
         id : Int = 0,
+        artistId : Int = 0,
         artistImageURL : String = "",
         buskingInfo : String = "",
         startTime : Date = Date(),
@@ -30,6 +33,7 @@ struct Busking : Identifiable, Codable {
     ) {
         
         self.id = id
+        self.artistId = artistId
         self.artistImageURL = artistImageURL
         self.buskingInfo = buskingInfo
         self.startTime = startTime
@@ -37,5 +41,10 @@ struct Busking : Identifiable, Codable {
         self.latitude = latitude
         self.longitude = longitude
         
+    }
+    
+    // Computed Property
+    var location: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }

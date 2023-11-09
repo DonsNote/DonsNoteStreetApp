@@ -26,14 +26,19 @@ struct ArtistListView: View {
                         ProfileRectangle(image: i.artistImageURL, name: i.artistName).scaleEffect(0.9)
                     }
                 }
-            }.padding(.init(top: UIScreen.getWidth(10), leading: UIScreen.getWidth(10), bottom: UIScreen.getWidth(10), trailing: UIScreen.getWidth(10)))
-        }.background(backgroundView().ignoresSafeArea()).navigationTitle("")
+            }
+            .padding(.init(top: UIScreen.getWidth(10), leading: UIScreen.getWidth(10), bottom: UIScreen.getWidth(10), trailing: UIScreen.getWidth(10)))
+        }
+        .background(backgroundView().ignoresSafeArea()).navigationTitle("")
+        .onAppear {
+            service.getAllArtist()
+        }
     }
 }
 
 //MARK: -3.PREVIEW
 #Preview {
     NavigationView {
-        ArtistListView()
+        ArtistListView().environmentObject(Service())
     }
 }
