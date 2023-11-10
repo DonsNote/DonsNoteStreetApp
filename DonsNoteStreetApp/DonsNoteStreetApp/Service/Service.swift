@@ -19,13 +19,17 @@ class Service : ObservableObject {
     
     @Published var user : User = User()
     @Published var userArtist : Artist = Artist()
+    @Published var busking : Busking = Busking()
     @Published var targetArtist : Artist = Artist()
     @Published var myArtist : [Artist] = []
+    @Published var blockList : [Artist] = []
+    @Published var myBusking : [Busking] = []
     @Published var myArtistBusking : [Busking] = []
     @Published var nowBusking : [Busking] = []
     @Published var myArtistBuskingInt : [Int] = []
     @Published var allArtist : [Artist] = []
     @Published var allBusking : [Busking] = []
+    @Published var report : String = ""
     @Published var croppedImage : UIImage?
     @Published var userArtistCroppedImage : UIImage?
     @Published var patchUserArtistCroppedImage : UIImage?
@@ -56,7 +60,6 @@ class Service : ObservableObject {
                     self.getUserProfile()
                     self.isLogin = true
                     UserDefaults.standard.set(true, forKey: "isLogin")
-                    print(reData.token)
                     print("Apple Login Success")
                 case .failure(let error):
                     self.isLogin = false
@@ -106,6 +109,25 @@ class Service : ObservableObject {
             }
     }
     
+    func report(artistId : Int) {
+        let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        let parameters: [String: Any] = [
+            "userId" : self.user.id,
+            "artistId" : artistId,
+            "report" : self.report
+        ]
+        
+        AF.request("\(serverDomain)/report/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .response { response in
+                switch response.result {
+                case .success:
+                    print("Post Report Success")
+                case .failure(let error):
+                    print("Post Report fail Error : \(error)")
+                }
+            }
+    }
+    
     func getUserProfile() {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         AF.request("\(serverDomain)users/", method: .get, headers: headers)
@@ -114,7 +136,6 @@ class Service : ObservableObject {
                 case .success(let userProfile):
                     self.user = userProfile
                     print("Get User Profile Success")
-                    print("UserProfile : \(userProfile)")
                 case .failure(let error):
                     if let statusCode = response.response?.statusCode {
                         switch statusCode {
@@ -184,7 +205,6 @@ class Service : ObservableObject {
             case .success(let reData):
                 self.userArtist = reData
                 self.getUserProfile()
-                print(reData)
                 print("Post User Artist Profile Success!")
             case .failure(let error):
                 print("Error : \(error.localizedDescription)")
@@ -199,7 +219,6 @@ class Service : ObservableObject {
                 switch response.result {
                 case .success(let reData):
                     self.userArtist = reData
-                    print(reData)
                     print("Get User Artist Profile Success")
                 case .failure(let error):
                     print("Error : \(error)")
@@ -265,7 +284,7 @@ class Service : ObservableObject {
                     self.getUserProfile()
                     self.getMyArtist()
                     self.getMyArtistBusking()
-                    print("Follow Success")
+                    print("Followed Success")
                 case .failure(let error):
                     print("Error : \(error)")
                 }
@@ -291,6 +310,57 @@ class Service : ObservableObject {
             }
     }
     
+    func block(artistId : Int) {
+        let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        let parameters: [String : Int] = [
+            "artistId" : artistId
+        ]
+        AF.request("\(serverDomain)users/block/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .response { response in
+                switch response.result {
+                case .success:
+                    self.getUserProfile()
+                    self.getMyArtist()
+                    self.getMyArtistBusking()
+                    print("Blocked Success")
+                case .failure(let error):
+                    print("Error : \(error)")
+                }
+            }
+    }
+    
+    func unblock(artistId : Int) {
+        let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        let parameters: [String : Int] = [
+            "artistId" : artistId
+        ]
+        AF.request("\(serverDomain)users/unblock/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .response { response in
+                switch response.result {
+                case .success:
+                    self.getUserProfile()
+                    self.getBlockList()
+                    print("Unblocked Success")
+                case .failure(let error):
+                    print("Error : \(error)")
+                }
+            }
+    }
+    
+    func getBlockList() {
+        let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        AF.request("\(serverDomain)/artists/blockList/", method: .get, headers: headers)
+            .responseDecodable(of: [Artist].self) { response in
+                switch response.result {
+                case .success(let reData):
+                    self.blockList = reData
+                    print("Get Block List Success")
+                case .failure(let error):
+                    print("Get Block List fail Error : \(error)")
+                }
+            }
+    }
+    
     func getTargetArtist(artistId : Int) {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         let parameters: [String: Int] = [
@@ -301,7 +371,6 @@ class Service : ObservableObject {
                 switch response.result {
                 case .success(let reData):
                     self.targetArtist = reData
-                    print(reData)
                     print("Get Target Artist Profile Success")
                 case .failure(let error):
                     print("Error : \(error)")
@@ -315,8 +384,9 @@ class Service : ObservableObject {
             .responseDecodable(of: [Artist].self) { response in
                 switch response.result {
                 case .success(let reData):
-                    self.allArtist = reData
-                    print(reData)
+                    let blockedArtistIds = Set(self.user.block)
+                    let followedArtistIds = Set(self.user.follow)
+                    self.allArtist = reData.filter { artist in !blockedArtistIds.contains(artist.id) && !followedArtistIds.contains(artist.id) }
                     print("Get All Artist Profile Success")
                 case .failure(let error):
                     print("Error : \(error)")
@@ -331,9 +401,9 @@ class Service : ObservableObject {
             .responseDecodable(of: [Artist].self) { response in
                 switch response.result {
                 case .success(let reData):
-                    self.myArtist = reData
+                    let blockedArtistIds = Set(self.user.block)
+                    self.myArtist = reData.filter { !blockedArtistIds.contains($0.id) }
                     self.myArtistBuskingInt = self.myArtist.flatMap {$0.buskings ?? []}
-                    print(reData)
                     print("Get My Artist Profile Success")
                 case .failure(let error):
                     print("Error : \(error)")
@@ -341,32 +411,51 @@ class Service : ObservableObject {
             }
     }
     
-    func getAllBuskings() {
+    func postBusking() {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
-        AF.request("\(serverDomain)buskings/all/", method: .get, headers: headers)
-            .responseDecodable(of: [Busking].self) { response in
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        
+        let StartTime = dateFormatter.string(from: self.busking.startTime)
+        let EndTime = dateFormatter.string(from: self.busking.endTime)
+        let parameters: [String: Any] = [
+            "buskingInfo" : self.busking.buskingInfo,
+            "startTime" : StartTime,
+            "endTime" : EndTime,
+            "latitude" : self.busking.latitude,
+            "longitude" : self.busking.longitude
+        ]
+        
+        AF.request("\(serverDomain)/buskings/", method: .post, parameters: parameters, headers: headers)
+            .response { response in
                 switch response.result {
-                case .success(let reData):
-                    self.allBusking = reData
-                    print(reData)
-                    print("Get All Busking Success")
+                case .success :
+                    print("Post Busking Success")
                 case .failure(let error):
-                    print("Error : \(error)")
+                    print("Post Busking fail Error : \(error)")
                 }
             }
     }
     
-    func getMyArtistBusking() {
+    func getMyBusking() {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        
         let parameters: [String: [Int]] = [
-            "buskingsId" : myArtistBuskingInt
+            "buskingsId" : self.userArtist.buskings ?? []
         ]
-        AF.request("\(serverDomain)buskings/myArtBusking/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-            .responseDecodable(of: [Busking].self) { response in
+        AF.request("\(serverDomain)buskings/myBusking/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .responseDecodable(of: [Busking].self, decoder: decoder) { response in
                 switch response.result {
                 case .success(let reData):
-                    self.myArtistBusking = reData
-                    print(reData)
+                    self.myBusking = reData
                     print("Get My Artist Busking Success")
                 case .failure(let error):
                     print("Error : \(error)")
@@ -376,11 +465,18 @@ class Service : ObservableObject {
     
     func getNowBusking() {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        
         AF.request("\(serverDomain)buskings/now/", method: .get, headers: headers)
-            .responseDecodable(of: [Busking].self) { response in
+            .responseDecodable(of: [Busking].self, decoder: decoder) { response in
                 switch response.result {
                 case .success(let reData):
-                    self.nowBusking = reData
+                    let blockedArtistIds = Set(self.user.block)
+                    self.nowBusking = reData.filter { !blockedArtistIds.contains($0.artistId) }
                     print("Get Now Busking Success")
                 case .failure(let error):
                     print("Get Now Busking fail Error : \(error)")
@@ -388,5 +484,49 @@ class Service : ObservableObject {
             }
     }
     
+    func getAllBuskings() {
+        let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        
+        AF.request("\(serverDomain)buskings/all/", method: .get, headers: headers)
+            .responseDecodable(of: [Busking].self, decoder: decoder) { response in
+                switch response.result {
+                case .success(let reData):
+                    let blockedArtistIds = Set(self.user.block)
+                    self.allBusking = reData.filter { !blockedArtistIds.contains($0.artistId) }
+                    print("Get All Busking Success")
+                case .failure(let error):
+                    print("Error : \(error)")
+                }
+            }
+    }
+    
+    func getMyArtistBusking() {
+        let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        
+        let parameters: [String: [Int]] = [
+            "buskingsId" : myArtistBuskingInt
+        ]
+        AF.request("\(serverDomain)buskings/myArtBusking/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .responseDecodable(of: [Busking].self, decoder: decoder) { response in
+                switch response.result {
+                case .success(let reData):
+                    let blockedArtistIds = Set(self.user.block)
+                    self.myArtistBusking = reData.filter { !blockedArtistIds.contains($0.artistId) }
+                    print("Get My Artist Busking Success")
+                case .failure(let error):
+                    print("Error : \(error)")
+                }
+            }
+    }
     
 }

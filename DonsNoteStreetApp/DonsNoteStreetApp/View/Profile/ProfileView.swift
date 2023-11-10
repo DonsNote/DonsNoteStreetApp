@@ -27,6 +27,7 @@ struct ProfileView: View {
                 notificationSetting
                 customDivider()
                 artistAccount
+                blockSetting
                 accountSetting
                 Spacer()
                 
@@ -78,6 +79,17 @@ extension ProfileView {
             EditFollowingListView()
         } label: {
             Text("아티스트 관리")
+                .font(.custom13bold())
+                .padding(UIScreen.getWidth(20))
+                .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
+        }
+    }
+    
+    var blockSetting: some View {
+        NavigationLink {
+            EditBlockListView()
+        } label: {
+            Text("차단 관리")
                 .font(.custom13bold())
                 .padding(UIScreen.getWidth(20))
                 .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))

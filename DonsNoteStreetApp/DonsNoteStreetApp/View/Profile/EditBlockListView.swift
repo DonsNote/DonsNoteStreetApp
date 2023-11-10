@@ -1,13 +1,13 @@
 //
-//  EditFollowingListView.swift
+//  EditBlockListView.swift
 //  DonsNoteStreetApp
 //
-//  Created by Kimdohyun on 10/28/23.
+//  Created by Kimdohyun on 11/10/23.
 //
 
 import SwiftUI
 
-struct EditFollowingListView: View {
+struct EditBlockListView: View {
     
     //MARK: -1.PROPERTY
     @EnvironmentObject var service: Service
@@ -22,7 +22,7 @@ struct EditFollowingListView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: columns, spacing: 0) {
-                ForEach(service.myArtist) { i in
+                ForEach(service.blockList) { i in
                     NavigationLink {
                         ArtistPageView(viewModel: ArtistPageViewModel(artist: i))
                     } label: {
@@ -43,9 +43,8 @@ struct EditFollowingListView: View {
                         }
                     } .scaleEffect(0.8)
                         .alert(isPresented: $deleteAlert) {
-                            Alert(title: Text(""), message: Text("Do you want to unfollow?"), primaryButton: .destructive(Text("Unfollow"), action: {
-                                //TODO: 팔로우 리스트에서 삭제
-                                service.unfollow(artistId: i.id)
+                            Alert(title: Text(""), message: Text("Do you want to unBlock?"), primaryButton: .destructive(Text("UnBlock"), action: {
+                                service.unblock(artistId: i.id)
                             }), secondaryButton: .cancel(Text("Cancle")))
                         }
                 }
@@ -68,7 +67,7 @@ struct EditFollowingListView: View {
 
 #Preview {
     NavigationView {
-        EditFollowingListView().environmentObject(Service())
+        EditBlockListView().environmentObject(Service())
     }
 }
 

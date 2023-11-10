@@ -68,6 +68,7 @@
 		F6A176F12AFA99460014774A /* MapBuskingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F02AFA99460014774A /* MapBuskingModalView.swift */; };
 		F6A176F42AFA9AA40014774A /* MapBuskingModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F32AFA9AA40014774A /* MapBuskingModalViewModel.swift */; };
 		F6A176F82AFB56140014774A /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F72AFB56140014774A /* MapAnnotationView.swift */; };
+		F6DC2B592AFDC0BF00641348 /* EditBlockListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DC2B582AFDC0BF00641348 /* EditBlockListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +135,7 @@
 		F6A176F02AFA99460014774A /* MapBuskingModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuskingModalView.swift; sourceTree = "<group>"; };
 		F6A176F32AFA9AA40014774A /* MapBuskingModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuskingModalViewModel.swift; sourceTree = "<group>"; };
 		F6A176F72AFB56140014774A /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
+		F6DC2B582AFDC0BF00641348 /* EditBlockListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBlockListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +260,7 @@
 				F65F70C62AECD7C30038E05F /* ProfileView.swift */,
 				F65F70F32AECFEB80038E05F /* UserPageView.swift */,
 				F65F70F52AED00640038E05F /* EditFollowingListView.swift */,
+				F6DC2B582AFDC0BF00641348 /* EditBlockListView.swift */,
 				F65F70F72AED00890038E05F /* DonationListView.swift */,
 				F65F70FB2AED00E30038E05F /* EditUserAcountView.swift */,
 				F65F70FE2AED011A0038E05F /* AddUserArtistView.swift */,
@@ -491,6 +494,7 @@
 				F6A176D42AF94A390014774A /* EditFanView.swift in Sources */,
 				F65F70A22AECC5540038E05F /* ContentView.swift in Sources */,
 				F6A176E72AFA3DF40014774A /* ArtistPageViewModel.swift in Sources */,
+				F6DC2B592AFDC0BF00641348 /* EditBlockListView.swift in Sources */,
 				F69076AB2AF78AB3007B62A6 /* AddUserArtistViewModel.swift in Sources */,
 				F65F70FF2AED011A0038E05F /* AddUserArtistView.swift in Sources */,
 				F65F70F42AECFEB80038E05F /* UserPageView.swift in Sources */,
