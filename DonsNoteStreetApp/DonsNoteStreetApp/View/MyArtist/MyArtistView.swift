@@ -9,10 +9,12 @@ import SwiftUI
 
 struct MyArtistView: View {
 //MARK: - 1.PROPERTY
+    
     @EnvironmentObject var service: Service
     @ObservedObject var viewModel = MyArtistViewModel()
     
 //MARK: - 2.BODY
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -29,6 +31,7 @@ struct MyArtistView: View {
 }
 
 //MARK: - 3.EXTENSION
+
 extension MyArtistView {
     
     var MyartistSection: some View {
@@ -118,7 +121,7 @@ extension MyArtistView {
                                         viewModel.popBuskingModal = true
                                     }
                                     .sheet(isPresented: $viewModel.popBuskingModal, onDismiss: {viewModel.popBuskingModal = false}) {
-                                        MapBuskingModalView(viewModel: MapBuskingModalViewModel(artist: viewModel.selectedArtist,busking: viewModel.selectedBusking))
+                                        MapBuskingModalView(viewModel: MapBuskingModalViewModel(busking: viewModel.selectedBusking))
                                             .presentationDetents([.medium])
                                             .presentationDragIndicator(.visible)
                                     }
@@ -131,7 +134,8 @@ extension MyArtistView {
     }
 }
 
-//MARK: - 3. PREVIEW
+//MARK: - 4. PREVIEW
+
 #Preview {
     MyArtistView().environmentObject(Service())
 }

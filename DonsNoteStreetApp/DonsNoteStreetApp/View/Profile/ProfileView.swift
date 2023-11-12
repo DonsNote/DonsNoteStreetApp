@@ -9,11 +9,14 @@ import SwiftUI
 
 struct ProfileView: View {
 //MARK: -1.PROPERTY
+    
     @EnvironmentObject var service : Service
     @StateObject var viewModel = ProfileViewModel()
     @State var isartistDelete : Bool = false
+    @State var popAddUserArtistView : Bool = false
     
 //MARK: -2.BODY
+    
     var body: some View {
         NavigationView() {
             VStack(alignment: .leading) {
@@ -27,8 +30,8 @@ struct ProfileView: View {
                 notificationSetting
                 customDivider()
                 artistAccount
-                blockSetting
                 accountSetting
+                blockSetting
                 Spacer()
                 
             }
@@ -36,15 +39,11 @@ struct ProfileView: View {
             .navigationTitle("")
         }
         .fullScreenCover(isPresented: $isartistDelete) {UserArtistProfileView(isartistDelete: $isartistDelete)}
+        .fullScreenCover(isPresented: $popAddUserArtistView, onDismiss: onDismiss) { AddUserArtistView() }
     }
 }
 
-//MARK: -3.PREVIEW
-#Preview {
-    ProfileView().environmentObject(Service())
-}
-
-//MARK: -4.EXTENSION
+//MARK: -3.EXTENSION
 
 extension ProfileView {
     
@@ -85,22 +84,22 @@ extension ProfileView {
         }
     }
     
-    var blockSetting: some View {
+    var donationList: some View {
         NavigationLink {
-            EditBlockListView()
+            DonationListView()
         } label: {
-            Text("차단 관리")
+            Text("후원 목록")
                 .font(.custom13bold())
                 .padding(UIScreen.getWidth(20))
                 .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
         }
     }
     
-    var donationList: some View {
+    var blockSetting: some View {
         NavigationLink {
-            DonationListView()
+            EditBlockListView()
         } label: {
-            Text("후원 목록")
+            Text("차단 관리")
                 .font(.custom13bold())
                 .padding(UIScreen.getWidth(20))
                 .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
@@ -131,8 +130,8 @@ extension ProfileView {
                         .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
                 }
             } else {
-                NavigationLink {
-                    AddUserArtistView()
+                Button {
+                    popAddUserArtistView = true
                 } label: {
                     Text("아티스트 계정 등록")
                         .font(.custom13bold())
@@ -152,4 +151,14 @@ extension ProfileView {
                 .padding(UIScreen.getWidth(20))
         }
     }
+    
+    func onDismiss() {
+        popAddUserArtistView = false
+    }
+}
+
+//MARK: -4.PREVIEW
+
+#Preview {
+    ProfileView().environmentObject(Service())
 }

@@ -9,6 +9,7 @@ import SwiftUI
 import AuthenticationServices
 
 struct AppleLoginView: View {
+//MARK: - 1. PROPERTY
     var body: some View {
         VStack {
             AppleSigninButton()
@@ -32,9 +33,10 @@ struct AppleSigninButton : View {
                 case .success(let authResults):
                     switch authResults.credential {
                     case let appleIDCredential as ASAuthorizationAppleIDCredential :
+                        let UID = appleIDCredential.user
                         let AuthorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
                         do {
-                            service.appleSign(authCode: AuthorizationCode ?? "")
+                            service.appleSign(uid: UID, authCode: AuthorizationCode ?? "")
                         }
                     default:
                         break
@@ -44,8 +46,10 @@ struct AppleSigninButton : View {
                 }
             }
         )
-        .frame(width : UIScreen.main.bounds.width * 0.9, height:50)
-        .cornerRadius(5)
+        .signInWithAppleButtonStyle(.white)
+        .frame(height: UIScreen.getHeight(50))
+        .clipShape(Capsule())
+        .padding(.horizontal, 10)
     }
 }
 

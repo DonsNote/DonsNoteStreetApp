@@ -17,19 +17,22 @@ class Service : ObservableObject {
     @Published var refreshToken : String? = KeychainItem.currentRefreshToken
     @Published var isLogin : Bool = UserDefaults.standard.bool(forKey: "isLogin")
     
+    @Published var report : String = ""
     @Published var user : User = User()
     @Published var userArtist : Artist = Artist()
     @Published var busking : Busking = Busking()
-    @Published var targetArtist : Artist = Artist()
-    @Published var myArtist : [Artist] = []
-    @Published var blockList : [Artist] = []
     @Published var myBusking : [Busking] = []
+    
+    @Published var myArtist : [Artist] = []
+    @Published var targetArtist : Artist = Artist()
+    @Published var blockList : [Artist] = []
     @Published var myArtistBusking : [Busking] = []
     @Published var nowBusking : [Busking] = []
     @Published var myArtistBuskingInt : [Int] = []
+    
     @Published var allArtist : [Artist] = []
     @Published var allBusking : [Busking] = []
-    @Published var report : String = ""
+    
     @Published var croppedImage : UIImage?
     @Published var userArtistCroppedImage : UIImage?
     @Published var patchUserArtistCroppedImage : UIImage?
@@ -41,8 +44,9 @@ class Service : ObservableObject {
     }
     
     
-    func appleSign(authCode: String) {
+    func appleSign(uid: String, authCode: String) {
         let parameters: [String: String] = [
+            "uid" : uid,
             "code" : authCode
         ]
         AF.request("\(serverDomain)auth/apple-login", method: .post, parameters: parameters)
@@ -75,11 +79,11 @@ class Service : ObservableObject {
             .response { response in
                 switch response.result {
                 case .success:
-                    print("Apple Logout Success")
                     self.isLogin = false
                     UserDefaults.standard.set(false, forKey: "isLogin")
                     KeychainItem.deleteServerTokenFromKeychain()
                     KeychainItem.deleteRefreshTokenFromKeychain()
+                    print("Apple Logout Success")
                 case .failure(let error):
                     self.isLogin = false
                     UserDefaults.standard.set(false, forKey: "isLogin")
@@ -117,10 +121,11 @@ class Service : ObservableObject {
             "report" : self.report
         ]
         
-        AF.request("\(serverDomain)/report/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        AF.request("\(serverDomain)report/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .response { response in
                 switch response.result {
                 case .success:
+                    self.block(artistId: artistId)
                     print("Post Report Success")
                 case .failure(let error):
                     print("Post Report fail Error : \(error)")
@@ -283,7 +288,6 @@ class Service : ObservableObject {
                 case .success:
                     self.getUserProfile()
                     self.getMyArtist()
-                    self.getMyArtistBusking()
                     print("Followed Success")
                 case .failure(let error):
                     print("Error : \(error)")
@@ -302,7 +306,6 @@ class Service : ObservableObject {
                 case .success:
                     self.getUserProfile()
                     self.getMyArtist()
-                    self.getMyArtistBusking()
                     print("Unfollow Success")
                 case .failure(let error):
                     print("Error : \(error)")
@@ -320,8 +323,8 @@ class Service : ObservableObject {
                 switch response.result {
                 case .success:
                     self.getUserProfile()
+                    self.getAllArtist()
                     self.getMyArtist()
-                    self.getMyArtistBusking()
                     print("Blocked Success")
                 case .failure(let error):
                     print("Error : \(error)")
@@ -349,7 +352,7 @@ class Service : ObservableObject {
     
     func getBlockList() {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
-        AF.request("\(serverDomain)/artists/blockList/", method: .get, headers: headers)
+        AF.request("\(serverDomain)artists/blockList/", method: .get, headers: headers)
             .responseDecodable(of: [Artist].self) { response in
                 switch response.result {
                 case .success(let reData):
@@ -404,6 +407,7 @@ class Service : ObservableObject {
                     let blockedArtistIds = Set(self.user.block)
                     self.myArtist = reData.filter { !blockedArtistIds.contains($0.id) }
                     self.myArtistBuskingInt = self.myArtist.flatMap {$0.buskings ?? []}
+                    self.getMyArtistBusking()
                     print("Get My Artist Profile Success")
                 case .failure(let error):
                     print("Error : \(error)")
@@ -422,6 +426,7 @@ class Service : ObservableObject {
         let StartTime = dateFormatter.string(from: self.busking.startTime)
         let EndTime = dateFormatter.string(from: self.busking.endTime)
         let parameters: [String: Any] = [
+            "buskingName" : self.busking.buskingName,
             "buskingInfo" : self.busking.buskingInfo,
             "startTime" : StartTime,
             "endTime" : EndTime,
@@ -429,7 +434,7 @@ class Service : ObservableObject {
             "longitude" : self.busking.longitude
         ]
         
-        AF.request("\(serverDomain)/buskings/", method: .post, parameters: parameters, headers: headers)
+        AF.request("\(serverDomain)buskings/", method: .post, parameters: parameters, headers: headers)
             .response { response in
                 switch response.result {
                 case .success :
@@ -520,8 +525,7 @@ class Service : ObservableObject {
             .responseDecodable(of: [Busking].self, decoder: decoder) { response in
                 switch response.result {
                 case .success(let reData):
-                    let blockedArtistIds = Set(self.user.block)
-                    self.myArtistBusking = reData.filter { !blockedArtistIds.contains($0.artistId) }
+                    self.myArtistBusking = reData
                     print("Get My Artist Busking Success")
                 case .failure(let error):
                     print("Error : \(error)")

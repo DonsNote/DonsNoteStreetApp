@@ -10,6 +10,7 @@ import SwiftUI
 struct EditFollowingListView: View {
     
     //MARK: -1.PROPERTY
+    
     @EnvironmentObject var service: Service
     @State var isEditMode: Bool = false
     @State var deleteAlert: Bool = false
@@ -19,6 +20,7 @@ struct EditFollowingListView: View {
     )
     
     //MARK: -2.BODY
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: columns, spacing: 0) {
@@ -31,7 +33,6 @@ struct EditFollowingListView: View {
                     .overlay(alignment: .topTrailing) {
                         if isEditMode {
                             Button {
-                                //TODO: 팔로우리스트에서 지우기
                                 deleteAlert = true
                             } label: {
                                 Image(systemName: "xmark.circle.fill")
@@ -71,6 +72,3 @@ struct EditFollowingListView: View {
         EditFollowingListView().environmentObject(Service())
     }
 }
-
-//MARK: -4.EXTENSION
-

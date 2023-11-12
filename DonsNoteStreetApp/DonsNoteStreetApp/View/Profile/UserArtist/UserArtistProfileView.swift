@@ -78,8 +78,6 @@ extension UserArtistProfileView {
                     .padding(UIScreen.getWidth(20))
                     .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
             }
-            //            Button {
-            //                viewModel.popAddBusking = true
             NavigationLink {
                 AddBuskingView()
             } label: {

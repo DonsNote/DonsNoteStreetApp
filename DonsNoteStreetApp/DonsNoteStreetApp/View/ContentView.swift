@@ -13,9 +13,8 @@ struct ContentView: View {
     @EnvironmentObject var service : Service
     @State private var selection = 1
     
+    //MARK: - 2. BODY
     var body: some View {
-        //MARK: - 2. BODY
-        
         TabView(selection: $selection) {
             MyArtistView()
                 .tabItem {
@@ -42,11 +41,11 @@ struct ContentView: View {
             switch newSelection {
             case 0 :
                 service.getMyArtist()
-                service.getMyArtistBusking()
             case 1 :
                 service.getNowBusking()
             case 2 :
                 service.getUserProfile()
+                service.getBlockList()
             default :
                 break
             }
@@ -55,6 +54,7 @@ struct ContentView: View {
 }
 
 //MARK: - 3. PREVIEW
+
 #Preview {
     ContentView().environmentObject(Service())
 }

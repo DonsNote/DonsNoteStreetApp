@@ -10,11 +10,13 @@ import PhotosUI
 
 struct UserPageView: View {
     
-    //MARK: - 1.PROPERTY
+//MARK: - 1.PROPERTY
+    
     @EnvironmentObject var service: Service
     @StateObject var viewModel = UserPageViewModel()
     
-    //MARK: - 2.BODY
+//MARK: - 2.BODY
+    
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
@@ -66,16 +68,8 @@ struct UserPageView: View {
     }
 }
 
+//MARK: -3.EXTENSION
 
-
-//MARK: -3.PREVIEW
-#Preview {
-    NavigationView {
-        UserPageView().environmentObject(Service())
-    }
-}
-
-//MARK: -4.EXTENSION
 extension UserPageView {
     var userPageImage: some View {
         AsyncImage(url: URL(string: service.user.userImageURL)) { image in
@@ -267,5 +261,13 @@ extension UserPageView {
         .padding(.horizontal, UIScreen.getWidth(10))
         .presentationDetents([.height(UIScreen.getHeight(150))])
         .presentationDragIndicator(.visible)
+    }
+}
+
+//MARK: -4.PREVIEW
+
+#Preview {
+    NavigationView {
+        UserPageView().environmentObject(Service())
     }
 }

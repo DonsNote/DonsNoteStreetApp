@@ -8,23 +8,79 @@
 import SwiftUI
 
 struct ArtistPageView: View {
-    //MARK: -1.PROPERTY
+//MARK: -1.PROPERTY
+    
     @EnvironmentObject var service: Service
     @StateObject var viewModel: ArtistPageViewModel
+    @Environment(\.dismiss) var dismiss
+    @State var clickedDdot: Bool = false
+    @State var clickedReport: Bool = false
+    @State var clickedBlock: Bool = false
+    @State var showReport: Bool = false
+    @State var isLoading: Bool = false
     
     
-    //MARK: -2.BODY
+//MARK: -2.BODY
+    
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(spacing: UIScreen.getWidth(5)) {
-                
-                artistPageImage
-                    .scrollDisabled(true)
-                artistPageTitle
-                
-                artistPageFollowButton
-                
-                Spacer()
+        ZStack {
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: UIScreen.getWidth(5)) {
+                    
+                    artistPageImage
+                        .scrollDisabled(true)
+                    artistPageTitle
+                    
+                    artistPageFollowButton
+                    
+                    Spacer()
+                }
+            }.blur(radius: clickedDdot || isLoading ? 15 : 0)
+            if clickedDdot {
+                VStack(alignment: .leading, spacing: 15) {
+                    Button {
+                        clickedReport = true
+                    } label: {
+                        HStack(spacing: 20) {
+                            Image(systemName: "light.beacon.min.fill")
+                            Text("Report")
+                        }
+                    }
+                    customDivider()
+                    Button {
+                        clickedBlock = true
+                    } label: {
+                        HStack(spacing: 20) {
+                            Image(systemName: "hand.raised.slash.fill")
+                            Text("Block")
+                        }
+                    }
+                }
+                .font(.custom18semibold())
+                .padding(.init(top: UIScreen.getWidth(15), leading: UIScreen.getWidth(15), bottom: UIScreen.getWidth(15), trailing: UIScreen.getWidth(15)))
+                .background(.ultraThickMaterial.opacity(0.7))
+                .cornerRadius(6)
+                .padding(.horizontal, UIScreen.getWidth(25))
+            }
+            if isLoading {
+                Color.black.opacity(0.3)
+                    .ignoresSafeArea()
+                    .overlay(alignment: .center) {
+                        ProgressView()
+                    }
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    if clickedDdot {
+                        clickedDdot = false
+                    } else {
+                        clickedDdot = true
+                    }
+                } label:
+                { customSFButton(image: clickedDdot ? "xmark.circle.fill" : "ellipsis.circle.fill").shadow(color: .black.opacity(0.3),radius: UIScreen.getHeight(5))
+                }.scaleEffect(0.8)
             }
         }
         .background(backgroundView())
@@ -33,10 +89,40 @@ struct ArtistPageView: View {
         .onAppear{
             viewModel.isfollowing = service.user.follow.contains(viewModel.artist.id)
         }
+        .sheet(isPresented: $showReport, onDismiss: onDismiss){
+            ReportModalView(artistID: viewModel.artist.id)
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
+        }
+        .confirmationDialog("Report", isPresented: $clickedReport) {
+            Button(role: .destructive) {
+                showReport = true
+            } label: {
+                Text("Report")
+            }
+            Button(role: .cancel) { } label: {
+                Text("Cancle")
+            }
+        } message: {
+            Text("Are you sure report this artist?")
+        }
+        .confirmationDialog("Block", isPresented: $clickedBlock) {
+            Button(role: .destructive) {
+                service.block(artistId: viewModel.artist.id)
+            } label: {
+                Text("Block")
+            }
+            Button(role: .cancel) { } label: {
+                Text("Cancle")
+            }
+        } message: {
+            Text("Are you sure block this artist?")
+        }
     }
 }
 
-//MARK: -4.EXTENSION
+//MARK: -3.EXTENSION
+
 extension ArtistPageView {
     var artistPageImage: some View {
         AsyncImage(url: URL(string: viewModel.artist.artistImageURL)) { image in
@@ -98,4 +184,14 @@ extension ArtistPageView {
                 .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
         }
     }
+    
+    func onDismiss() {
+        showReport = false
+    }
+}
+
+//MARK: -4.PREVIEW
+
+#Preview {
+    ArtistPageView(viewModel: ArtistPageViewModel(artist: Artist()) ).environmentObject(Service())
 }

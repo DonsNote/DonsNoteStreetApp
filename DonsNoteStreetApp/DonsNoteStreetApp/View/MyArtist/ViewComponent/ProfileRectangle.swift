@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ProfileRectangle: View {
 //MARK: -1.PROPERTY
+    
     var image: String = ""
     var name: String = ""
     
 //MARK: -2.BODY
+    
     var body: some View {
         VStack(spacing: 0){
             AsyncImage(url: URL(string: image)){ image in

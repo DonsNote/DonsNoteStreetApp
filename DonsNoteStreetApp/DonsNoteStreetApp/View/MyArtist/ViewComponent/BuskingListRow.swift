@@ -11,10 +11,12 @@ import CoreLocation
 struct BuskingListRow: View {
     
 //MARK: -1.PROPERTY
+    
     @State private var addressString: String = ""
     var busking : Busking
     
 //MARK: -2.BODY
+    
     var body: some View {
         HStack(spacing: UIScreen.getWidth(10)) {
             CircleBlur(image: busking.artistImageURL, width: 120, strokeColor: Color(appIndigo2), shadowColor: Color(appIndigo2))
@@ -60,7 +62,9 @@ struct BuskingListRow: View {
 }
 
 //MARK: - 3.EXTENSION
+
 extension BuskingListRow {
+    
     func reverseGeo(busking: Busking) {
         let geocoder = CLGeocoder()
         let location = CLLocation(latitude: busking.latitude, longitude: busking.longitude)
@@ -78,30 +82,20 @@ extension BuskingListRow {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "yyyy년 M월 d일"
-//        let busking = busking.BuskingStartTime {
         return formatter.string(from: busking.startTime)
-//        }
-//        return ""
     }
     
     func formatStartTime() -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "a h시 mm분"
-//        if let busking = artist.buskings?.last?.BuskingStartTime{
         return formatter.string(from: busking.startTime)
-//        }
-//        return ""
     }
     
     func formatEndTime() -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "h시 mm분"
-//        if let busking = artist.buskings?.last?.BuskingEndTime{
         return formatter.string(from: busking.endTime)
-//        }
-//        return ""
     }
-    
 }

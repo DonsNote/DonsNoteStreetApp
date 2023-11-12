@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ArtistListView: View {
-    //MARK: -1.PROPERTY
+//MARK: -1.PROPERTY
+    
     @EnvironmentObject var service: Service
     let columns = Array(
         repeating: GridItem(.flexible(), spacing: 0),
         count: 3
     )
     
-    //MARK: -2.BODY
+//MARK: -2.BODY
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: columns, spacing: 0) {
@@ -37,6 +39,7 @@ struct ArtistListView: View {
 }
 
 //MARK: -3.PREVIEW
+
 #Preview {
     NavigationView {
         ArtistListView().environmentObject(Service())

@@ -51,12 +51,11 @@
 		F69076AB2AF78AB3007B62A6 /* AddUserArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69076AA2AF78AB3007B62A6 /* AddUserArtistViewModel.swift */; };
 		F6A176CD2AF9471A0014774A /* UserArtistProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */; };
 		F6A176D02AF948E30014774A /* UserArtistProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */; };
-		F6A176D22AF94A080014774A /* AddBuskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D12AF94A080014774A /* AddBuskingView.swift */; };
+		F6A176D22AF94A080014774A /* AddBuskingMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D12AF94A080014774A /* AddBuskingMapView.swift */; };
 		F6A176D42AF94A390014774A /* EditFanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D32AF94A390014774A /* EditFanView.swift */; };
 		F6A176D62AF94A510014774A /* EditDonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D52AF94A510014774A /* EditDonationView.swift */; };
 		F6A176D82AF94A8B0014774A /* EditBuskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D72AF94A8B0014774A /* EditBuskingView.swift */; };
 		F6A176DA2AF94AF80014774A /* EditUserArtistAcountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D92AF94AF80014774A /* EditUserArtistAcountView.swift */; };
-		F6A176DC2AF94B4C0014774A /* AddBuskingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176DB2AF94B4C0014774A /* AddBuskingViewModel.swift */; };
 		F6A176DE2AF94EE70014774A /* UserArtistPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176DD2AF94EE70014774A /* UserArtistPageView.swift */; };
 		F6A176E02AFA2C8A0014774A /* UserArtistPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176DF2AFA2C8A0014774A /* UserArtistPageViewModel.swift */; };
 		F6A176E22AFA3D250014774A /* ArtistListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176E12AFA3D250014774A /* ArtistListView.swift */; };
@@ -68,6 +67,9 @@
 		F6A176F12AFA99460014774A /* MapBuskingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F02AFA99460014774A /* MapBuskingModalView.swift */; };
 		F6A176F42AFA9AA40014774A /* MapBuskingModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F32AFA9AA40014774A /* MapBuskingModalViewModel.swift */; };
 		F6A176F82AFB56140014774A /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F72AFB56140014774A /* MapAnnotationView.swift */; };
+		F6B349722AFE4C6800919057 /* AddBuskingMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B349712AFE4C6800919057 /* AddBuskingMapViewModel.swift */; };
+		F6B349742AFE641E00919057 /* AddBuskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B349732AFE641E00919057 /* AddBuskingView.swift */; };
+		F6B349762AFE6FF700919057 /* ReportModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B349752AFE6FF700919057 /* ReportModalView.swift */; };
 		F6DC2B592AFDC0BF00641348 /* EditBlockListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DC2B582AFDC0BF00641348 /* EditBlockListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -118,12 +120,11 @@
 		F69076AA2AF78AB3007B62A6 /* AddUserArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserArtistViewModel.swift; sourceTree = "<group>"; };
 		F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistProfileView.swift; sourceTree = "<group>"; };
 		F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistProfileViewModel.swift; sourceTree = "<group>"; };
-		F6A176D12AF94A080014774A /* AddBuskingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingView.swift; sourceTree = "<group>"; };
+		F6A176D12AF94A080014774A /* AddBuskingMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingMapView.swift; sourceTree = "<group>"; };
 		F6A176D32AF94A390014774A /* EditFanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFanView.swift; sourceTree = "<group>"; };
 		F6A176D52AF94A510014774A /* EditDonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDonationView.swift; sourceTree = "<group>"; };
 		F6A176D72AF94A8B0014774A /* EditBuskingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBuskingView.swift; sourceTree = "<group>"; };
 		F6A176D92AF94AF80014774A /* EditUserArtistAcountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserArtistAcountView.swift; sourceTree = "<group>"; };
-		F6A176DB2AF94B4C0014774A /* AddBuskingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingViewModel.swift; sourceTree = "<group>"; };
 		F6A176DD2AF94EE70014774A /* UserArtistPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistPageView.swift; sourceTree = "<group>"; };
 		F6A176DF2AFA2C8A0014774A /* UserArtistPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistPageViewModel.swift; sourceTree = "<group>"; };
 		F6A176E12AFA3D250014774A /* ArtistListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListView.swift; sourceTree = "<group>"; };
@@ -135,6 +136,9 @@
 		F6A176F02AFA99460014774A /* MapBuskingModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuskingModalView.swift; sourceTree = "<group>"; };
 		F6A176F32AFA9AA40014774A /* MapBuskingModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuskingModalViewModel.swift; sourceTree = "<group>"; };
 		F6A176F72AFB56140014774A /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
+		F6B349712AFE4C6800919057 /* AddBuskingMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingMapViewModel.swift; sourceTree = "<group>"; };
+		F6B349732AFE641E00919057 /* AddBuskingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingView.swift; sourceTree = "<group>"; };
+		F6B349752AFE6FF700919057 /* ReportModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModalView.swift; sourceTree = "<group>"; };
 		F6DC2B582AFDC0BF00641348 /* EditBlockListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBlockListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -350,7 +354,8 @@
 			children = (
 				F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */,
 				F6A176DD2AF94EE70014774A /* UserArtistPageView.swift */,
-				F6A176D12AF94A080014774A /* AddBuskingView.swift */,
+				F6B349732AFE641E00919057 /* AddBuskingView.swift */,
+				F6A176D12AF94A080014774A /* AddBuskingMapView.swift */,
 				F6A176D32AF94A390014774A /* EditFanView.swift */,
 				F6A176D52AF94A510014774A /* EditDonationView.swift */,
 				F6A176D72AF94A8B0014774A /* EditBuskingView.swift */,
@@ -363,8 +368,8 @@
 			isa = PBXGroup;
 			children = (
 				F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */,
-				F6A176DB2AF94B4C0014774A /* AddBuskingViewModel.swift */,
 				F6A176DF2AFA2C8A0014774A /* UserArtistPageViewModel.swift */,
+				F6B349712AFE4C6800919057 /* AddBuskingMapViewModel.swift */,
 			);
 			path = UserArtist;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				F6A176F02AFA99460014774A /* MapBuskingModalView.swift */,
+				F6B349752AFE6FF700919057 /* ReportModalView.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -500,6 +506,7 @@
 				F65F70F42AECFEB80038E05F /* UserPageView.swift in Sources */,
 				F6A176E02AFA2C8A0014774A /* UserArtistPageViewModel.swift in Sources */,
 				F65F71052AED51400038E05F /* ImageCropper.swift in Sources */,
+				F6B349722AFE4C6800919057 /* AddBuskingMapViewModel.swift in Sources */,
 				F65F70E62AECF7860038E05F /* Components.swift in Sources */,
 				F6A176D62AF94A510014774A /* EditDonationView.swift in Sources */,
 				F6A176D02AF948E30014774A /* UserArtistProfileViewModel.swift in Sources */,
@@ -514,8 +521,10 @@
 				F6A176EE2AFA96AF0014774A /* BuskingListRow.swift in Sources */,
 				F65F70E82AECF7900038E05F /* UIScreen.swift in Sources */,
 				F6A176E42AFA3DAB0014774A /* ArtistPageView.swift in Sources */,
+				F6B349742AFE641E00919057 /* AddBuskingView.swift in Sources */,
 				F6A176F42AFA9AA40014774A /* MapBuskingModalViewModel.swift in Sources */,
 				F65F70B02AECC5A80038E05F /* User.swift in Sources */,
+				F6B349762AFE6FF700919057 /* ReportModalView.swift in Sources */,
 				F65F70E42AECF7700038E05F /* mainpageTitleModifier.swift in Sources */,
 				F6A176DA2AF94AF80014774A /* EditUserArtistAcountView.swift in Sources */,
 				F65F70B42AECCAA70038E05F /* Member.swift in Sources */,
@@ -524,14 +533,13 @@
 				F65F70C12AECD78B0038E05F /* MyArtistView.swift in Sources */,
 				F65F70CA2AECDC9E0038E05F /* AppleLoginView.swift in Sources */,
 				F65F70C42AECD7A70038E05F /* MapView.swift in Sources */,
-				F6A176DC2AF94B4C0014774A /* AddBuskingViewModel.swift in Sources */,
 				F6A176EC2AFA4BC10014774A /* ProfileRectangle.swift in Sources */,
 				F6A176F82AFB56140014774A /* MapAnnotationView.swift in Sources */,
 				F6A176F12AFA99460014774A /* MapBuskingModalView.swift in Sources */,
 				F65F70B62AECCCA20038E05F /* Busking.swift in Sources */,
 				F65F70EF2AECFD720038E05F /* DonationBar.swift in Sources */,
 				F65F70FC2AED00E30038E05F /* EditUserAcountView.swift in Sources */,
-				F6A176D22AF94A080014774A /* AddBuskingView.swift in Sources */,
+				F6A176D22AF94A080014774A /* AddBuskingMapView.swift in Sources */,
 				F65F70F82AED00890038E05F /* DonationListView.swift in Sources */,
 				F65F71012AED4FCA0038E05F /* PopOverText.swift in Sources */,
 				F65F70CD2AECE9680038E05F /* MapViewModel.swift in Sources */,
@@ -686,6 +694,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -728,6 +737,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
