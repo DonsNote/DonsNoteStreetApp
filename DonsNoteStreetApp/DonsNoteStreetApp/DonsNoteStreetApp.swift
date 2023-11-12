@@ -20,10 +20,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct DonsNoteStreetAppApp: App {
 //MARK: - 1. PROPERTY
-    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var service = Service()
     
-    let APIKey = "AIzaSyDF3d8OqWRipyjxQh7C2HF6KHn-C3YhSt8"
+    let APIKey = "AIzaSyA40AwM5IZVWhlkPqVKCipY7GHQfNqX_LI"
     
     init() {
         GMSServices.provideAPIKey(APIKey)
