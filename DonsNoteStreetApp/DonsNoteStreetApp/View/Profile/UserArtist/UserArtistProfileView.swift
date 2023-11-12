@@ -35,7 +35,7 @@ struct UserArtistProfileView: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
             .fullScreenCover(isPresented: $viewModel.popAddBusking, content: {
-                AddBuskingView()
+                AddBuskingPageView()
             })
         }
     }
@@ -79,7 +79,7 @@ extension UserArtistProfileView {
                     .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
             }
             NavigationLink {
-                AddBuskingView()
+                AddBuskingPageView()
             } label: {
                 Text("공연 등록")
                     .font(.custom13bold())

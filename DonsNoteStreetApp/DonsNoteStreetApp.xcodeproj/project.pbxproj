@@ -51,7 +51,6 @@
 		F69076AB2AF78AB3007B62A6 /* AddUserArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69076AA2AF78AB3007B62A6 /* AddUserArtistViewModel.swift */; };
 		F6A176CD2AF9471A0014774A /* UserArtistProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */; };
 		F6A176D02AF948E30014774A /* UserArtistProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */; };
-		F6A176D22AF94A080014774A /* AddBuskingMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D12AF94A080014774A /* AddBuskingMapView.swift */; };
 		F6A176D42AF94A390014774A /* EditFanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D32AF94A390014774A /* EditFanView.swift */; };
 		F6A176D62AF94A510014774A /* EditDonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D52AF94A510014774A /* EditDonationView.swift */; };
 		F6A176D82AF94A8B0014774A /* EditBuskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D72AF94A8B0014774A /* EditBuskingView.swift */; };
@@ -66,10 +65,23 @@
 		F6A176EE2AFA96AF0014774A /* BuskingListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176ED2AFA96AF0014774A /* BuskingListRow.swift */; };
 		F6A176F12AFA99460014774A /* MapBuskingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F02AFA99460014774A /* MapBuskingModalView.swift */; };
 		F6A176F42AFA9AA40014774A /* MapBuskingModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F32AFA9AA40014774A /* MapBuskingModalViewModel.swift */; };
-		F6A176F82AFB56140014774A /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176F72AFB56140014774A /* MapAnnotationView.swift */; };
-		F6B349722AFE4C6800919057 /* AddBuskingMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B349712AFE4C6800919057 /* AddBuskingMapViewModel.swift */; };
 		F6B349742AFE641E00919057 /* AddBuskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B349732AFE641E00919057 /* AddBuskingView.swift */; };
 		F6B349762AFE6FF700919057 /* ReportModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B349752AFE6FF700919057 /* ReportModalView.swift */; };
+		F6B349792B00C4BB00919057 /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = F6B349782B00C4BB00919057 /* GoogleMaps */; };
+		F6B3497B2B00C4BB00919057 /* GoogleMapsBase in Frameworks */ = {isa = PBXBuildFile; productRef = F6B3497A2B00C4BB00919057 /* GoogleMapsBase */; };
+		F6B3497D2B00C4BB00919057 /* GoogleMapsCore in Frameworks */ = {isa = PBXBuildFile; productRef = F6B3497C2B00C4BB00919057 /* GoogleMapsCore */; };
+		F6B3497F2B00C4BB00919057 /* GoogleMapsM4B in Frameworks */ = {isa = PBXBuildFile; productRef = F6B3497E2B00C4BB00919057 /* GoogleMapsM4B */; };
+		F6B349812B00C4BB00919057 /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = F6B349802B00C4BB00919057 /* GooglePlaces */; };
+		F6B349832B00C92000919057 /* GoogleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B349822B00C92000919057 /* GoogleMapView.swift */; };
+		F6B349862B00CA5E00919057 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = F6B349852B00CA5E00919057 /* AlamofireImage */; };
+		F6B349882B00CBF300919057 /* CropedGoogleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B349872B00CBF300919057 /* CropedGoogleMapView.swift */; };
+		F6B3498B2B00CCBD00919057 /* GooglePlacesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B3498A2B00CCBD00919057 /* GooglePlacesSearch.swift */; };
+		F6B3498D2B00CCEE00919057 /* MapViewSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B3498C2B00CCEE00919057 /* MapViewSearchBar.swift */; };
+		F6B3498F2B00CD1D00919057 /* AddBuskingSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B3498E2B00CD1D00919057 /* AddBuskingSearchBar.swift */; };
+		F6B349912B00CDD500919057 /* AddBuskingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B349902B00CDD500919057 /* AddBuskingViewModel.swift */; };
+		F6B349932B00CE9800919057 /* ArtistInfoModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B349922B00CE9800919057 /* ArtistInfoModalView.swift */; };
+		F6B349952B00CEF400919057 /* ArtistInfoModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B349942B00CEF400919057 /* ArtistInfoModalViewModel.swift */; };
+		F6B349972B00D00A00919057 /* AddBuskingMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B349962B00D00A00919057 /* AddBuskingMapView.swift */; };
 		F6DC2B592AFDC0BF00641348 /* EditBlockListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DC2B582AFDC0BF00641348 /* EditBlockListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -120,7 +132,6 @@
 		F69076AA2AF78AB3007B62A6 /* AddUserArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserArtistViewModel.swift; sourceTree = "<group>"; };
 		F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistProfileView.swift; sourceTree = "<group>"; };
 		F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistProfileViewModel.swift; sourceTree = "<group>"; };
-		F6A176D12AF94A080014774A /* AddBuskingMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingMapView.swift; sourceTree = "<group>"; };
 		F6A176D32AF94A390014774A /* EditFanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFanView.swift; sourceTree = "<group>"; };
 		F6A176D52AF94A510014774A /* EditDonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDonationView.swift; sourceTree = "<group>"; };
 		F6A176D72AF94A8B0014774A /* EditBuskingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBuskingView.swift; sourceTree = "<group>"; };
@@ -135,10 +146,17 @@
 		F6A176ED2AFA96AF0014774A /* BuskingListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuskingListRow.swift; sourceTree = "<group>"; };
 		F6A176F02AFA99460014774A /* MapBuskingModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuskingModalView.swift; sourceTree = "<group>"; };
 		F6A176F32AFA9AA40014774A /* MapBuskingModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuskingModalViewModel.swift; sourceTree = "<group>"; };
-		F6A176F72AFB56140014774A /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
-		F6B349712AFE4C6800919057 /* AddBuskingMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingMapViewModel.swift; sourceTree = "<group>"; };
 		F6B349732AFE641E00919057 /* AddBuskingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingView.swift; sourceTree = "<group>"; };
 		F6B349752AFE6FF700919057 /* ReportModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModalView.swift; sourceTree = "<group>"; };
+		F6B349822B00C92000919057 /* GoogleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapView.swift; sourceTree = "<group>"; };
+		F6B349872B00CBF300919057 /* CropedGoogleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropedGoogleMapView.swift; sourceTree = "<group>"; };
+		F6B3498A2B00CCBD00919057 /* GooglePlacesSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesSearch.swift; sourceTree = "<group>"; };
+		F6B3498C2B00CCEE00919057 /* MapViewSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewSearchBar.swift; sourceTree = "<group>"; };
+		F6B3498E2B00CD1D00919057 /* AddBuskingSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingSearchBar.swift; sourceTree = "<group>"; };
+		F6B349902B00CDD500919057 /* AddBuskingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingViewModel.swift; sourceTree = "<group>"; };
+		F6B349922B00CE9800919057 /* ArtistInfoModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfoModalView.swift; sourceTree = "<group>"; };
+		F6B349942B00CEF400919057 /* ArtistInfoModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfoModalViewModel.swift; sourceTree = "<group>"; };
+		F6B349962B00D00A00919057 /* AddBuskingMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuskingMapView.swift; sourceTree = "<group>"; };
 		F6DC2B582AFDC0BF00641348 /* EditBlockListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBlockListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,7 +165,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6B3497B2B00C4BB00919057 /* GoogleMapsBase in Frameworks */,
+				F6B3497D2B00C4BB00919057 /* GoogleMapsCore in Frameworks */,
+				F6B349792B00C4BB00919057 /* GoogleMaps in Frameworks */,
+				F6B349812B00C4BB00919057 /* GooglePlaces in Frameworks */,
+				F6B3497F2B00C4BB00919057 /* GoogleMapsM4B in Frameworks */,
 				F65F70B92AECCE170038E05F /* Alamofire in Frameworks */,
+				F6B349862B00CA5E00919057 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +277,10 @@
 			isa = PBXGroup;
 			children = (
 				F65F70C32AECD7A70038E05F /* MapView.swift */,
-				F6A176F72AFB56140014774A /* MapAnnotationView.swift */,
+				F6B349822B00C92000919057 /* GoogleMapView.swift */,
+				F6B349872B00CBF300919057 /* CropedGoogleMapView.swift */,
+				F6B349962B00D00A00919057 /* AddBuskingMapView.swift */,
+				F6B349892B00CC9100919057 /* SearchBar */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -355,7 +382,6 @@
 				F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */,
 				F6A176DD2AF94EE70014774A /* UserArtistPageView.swift */,
 				F6B349732AFE641E00919057 /* AddBuskingView.swift */,
-				F6A176D12AF94A080014774A /* AddBuskingMapView.swift */,
 				F6A176D32AF94A390014774A /* EditFanView.swift */,
 				F6A176D52AF94A510014774A /* EditDonationView.swift */,
 				F6A176D72AF94A8B0014774A /* EditBuskingView.swift */,
@@ -369,7 +395,7 @@
 			children = (
 				F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */,
 				F6A176DF2AFA2C8A0014774A /* UserArtistPageViewModel.swift */,
-				F6B349712AFE4C6800919057 /* AddBuskingMapViewModel.swift */,
+				F6B349902B00CDD500919057 /* AddBuskingViewModel.swift */,
 			);
 			path = UserArtist;
 			sourceTree = "<group>";
@@ -398,6 +424,7 @@
 			children = (
 				F6A176F02AFA99460014774A /* MapBuskingModalView.swift */,
 				F6B349752AFE6FF700919057 /* ReportModalView.swift */,
+				F6B349922B00CE9800919057 /* ArtistInfoModalView.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -406,8 +433,19 @@
 			isa = PBXGroup;
 			children = (
 				F6A176F32AFA9AA40014774A /* MapBuskingModalViewModel.swift */,
+				F6B349942B00CEF400919057 /* ArtistInfoModalViewModel.swift */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		F6B349892B00CC9100919057 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				F6B3498A2B00CCBD00919057 /* GooglePlacesSearch.swift */,
+				F6B3498C2B00CCEE00919057 /* MapViewSearchBar.swift */,
+				F6B3498E2B00CD1D00919057 /* AddBuskingSearchBar.swift */,
+			);
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,6 +466,12 @@
 			name = DonsNoteStreetApp;
 			packageProductDependencies = (
 				F65F70B82AECCE170038E05F /* Alamofire */,
+				F6B349782B00C4BB00919057 /* GoogleMaps */,
+				F6B3497A2B00C4BB00919057 /* GoogleMapsBase */,
+				F6B3497C2B00C4BB00919057 /* GoogleMapsCore */,
+				F6B3497E2B00C4BB00919057 /* GoogleMapsM4B */,
+				F6B349802B00C4BB00919057 /* GooglePlaces */,
+				F6B349852B00CA5E00919057 /* AlamofireImage */,
 			);
 			productName = DonsNoteStreetApp;
 			productReference = F65F709C2AECC5540038E05F /* DonsNoteStreetApp.app */;
@@ -460,6 +504,8 @@
 			mainGroup = F65F70932AECC5540038E05F;
 			packageReferences = (
 				F65F70B72AECCE170038E05F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F6B349772B00C4BB00919057 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */,
+				F6B349842B00CA5E00919057 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = F65F709D2AECC5540038E05F /* Products */;
 			projectDirPath = "";
@@ -497,6 +543,7 @@
 				F65F70EB2AECFC8F0038E05F /* BackgroundView.swift in Sources */,
 				F6A176DE2AF94EE70014774A /* UserArtistPageView.swift in Sources */,
 				F65F70ED2AECFCC60038E05F /* CircleBlur.swift in Sources */,
+				F6B3498F2B00CD1D00919057 /* AddBuskingSearchBar.swift in Sources */,
 				F6A176D42AF94A390014774A /* EditFanView.swift in Sources */,
 				F65F70A22AECC5540038E05F /* ContentView.swift in Sources */,
 				F6A176E72AFA3DF40014774A /* ArtistPageViewModel.swift in Sources */,
@@ -506,7 +553,7 @@
 				F65F70F42AECFEB80038E05F /* UserPageView.swift in Sources */,
 				F6A176E02AFA2C8A0014774A /* UserArtistPageViewModel.swift in Sources */,
 				F65F71052AED51400038E05F /* ImageCropper.swift in Sources */,
-				F6B349722AFE4C6800919057 /* AddBuskingMapViewModel.swift in Sources */,
+				F6B349882B00CBF300919057 /* CropedGoogleMapView.swift in Sources */,
 				F65F70E62AECF7860038E05F /* Components.swift in Sources */,
 				F6A176D62AF94A510014774A /* EditDonationView.swift in Sources */,
 				F6A176D02AF948E30014774A /* UserArtistProfileViewModel.swift in Sources */,
@@ -515,31 +562,36 @@
 				F65F70BC2AECD0030038E05F /* Service.swift in Sources */,
 				F65F71072AED52B20038E05F /* AccessToken.swift in Sources */,
 				F65F70C72AECD7C30038E05F /* ProfileView.swift in Sources */,
+				F6B3498B2B00CCBD00919057 /* GooglePlacesSearch.swift in Sources */,
 				F65F70A02AECC5540038E05F /* DonsNoteStreetApp.swift in Sources */,
 				F65F70F22AECFE290038E05F /* ProfileViewModel.swift in Sources */,
+				F6B349952B00CEF400919057 /* ArtistInfoModalViewModel.swift in Sources */,
 				F65F70B22AECC8180038E05F /* Artist.swift in Sources */,
 				F6A176EE2AFA96AF0014774A /* BuskingListRow.swift in Sources */,
 				F65F70E82AECF7900038E05F /* UIScreen.swift in Sources */,
+				F6B349832B00C92000919057 /* GoogleMapView.swift in Sources */,
 				F6A176E42AFA3DAB0014774A /* ArtistPageView.swift in Sources */,
+				F6B349972B00D00A00919057 /* AddBuskingMapView.swift in Sources */,
 				F6B349742AFE641E00919057 /* AddBuskingView.swift in Sources */,
 				F6A176F42AFA9AA40014774A /* MapBuskingModalViewModel.swift in Sources */,
 				F65F70B02AECC5A80038E05F /* User.swift in Sources */,
+				F6B349912B00CDD500919057 /* AddBuskingViewModel.swift in Sources */,
 				F6B349762AFE6FF700919057 /* ReportModalView.swift in Sources */,
 				F65F70E42AECF7700038E05F /* mainpageTitleModifier.swift in Sources */,
 				F6A176DA2AF94AF80014774A /* EditUserArtistAcountView.swift in Sources */,
 				F65F70B42AECCAA70038E05F /* Member.swift in Sources */,
 				F65F70DE2AECF70B0038E05F /* Font.swift in Sources */,
 				F6A176E22AFA3D250014774A /* ArtistListView.swift in Sources */,
+				F6B349932B00CE9800919057 /* ArtistInfoModalView.swift in Sources */,
 				F65F70C12AECD78B0038E05F /* MyArtistView.swift in Sources */,
 				F65F70CA2AECDC9E0038E05F /* AppleLoginView.swift in Sources */,
 				F65F70C42AECD7A70038E05F /* MapView.swift in Sources */,
 				F6A176EC2AFA4BC10014774A /* ProfileRectangle.swift in Sources */,
-				F6A176F82AFB56140014774A /* MapAnnotationView.swift in Sources */,
 				F6A176F12AFA99460014774A /* MapBuskingModalView.swift in Sources */,
 				F65F70B62AECCCA20038E05F /* Busking.swift in Sources */,
 				F65F70EF2AECFD720038E05F /* DonationBar.swift in Sources */,
 				F65F70FC2AED00E30038E05F /* EditUserAcountView.swift in Sources */,
-				F6A176D22AF94A080014774A /* AddBuskingMapView.swift in Sources */,
+				F6B3498D2B00CCEE00919057 /* MapViewSearchBar.swift in Sources */,
 				F65F70F82AED00890038E05F /* DonationListView.swift in Sources */,
 				F65F71012AED4FCA0038E05F /* PopOverText.swift in Sources */,
 				F65F70CD2AECE9680038E05F /* MapViewModel.swift in Sources */,
@@ -703,7 +755,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DonsNoteStreetApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -786,6 +838,22 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		F6B349772B00C4BB00919057 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/YAtechnologies/GoogleMaps-SP";
+			requirement = {
+				kind = exactVersion;
+				version = 7.2.0;
+			};
+		};
+		F6B349842B00CA5E00919057 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -793,6 +861,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F65F70B72AECCE170038E05F /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		F6B349782B00C4BB00919057 /* GoogleMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6B349772B00C4BB00919057 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GoogleMaps;
+		};
+		F6B3497A2B00C4BB00919057 /* GoogleMapsBase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6B349772B00C4BB00919057 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GoogleMapsBase;
+		};
+		F6B3497C2B00C4BB00919057 /* GoogleMapsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6B349772B00C4BB00919057 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GoogleMapsCore;
+		};
+		F6B3497E2B00C4BB00919057 /* GoogleMapsM4B */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6B349772B00C4BB00919057 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GoogleMapsM4B;
+		};
+		F6B349802B00C4BB00919057 /* GooglePlaces */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6B349772B00C4BB00919057 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GooglePlaces;
+		};
+		F6B349852B00CA5E00919057 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6B349842B00CA5E00919057 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -26,12 +26,12 @@ struct ProfileView: View {
                 profileSetting
                 artistSetting
                 donationList
+                blockSetting
                 customDivider()
                 notificationSetting
                 customDivider()
                 artistAccount
                 accountSetting
-                blockSetting
                 Spacer()
                 
             }
