@@ -23,8 +23,8 @@ struct UserArtistProfileView: View {
                 profileSection
                 customDivider()
                 firstSection
-                customDivider()
-                secondSection
+//                customDivider()
+//                secondSection
                 customDivider()
                 thirdSection
                 Spacer()
@@ -78,6 +78,7 @@ extension UserArtistProfileView {
                     .padding(UIScreen.getWidth(20))
                     .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
             }
+            
             NavigationLink {
                 AddBuskingPageView()
             } label: {
@@ -86,6 +87,7 @@ extension UserArtistProfileView {
                     .padding(UIScreen.getWidth(20))
                     .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
             }
+            
             NavigationLink {
                 EditBuskingView()
             } label: {
@@ -94,22 +96,24 @@ extension UserArtistProfileView {
                     .padding(UIScreen.getWidth(20))
                     .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
             }
-            NavigationLink {
-                EditFanView()
-            } label: {
-                Text("팬 관리")
-                    .font(.custom13bold())
-                    .padding(UIScreen.getWidth(20))
-                    .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
-            }
-            NavigationLink {
-                EditDonationView()
-            } label: {
-                Text("후원 관리")
-                    .font(.custom13bold())
-                    .padding(UIScreen.getWidth(20))
-                    .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
-            }
+            
+//            NavigationLink {
+//                EditFanView()
+//            } label: {
+//                Text("팬 관리")
+//                    .font(.custom13bold())
+//                    .padding(UIScreen.getWidth(20))
+//                    .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
+//            }
+//            
+//            NavigationLink {
+//                EditDonationView()
+//            } label: {
+//                Text("후원 관리")
+//                    .font(.custom13bold())
+//                    .padding(UIScreen.getWidth(20))
+//                    .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
+//            }
             
         }
     }

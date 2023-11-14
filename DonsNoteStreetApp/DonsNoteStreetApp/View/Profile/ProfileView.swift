@@ -25,10 +25,10 @@ struct ProfileView: View {
                 customDivider()
                 profileSetting
                 artistSetting
-                donationList
+//                donationList
                 blockSetting
-                customDivider()
-                notificationSetting
+//                customDivider()
+//                notificationSetting
                 customDivider()
                 artistAccount
                 accountSetting

@@ -9,14 +9,14 @@ import SwiftUI
 
 struct MapBuskingModalView: View {
     
-//MARK: - 1.PROPERTY
+    //MARK: - 1.PROPERTY
     
     @EnvironmentObject var service : Service
     @ObservedObject var viewModel: MapBuskingModalViewModel
     @State var showPopover: Bool = false
     @State var showReport : Bool = false
     
-//MARK: - 2.BODY
+    //MARK: - 2.BODY
     
     var body: some View {
         ZStack {
@@ -25,7 +25,7 @@ struct MapBuskingModalView: View {
                 buskingInfoToolbar
                 buskingTime
                 buskingInfoAddress
-                //                buskingInfoMap
+                buskingInfoMap
             }
             if showPopover { PopOverText() } }
         .onChange(of: showPopover) { newValue in
@@ -130,18 +130,18 @@ extension MapBuskingModalView {
         .padding(.init(top: UIScreen.getHeight(5), leading: UIScreen.getWidth(0), bottom: UIScreen.getHeight(0), trailing: UIScreen.getWidth(0)))
     }
     
-    //    var buskingInfoMap: some View {
-    //        CropedGoogleMapView(busking: viewModel.busking, artist: viewModel.artist)
-    //            .frame(height: UIScreen.getHeight(300))
-    //            .cornerRadius(20)
-    //            .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
-    //            .overlay {
-    //                RoundedRectangle(cornerRadius: 20).stroke(lineWidth: UIScreen.getWidth(2)).shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
-    //                    .foregroundStyle(LinearGradient(colors: [.white, .white, .appSky.opacity(0.6), .white, .appSky.opacity(0.6), .white], startPoint: .topLeading, endPoint: .bottomTrailing))
-    //            }
-    //            .padding(.init(top: UIScreen.getWidth(10), leading: UIScreen.getWidth(8), bottom: UIScreen.getWidth(20), trailing: UIScreen.getWidth(8)))
-    //    }
-    //
+    var buskingInfoMap: some View {
+        CropedGoogleMapView(busking: viewModel.busking)
+            .frame(height: UIScreen.getHeight(300))
+            .cornerRadius(20)
+            .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
+            .overlay {
+                RoundedRectangle(cornerRadius: 20).stroke(lineWidth: UIScreen.getWidth(2)).shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
+                    .foregroundStyle(LinearGradient(colors: [.white, .white, .appSky.opacity(0.6), .white, .appSky.opacity(0.6), .white], startPoint: .topLeading, endPoint: .bottomTrailing))
+            }
+            .padding(.init(top: UIScreen.getWidth(10), leading: UIScreen.getWidth(8), bottom: UIScreen.getWidth(20), trailing: UIScreen.getWidth(8)))
+    }
+    
     func onDismiss() {
         showReport = false
     }

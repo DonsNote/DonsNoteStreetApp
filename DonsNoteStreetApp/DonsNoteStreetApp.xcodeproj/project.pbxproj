@@ -49,6 +49,7 @@
 		F65F71072AED52B20038E05F /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71062AED52B20038E05F /* AccessToken.swift */; };
 		F65F71092AED57670038E05F /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71082AED57670038E05F /* KeychainItem.swift */; };
 		F69076AB2AF78AB3007B62A6 /* AddUserArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69076AA2AF78AB3007B62A6 /* AddUserArtistViewModel.swift */; };
+		F69681D22B02F4EB008B408E /* EditBuskingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69681D12B02F4EB008B408E /* EditBuskingViewModel.swift */; };
 		F6A176CD2AF9471A0014774A /* UserArtistProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */; };
 		F6A176D02AF948E30014774A /* UserArtistProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */; };
 		F6A176D42AF94A390014774A /* EditFanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D32AF94A390014774A /* EditFanView.swift */; };
@@ -130,6 +131,7 @@
 		F65F71082AED57670038E05F /* KeychainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 		F690767C2AF374DC007B62A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F69076AA2AF78AB3007B62A6 /* AddUserArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserArtistViewModel.swift; sourceTree = "<group>"; };
+		F69681D12B02F4EB008B408E /* EditBuskingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBuskingViewModel.swift; sourceTree = "<group>"; };
 		F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistProfileView.swift; sourceTree = "<group>"; };
 		F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistProfileViewModel.swift; sourceTree = "<group>"; };
 		F6A176D32AF94A390014774A /* EditFanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFanView.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */,
 				F6A176DF2AFA2C8A0014774A /* UserArtistPageViewModel.swift */,
 				F6B349902B00CDD500919057 /* AddBuskingViewModel.swift */,
+				F69681D12B02F4EB008B408E /* EditBuskingViewModel.swift */,
 			);
 			path = UserArtist;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				F6B3498B2B00CCBD00919057 /* GooglePlacesSearch.swift in Sources */,
 				F65F70A02AECC5540038E05F /* DonsNoteStreetApp.swift in Sources */,
 				F65F70F22AECFE290038E05F /* ProfileViewModel.swift in Sources */,
+				F69681D22B02F4EB008B408E /* EditBuskingViewModel.swift in Sources */,
 				F6B349952B00CEF400919057 /* ArtistInfoModalViewModel.swift in Sources */,
 				F65F70B22AECC8180038E05F /* Artist.swift in Sources */,
 				F6A176EE2AFA96AF0014774A /* BuskingListRow.swift in Sources */,

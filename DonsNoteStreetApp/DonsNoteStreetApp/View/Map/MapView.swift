@@ -32,13 +32,14 @@ struct MapView: View {
                     backgroundView()
                         .onAppear {
                             service.getNowBusking()
+                                mapViewOn = true
                         }
                 }
             }
             .background(backgroundView())
             .ignoresSafeArea(.keyboard)
             .sheet(isPresented: $viewModel.popModal, onDismiss: {viewModel.popModal = false}) {
-                ArtistInfoModalView(viewModel: ArtistInfoModalViewModel(artist: viewModel.selectedArtist!, buskingStartTime: viewModel.buskingStartTime, buskingEndTime: viewModel.buskingEndTime))
+                ArtistInfoModalView(viewModel: ArtistInfoModalViewModel(artist: service.targetArtist, buskingStartTime: viewModel.buskingStartTime, buskingEndTime: viewModel.buskingEndTime))
                     .presentationDetents([.height(UIScreen.getHeight(380))])
                     .presentationDragIndicator(.visible)
             }

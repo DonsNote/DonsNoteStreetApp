@@ -7,9 +7,14 @@
 
 import SwiftUI
 import GoogleMaps
+import AlamofireImage
 import CoreLocation
 import CoreLocationUI
 
+struct MarkerData {
+    var artist: Artist
+    var busking: Busking
+}
 
 struct GoogleMapView: UIViewRepresentable {
     
@@ -59,7 +64,8 @@ struct GoogleMapView: UIViewRepresentable {
                 marker.map = view
                 marker.iconView = customMarker
                 marker.isDraggable = false
-                marker.userData = busking
+                let markerData = MarkerData(artist: service.targetArtist, busking: busking)
+                marker.userData = markerData
                
                 viewModel.buskingStartTime = busking.startTime
                 viewModel.buskingEndTime = busking.endTime
@@ -120,8 +126,9 @@ struct GoogleMapView: UIViewRepresentable {
             viewModel.popModal = true
             
             
-            if let artist = marker.userData as? Artist {
-                viewModel.selectedArtist = artist
+            if let markerData = marker.userData as? MarkerData {
+                viewModel.selectedArtist = markerData.artist
+                viewModel.selectedBusking = markerData.busking
             }
             return true
         }

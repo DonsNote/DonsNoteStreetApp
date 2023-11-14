@@ -156,8 +156,6 @@ extension AddBuskingPageView {
             service.busking.endTime = viewModel.endTime
             service.busking.latitude = viewModel.latitude
             service.busking.longitude = viewModel.longitude
-            service.busking.buskingInfo = "dd"
-            
             
             service.postBusking()
             withAnimation(.easeIn(duration: 0.4)) {
