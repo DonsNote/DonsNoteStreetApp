@@ -65,7 +65,7 @@ class Service : ObservableObject {
                     self.isLogin = true
                     UserDefaults.standard.set(true, forKey: "isLogin")
                     print("Apple Login Success")
-//                    print("Check for Session ST : \(self.serverToken)")
+                    print("Check for Session ST : \(self.serverToken)")
                 case .failure(let error):
                     self.isLogin = false
                     UserDefaults.standard.set(false, forKey: "isLogin")
@@ -460,7 +460,7 @@ class Service : ObservableObject {
         let parameters: [String: Int] = [
             "artistId" : artistId
         ]
-        AF.request("\(serverDomain)artists/target/", method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        AF.request("\(serverDomain)artists/target/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .responseDecodable(of: Artist.self) { response in
                 switch response.result {
                 case .success(let reData):

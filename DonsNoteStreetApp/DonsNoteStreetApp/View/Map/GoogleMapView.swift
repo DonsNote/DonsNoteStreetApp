@@ -12,6 +12,7 @@ import CoreLocation
 import CoreLocationUI
 
 struct MarkerData {
+    
     var artist: Artist
     var busking: Busking
 }
@@ -66,10 +67,6 @@ struct GoogleMapView: UIViewRepresentable {
                 marker.isDraggable = false
                 let markerData = MarkerData(artist: service.targetArtist, busking: busking)
                 marker.userData = markerData
-               
-                viewModel.buskingStartTime = busking.startTime
-                viewModel.buskingEndTime = busking.endTime
-                viewModel.BuskingInfo = busking.buskingInfo
             }
         return view
     }

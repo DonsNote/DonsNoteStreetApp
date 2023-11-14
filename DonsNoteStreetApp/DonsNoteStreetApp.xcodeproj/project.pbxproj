@@ -50,6 +50,7 @@
 		F65F71092AED57670038E05F /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F71082AED57670038E05F /* KeychainItem.swift */; };
 		F69076AB2AF78AB3007B62A6 /* AddUserArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69076AA2AF78AB3007B62A6 /* AddUserArtistViewModel.swift */; };
 		F69681D22B02F4EB008B408E /* EditBuskingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69681D12B02F4EB008B408E /* EditBuskingViewModel.swift */; };
+		F69681D52B0367E2008B408E /* MapBuskingLow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69681D42B0367E2008B408E /* MapBuskingLow.swift */; };
 		F6A176CD2AF9471A0014774A /* UserArtistProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */; };
 		F6A176D02AF948E30014774A /* UserArtistProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */; };
 		F6A176D42AF94A390014774A /* EditFanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A176D32AF94A390014774A /* EditFanView.swift */; };
@@ -132,6 +133,7 @@
 		F690767C2AF374DC007B62A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F69076AA2AF78AB3007B62A6 /* AddUserArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserArtistViewModel.swift; sourceTree = "<group>"; };
 		F69681D12B02F4EB008B408E /* EditBuskingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBuskingViewModel.swift; sourceTree = "<group>"; };
+		F69681D42B0367E2008B408E /* MapBuskingLow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBuskingLow.swift; sourceTree = "<group>"; };
 		F6A176CC2AF9471A0014774A /* UserArtistProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistProfileView.swift; sourceTree = "<group>"; };
 		F6A176CF2AF948E30014774A /* UserArtistProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArtistProfileViewModel.swift; sourceTree = "<group>"; };
 		F6A176D32AF94A390014774A /* EditFanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFanView.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 		F65F70C22AECD7940038E05F /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				F69681D32B0367C3008B408E /* ViewComponent */,
 				F65F70C32AECD7A70038E05F /* MapView.swift */,
 				F6B349822B00C92000919057 /* GoogleMapView.swift */,
 				F6B349872B00CBF300919057 /* CropedGoogleMapView.swift */,
@@ -390,6 +393,14 @@
 				F6A176D92AF94AF80014774A /* EditUserArtistAcountView.swift */,
 			);
 			path = UserArtist;
+			sourceTree = "<group>";
+		};
+		F69681D32B0367C3008B408E /* ViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				F69681D42B0367E2008B408E /* MapBuskingLow.swift */,
+			);
+			path = ViewComponent;
 			sourceTree = "<group>";
 		};
 		F6A176CE2AF948220014774A /* UserArtist */ = {
@@ -592,6 +603,7 @@
 				F65F70C42AECD7A70038E05F /* MapView.swift in Sources */,
 				F6A176EC2AFA4BC10014774A /* ProfileRectangle.swift in Sources */,
 				F6A176F12AFA99460014774A /* MapBuskingModalView.swift in Sources */,
+				F69681D52B0367E2008B408E /* MapBuskingLow.swift in Sources */,
 				F65F70B62AECCCA20038E05F /* Busking.swift in Sources */,
 				F65F70EF2AECFD720038E05F /* DonationBar.swift in Sources */,
 				F65F70FC2AED00E30038E05F /* EditUserAcountView.swift in Sources */,
