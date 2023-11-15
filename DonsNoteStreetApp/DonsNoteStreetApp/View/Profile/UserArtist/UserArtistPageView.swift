@@ -9,13 +9,13 @@ import SwiftUI
 import PhotosUI
 
 struct UserArtistPageView: View {
-//MARK: -1.PROPERTY
+    //MARK: -1.PROPERTY
     @EnvironmentObject var service: Service
     @StateObject var viewModel = UserArtistPageViewModel()
     
-//MARK: -2.BODY
+    //MARK: -2.BODY
     var body: some View {
-            ZStack {
+        ZStack {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: UIScreen.getWidth(5)) {
                     if viewModel.croppedImage != nil { pickedImage }
@@ -50,20 +50,28 @@ struct UserArtistPageView: View {
             ToolbarItem(placement: .topBarTrailing) { secondToolbarItem.opacity(viewModel.isEditSocial || viewModel.isEditName || viewModel.isEditInfo ? 0 : 1) }
         }
         .cropImagePicker(show: $viewModel.popImagePicker, croppedImage: $viewModel.croppedImage, isLoding: $viewModel.isLoading)
-        .onChange(of: viewModel.selectedItem) { newItem in
+        .onAppear {
+            viewModel.editUserArtistname = service.userArtist.artistName
+            viewModel.editUserArtistInfo = service.userArtist.artistInfo
+            viewModel.youtubeURL = service.userArtist.youtubeURL ?? ""
+            viewModel.instagramURL = service.userArtist.instagramURL ?? ""
+            viewModel.soundcloudURL = service.userArtist.soundcloudURL ?? ""
+        }
+        .onChange(of: viewModel.selectedItem) {
             Task {
-                if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                if let data = try? await viewModel.selectedItem?.loadTransferable(type: Data.self) {
                     viewModel.selectedPhotoData = data
                 }
             }
         }
-        .onChange(of: viewModel.selectedPhotoData) { newValue in
-            if let data = newValue, let uiImage = UIImage(data: data) {
+        .onChange(of: viewModel.selectedPhotoData) {
+            if let data = viewModel.selectedPhotoData, let uiImage = UIImage(data: data) {
                 viewModel.copppedImageData = data
                 viewModel.croppedImage = uiImage
                 viewModel.popImagePicker = false
             }
         }
+        
         .toolbarBackground(.hidden, for: .navigationBar)
         .navigationTitle("")
     }
@@ -104,7 +112,7 @@ extension UserArtistPageView {
                         UIApplication.shared.open(URL(string: (service.userArtist.soundcloudURL)!)!)// TODO: 값 집어넣어야
                     } label: { linkButton(name: SoundCloudLogo).shadow(color: .black.opacity(0.4),radius: UIScreen.getWidth(5)) }
                 }
-               
+                
                 if viewModel.isEditMode == true {
                     Button { viewModel.isEditSocial = true } label: {
                         Image(systemName: "pencil.circle.fill")
@@ -113,9 +121,9 @@ extension UserArtistPageView {
                     }
                 }
             }
-            .frame(height: UIScreen.getHeight(25))
-            .padding(.init(top: 0, leading: 0, bottom: UIScreen.getWidth(20), trailing: UIScreen.getWidth(15))), alignment: .bottomTrailing )
-            .overlay(alignment: .bottom) {
+                .frame(height: UIScreen.getHeight(25))
+                .padding(.init(top: 0, leading: 0, bottom: UIScreen.getWidth(20), trailing: UIScreen.getWidth(15))), alignment: .bottomTrailing )
+        .overlay(alignment: .bottom) {
             if viewModel.isEditMode {
                 Button{
                     viewModel.popImagePicker = true
@@ -152,7 +160,7 @@ extension UserArtistPageView {
                             UIApplication.shared.open(URL(string: (service.userArtist.soundcloudURL)!)!)// TODO: 값 집어넣어야
                         } label: { linkButton(name: SoundCloudLogo).shadow(color: .black.opacity(0.4),radius: UIScreen.getWidth(5)) }
                     }
-                   
+                    
                     if viewModel.isEditMode == true {
                         Button { viewModel.isEditSocial = true } label: {
                             Image(systemName: "pencil.circle.fill")
@@ -161,9 +169,9 @@ extension UserArtistPageView {
                         }
                     }
                 }
-                .frame(height: UIScreen.getHeight(25))
-                .padding(.init(top: 0, leading: 0, bottom: UIScreen.getWidth(20), trailing: UIScreen.getWidth(15))), alignment: .bottomTrailing )
-                .overlay(alignment: .bottom) {
+                    .frame(height: UIScreen.getHeight(25))
+                    .padding(.init(top: 0, leading: 0, bottom: UIScreen.getWidth(20), trailing: UIScreen.getWidth(15))), alignment: .bottomTrailing )
+            .overlay(alignment: .bottom) {
                 if viewModel.isEditMode {
                     PhotosPicker(
                         //TODO: 사진첩 접근해서 사진 받는 거 구현
@@ -250,16 +258,23 @@ extension UserArtistPageView {
     var secondToolbarItem: some View {
         if viewModel.isEditMode {
             return AnyView(Button{
-               
+                if viewModel.croppedImage != nil {
+                    service.patchUserArtistCroppedImage = viewModel.croppedImage
+                }
+                service.userArtist.artistName = viewModel.editUserArtistname
+                service.userArtist.artistInfo = viewModel.editUserArtistInfo
+                service.userArtist.youtubeURL = viewModel.youtubeURL
+                service.userArtist.instagramURL = viewModel.instagramURL
+                service.userArtist.soundcloudURL = viewModel.soundcloudURL
+                
                 viewModel.isEditMode = false
                 viewModel.isEditSocial = false
                 viewModel.isEditName = false
                 viewModel.isEditInfo = false
                 //TODO: 세이브하는 거 구현
                 
-                if viewModel.croppedImage != nil {
-                    service.patchUserArtistCroppedImage = viewModel.croppedImage
-                }
+                
+                
                 service.patchUserArtistProfile()
             } label: {
                 toolbarButtonLabel(buttonLabel: "Save").shadow(color: .black.opacity(0.5),radius: UIScreen.getWidth(8))
@@ -347,14 +362,14 @@ extension UserArtistPageView {
                     .padding(.leading, UIScreen.getWidth(3))
                 Text("Artist name").font(.custom14semibold())
             }
-            TextField(service.userArtist.artistName, text: $viewModel.editUsername)
+            TextField(service.userArtist.artistName, text: $viewModel.editUserArtistname)
                 .font(.custom10semibold())
                 .padding(UIScreen.getWidth(12))
                 .background(.ultraThinMaterial)
                 .cornerRadius(6)
             //editNameSheet Button
             Button {
-                service.userArtist.artistName = viewModel.editUsername
+                service.userArtist.artistName = viewModel.editUserArtistname
                 viewModel.isEditName = false
             } label: {
                 HStack {
@@ -383,7 +398,7 @@ extension UserArtistPageView {
                     .padding(.leading, UIScreen.getWidth(3))
                 Text("Artist Info").font(.custom14semibold())
             }
-            TextField(service.userArtist.artistInfo, text: $viewModel.editUserInfo)
+            TextField(service.userArtist.artistInfo, text: $viewModel.editUserArtistInfo)
                 .font(.custom10semibold())
                 .padding(UIScreen.getWidth(12))
                 .background(.ultraThinMaterial)
@@ -391,9 +406,9 @@ extension UserArtistPageView {
             //editInfoSheet Button
             Button {
                 //TODO: 서버에 올리는 함수 구현하기
-                service.userArtist.artistInfo = viewModel.editUserInfo
+                service.userArtist.artistInfo = viewModel.editUserArtistInfo
                 viewModel.isEditInfo = false
-                } label: {
+            } label: {
                 HStack {
                     Spacer()
                     Text("Save")

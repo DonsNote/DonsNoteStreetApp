@@ -42,6 +42,7 @@ struct GoogleMapView: UIViewRepresentable {
                 if let url = URL(string: busking.artistImageURL) { markerImage.af.setImage(withURL: url) }
                 let customMarker = UIImageView(image: UIImage(named: "markerpin_blue"))
                 
+//                service.getTargetArtist(artistId: busking.artistId)
                 customMarker.addSubview(markerImage)
                 customMarker.translatesAutoresizingMaskIntoConstraints = false
                 
@@ -65,8 +66,9 @@ struct GoogleMapView: UIViewRepresentable {
                 marker.map = view
                 marker.iconView = customMarker
                 marker.isDraggable = false
-                let markerData = MarkerData(artist: service.targetArtist, busking: busking)
-                marker.userData = markerData
+//                let markerData = MarkerData(artist: service.targetArtist, busking: busking)
+//                marker.userData = markerData
+                marker.userData = busking
             }
         return view
     }
@@ -123,9 +125,12 @@ struct GoogleMapView: UIViewRepresentable {
             viewModel.popModal = true
             
             
-            if let markerData = marker.userData as? MarkerData {
-                viewModel.selectedArtist = markerData.artist
-                viewModel.selectedBusking = markerData.busking
+//            if let markerData = marker.userData as? MarkerData {
+//                viewModel.selectedArtist = markerData.artist
+//                viewModel.selectedBusking = markerData.busking
+//            }
+            if let userData = marker.userData as? Busking {
+                viewModel.selectedBusking = userData
             }
             return true
         }

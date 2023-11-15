@@ -37,8 +37,11 @@ struct AddBuskingPageView: View {
             .background(backgroundView().ignoresSafeArea())
             .scrollDisabled(true)
             if showPopover { PopOverText(text: "공연이 등록되었습니다") } }
-        .onChange(of: showPopover) { newValue in
-            withAnimation { showPopover = newValue }
+//        .onChange(of: showPopover) { newValue in
+//            withAnimation { showPopover = newValue }
+//        }
+        .onChange(of: showPopover) {
+            withAnimation { showPopover = showPopover }
         }
     }
 }
@@ -137,10 +140,9 @@ extension AddBuskingPageView {
                     Image(systemName: "clock").shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
                 }.font(.custom14semibold())
             }
-            
         }
-        .onChange(of: viewModel.startTime) {newValue in
-            viewModel.endTime = newValue
+        .onChange(of: viewModel.startTime) {
+            viewModel.endTime = viewModel.startTime
         }
         .padding(.init(top: UIScreen.getWidth(10), leading: UIScreen.getWidth(15), bottom: UIScreen.getWidth(15), trailing: UIScreen.getWidth(15)))
         .background(Material.ultraThin.opacity(0.5))
