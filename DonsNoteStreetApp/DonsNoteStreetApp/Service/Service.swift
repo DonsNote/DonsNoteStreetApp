@@ -32,6 +32,7 @@ class Service : ObservableObject {
     
     @Published var allArtist : [Artist] = []
     @Published var allBusking : [Busking] = []
+    @Published var followingInt : [Int] = []
     
     @Published var croppedImage : UIImage?
     @Published var userArtistCroppedImage : UIImage?
@@ -142,6 +143,7 @@ class Service : ObservableObject {
                 case .success(let userProfile):
                     self.user = userProfile
                     print("Get User Profile Success")
+                    print(self.user)
                 case .failure(let error):
                     if let statusCode = response.response?.statusCode {
                         switch statusCode {
@@ -179,6 +181,8 @@ class Service : ObservableObject {
             case .success:
                 self.getUserProfile()
                 print("User Profile Update Success!")
+                print(parameters)
+                feedback.notificationOccurred(.success)
             case .failure(let error):
                 if let statusCode = response.response?.statusCode {
                     switch statusCode {
@@ -405,7 +409,7 @@ class Service : ObservableObject {
             }
     }
     
-    func unblock(artistId : Int) {
+    func unblock(artistId : Int, completion: @escaping () -> Void) {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         let parameters: [String : Int] = [
             "artistId" : artistId
@@ -430,6 +434,7 @@ class Service : ObservableObject {
                     }
                 }
             }
+        completion()
     }
     
     func getBlockList() {
@@ -455,7 +460,7 @@ class Service : ObservableObject {
             }
     }
     
-    func getTargetArtist(artistId : Int) {
+    func getTargetArtist(artistId : Int, completion: @escaping () -> Void) {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         let parameters: [String: Int] = [
             "artistId" : artistId
@@ -466,16 +471,20 @@ class Service : ObservableObject {
                 case .success(let reData):
                     self.targetArtist = reData
                     print("Get Target Artist Profile Success")
+                    completion()
                 case .failure(let error):
                     if let statusCode = response.response?.statusCode {
                         switch statusCode {
                         case 401:
                             self.extToken()
+                            completion()
                         default:
                             print("Error: \(error)")
+                            completion()
                         }
                     } else {
                         print("Error : \(error.localizedDescription)")
+                        completion()
                     }
                 }
             }
@@ -516,6 +525,7 @@ class Service : ObservableObject {
                     let blockedArtistIds = Set(self.user.block)
                     self.myArtist = reData.filter { !blockedArtistIds.contains($0.id) }
                     self.myArtistBuskingInt = self.myArtist.flatMap {$0.buskings ?? []}
+                    self.followingInt = self.myArtist.map {$0.id}
                     self.getMyArtistBusking()
                     print("Get My Artist Profile Success")
                 case .failure(let error):
@@ -543,8 +553,8 @@ class Service : ObservableObject {
         let EndTime = dateFormatter.string(from: self.busking.endTime)
         let parameters: [String: Any] = [
             "buskingName" : self.userArtist.artistName,
-            "buskingInfo" : self.userArtist.artistName,
-//            "buskingInfo" : self.busking.buskingInfo,
+//            "buskingInfo" : self.userArtist.artistName,
+            "buskingInfo" : self.busking.buskingInfo,
             "latitude" : self.busking.latitude,
             "longitude" : self.busking.longitude,
             "startTime" : StartTime,
@@ -557,6 +567,7 @@ class Service : ObservableObject {
                 case .success :
                     self.getMyBusking()
                     print("Post Busking Success")
+                    print("#\(parameters)")
                 case .failure(let error):
                     if let statusCode = response.response?.statusCode {
                         switch statusCode {
@@ -604,7 +615,7 @@ class Service : ObservableObject {
             }
     }
     
-    func getNowBusking() {
+    func getNowBusking(completion: @escaping () -> Void) {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         
         let dateFormatter = DateFormatter()
@@ -619,20 +630,24 @@ class Service : ObservableObject {
                     let blockedArtistIds = Set(self.user.block)
                     self.nowBusking = reData.filter { !blockedArtistIds.contains($0.artistId) }
                     print("Get Now Busking Success : \(self.nowBusking)")
+                    completion()
                 case .failure(let error):
                     if let statusCode = response.response?.statusCode {
                         switch statusCode {
                         case 401:
                             self.extToken()
+                            completion()
                         default:
                             print("Error: \(error)")
+                            completion()
                         }
                     } else {
                         print("Error : \(error.localizedDescription)")
+                        completion()
                     }
                 }
             }
-    }
+        }
     
     func getAllBuskings() {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]

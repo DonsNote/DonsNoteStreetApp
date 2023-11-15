@@ -28,8 +28,8 @@ struct MapBuskingModalView: View {
                 buskingInfoMap
             }
             if showPopover { PopOverText() } }
-        .onChange(of: showPopover) { newValue in
-            withAnimation { showPopover = newValue }
+        .onChange(of: showPopover) {
+            withAnimation { showPopover = showPopover }
         }
         .background(backgroundView())
         .sheet(isPresented: $showReport, onDismiss: onDismiss){
@@ -46,7 +46,7 @@ extension MapBuskingModalView {
     var buskingInfoToolbar: some View {
         HStack(spacing: UIScreen.getWidth(10)){
             buskingInfoImage.shadow(color: .black.opacity(0.2),radius: UIScreen.getWidth(5))
-            Text(viewModel.busking.buskingInfo)
+            Text(viewModel.busking.buskingName)
                 .font(.custom22black())
                 .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
             Spacer()

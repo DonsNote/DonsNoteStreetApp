@@ -23,7 +23,7 @@ struct BuskingListRow: View {
                 .padding(.horizontal, UIScreen.getWidth(10))
             
             VStack(alignment: .leading,spacing: UIScreen.getWidth(4)) {
-                Text(busking.buskingInfo)
+                Text(busking.buskingName)
                     .font(.custom22black())
                     .shadow(color: .black.opacity(0.4),radius: UIScreen.getHeight(5))
                     .padding(.bottom, UIScreen.getHeight(4))

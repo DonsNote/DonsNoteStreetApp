@@ -15,7 +15,7 @@ struct MapViewSearchBar: View {
         VStack(spacing:0) {
             TextField("Search", text: $viewModel.query)
                 .font(.custom13regular())
-                .padding()
+                .padding(UIScreen.getWidth(10))
                 .background(Color.black.opacity(0.7))
                 .cornerRadius(10, corners: viewModel.results.isEmpty ? [.allCorners] : [.topLeft, .topRight])
                 .overlay(alignment: .trailing,content: {
@@ -25,8 +25,8 @@ struct MapViewSearchBar: View {
                     }.padding()
                         .scaleEffect(1.2)
                 })
-                .onChange(of: viewModel.query) { newValue in
-                    viewModel.sourceTextHasChanged(newValue)
+                .onChange(of: viewModel.query) {
+                    viewModel.sourceTextHasChanged(viewModel.query)
                 }
             if viewModel.results.isEmpty == false {
                 List(viewModel.results, id: \.placeID) { result in

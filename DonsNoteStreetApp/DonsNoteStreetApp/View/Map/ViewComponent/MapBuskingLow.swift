@@ -15,37 +15,50 @@ struct MapBuskingLow: View {
     @State private var addressString : String = ""
     var artist : Artist
     var busking : Busking
+    @State var isLoading: Bool = false
     
     //MARK: -2.BODY
     var body: some View {
-        HStack(spacing: UIScreen.getWidth(10)) {
-            CircleBlur(image: busking.artistImageURL, width: 120, strokeColor: Color(appIndigo2), shadowColor: Color(appIndigo2))
-                .padding(.horizontal, UIScreen.getWidth(10))
-            
-            VStack(alignment: .leading,spacing: UIScreen.getWidth(4)) {
-                HStack {
-                    Text(busking.buskingName)
-                        .font(.custom22black())
-                        .shadow(color: .black.opacity(0.4),radius: UIScreen.getHeight(5))
-                        .padding(.bottom, UIScreen.getHeight(4))
-                                    }
-                HStack(spacing: UIScreen.getWidth(8)) {
-                    Image(systemName: "calendar").font(.custom14semibold())
-                    Text(formatDate()) .font(.custom13bold())
-                        .shadow(color: .black.opacity(0.4),radius: UIScreen.getHeight(5))
-                }
-                HStack(spacing: UIScreen.getWidth(8)) {
-                    Image(systemName: "clock").font(.custom14semibold())
-                    Text("\(formatStartTime()) ~ \(formatEndTime())").font(.custom13bold())
-                        .shadow(color: .black.opacity(0.4),radius: UIScreen.getHeight(5))
-                }
-                HStack(spacing: UIScreen.getWidth(8)) {
-                    Image(systemName: "signpost.right").font(.custom14semibold())
-                    Text("\(addressString)").font(.custom13bold())
-                        .shadow(color: .black.opacity(0.4),radius: UIScreen.getHeight(5))
-                }
-            }.frame(height: UIScreen.getHeight(130))
-            Spacer()
+        ZStack {
+            HStack(spacing: UIScreen.getWidth(10)) {
+                CircleBlur(image: busking.artistImageURL, width: 120, strokeColor: Color(appIndigo2), shadowColor: Color(appIndigo2))
+                    .padding(.horizontal, UIScreen.getWidth(10))
+                
+                VStack(alignment: .leading,spacing: UIScreen.getWidth(4)) {
+                    HStack {
+                        Text(service.targetArtist.artistName)
+                            .font(.custom22black())
+                            .shadow(color: .black.opacity(0.4),radius: UIScreen.getHeight(5))
+                            .padding(.bottom, UIScreen.getHeight(4))
+                        Spacer()
+                        NavigationLink {
+                            ArtistPageView(viewModel: ArtistPageViewModel(artist: artist))
+                        } label: {
+                            Image(systemName: "chevron.forward.circle.fill").font(.custom25bold())
+                        }
+                    }
+                    HStack(spacing: UIScreen.getWidth(8)) {
+                        Image(systemName: "bubble.left").font(.custom14semibold())
+                        Text(busking.buskingInfo) .font(.custom13bold())
+                            .shadow(color: .black.opacity(0.4),radius: UIScreen.getHeight(5))
+                    }
+                    HStack(spacing: UIScreen.getWidth(8)) {
+                        Image(systemName: "clock").font(.custom14semibold())
+                        Text("\(formatStartTime()) ~ \(formatEndTime())").font(.custom13bold())
+                            .shadow(color: .black.opacity(0.4),radius: UIScreen.getHeight(5))
+                    }
+                    HStack(spacing: UIScreen.getWidth(8)) {
+                        Image(systemName: "signpost.right").font(.custom14semibold())
+                        Text("\(addressString)").font(.custom13bold())
+                            .shadow(color: .black.opacity(0.4),radius: UIScreen.getHeight(5))
+                    }
+                }.frame(height: UIScreen.getHeight(130))
+                Spacer()
+            } 
+            .blur(radius: isLoading ? 32 : 0)
+            if isLoading {
+                ProgressView()
+            }
         }
         .background(backgroundView())
         .clipShape(RoundedRectangle(cornerRadius: 30))
@@ -57,15 +70,12 @@ struct MapBuskingLow: View {
                 .foregroundColor(Color.white.opacity(0.3))
                 .padding(1)
         }
-        .overlay(alignment:.topTrailing)  {
-            NavigationLink {
-                ArtistPageView(viewModel: ArtistPageViewModel(artist: artist))
-            } label: {
-                Image(systemName: "chevron.forward.circle.fill").font(.custom20bold())
-                    .padding(15)
-            }
-        }
+        .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/.opacity(0.3), radius: UIScreen.getWidth(4))
         .onAppear {
+            isLoading = true
+            service.getTargetArtist(artistId: busking.artistId) {
+                isLoading = false
+            }
             reverseGeo(busking: busking)
         }
     }

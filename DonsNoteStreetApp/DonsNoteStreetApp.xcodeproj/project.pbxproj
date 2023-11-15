@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07C693142B0485420051619A /* BlockedArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C693132B0485420051619A /* BlockedArtistView.swift */; };
+		07C693162B0485620051619A /* BlockedArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C693152B0485620051619A /* BlockedArtistViewModel.swift */; };
 		F65F70A02AECC5540038E05F /* DonsNoteStreetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F709F2AECC5540038E05F /* DonsNoteStreetApp.swift */; };
 		F65F70A22AECC5540038E05F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F70A12AECC5540038E05F /* ContentView.swift */; };
 		F65F70A42AECC5560038E05F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F65F70A32AECC5560038E05F /* Assets.xcassets */; };
@@ -88,6 +90,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07C693132B0485420051619A /* BlockedArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedArtistView.swift; sourceTree = "<group>"; };
+		07C693152B0485620051619A /* BlockedArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedArtistViewModel.swift; sourceTree = "<group>"; };
 		F65F709C2AECC5540038E05F /* DonsNoteStreetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DonsNoteStreetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F65F709F2AECC5540038E05F /* DonsNoteStreetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonsNoteStreetApp.swift; sourceTree = "<group>"; };
 		F65F70A12AECC5540038E05F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -301,6 +305,7 @@
 				F65F70FB2AED00E30038E05F /* EditUserAcountView.swift */,
 				F65F70FE2AED011A0038E05F /* AddUserArtistView.swift */,
 				F65F70FD2AED01030038E05F /* UserArtist */,
+				07C693132B0485420051619A /* BlockedArtistView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 				F6A176DF2AFA2C8A0014774A /* UserArtistPageViewModel.swift */,
 				F6B349902B00CDD500919057 /* AddBuskingViewModel.swift */,
 				F69681D12B02F4EB008B408E /* EditBuskingViewModel.swift */,
+				07C693152B0485620051619A /* BlockedArtistViewModel.swift */,
 			);
 			path = UserArtist;
 			sourceTree = "<group>";
@@ -585,6 +591,7 @@
 				F6A176EE2AFA96AF0014774A /* BuskingListRow.swift in Sources */,
 				F65F70E82AECF7900038E05F /* UIScreen.swift in Sources */,
 				F6B349832B00C92000919057 /* GoogleMapView.swift in Sources */,
+				07C693142B0485420051619A /* BlockedArtistView.swift in Sources */,
 				F6A176E42AFA3DAB0014774A /* ArtistPageView.swift in Sources */,
 				F6B349972B00D00A00919057 /* AddBuskingMapView.swift in Sources */,
 				F6B349742AFE641E00919057 /* AddBuskingView.swift in Sources */,
@@ -599,6 +606,7 @@
 				F6A176E22AFA3D250014774A /* ArtistListView.swift in Sources */,
 				F6B349932B00CE9800919057 /* ArtistInfoModalView.swift in Sources */,
 				F65F70C12AECD78B0038E05F /* MyArtistView.swift in Sources */,
+				07C693162B0485620051619A /* BlockedArtistViewModel.swift in Sources */,
 				F65F70CA2AECDC9E0038E05F /* AppleLoginView.swift in Sources */,
 				F65F70C42AECD7A70038E05F /* MapView.swift in Sources */,
 				F6A176EC2AFA4BC10014774A /* ProfileRectangle.swift in Sources */,

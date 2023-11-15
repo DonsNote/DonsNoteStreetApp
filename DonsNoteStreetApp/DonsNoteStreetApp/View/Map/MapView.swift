@@ -34,11 +34,10 @@ struct MapView: View {
                 }
                 if viewModel.popModal {
                     MapBuskingLow(artist: service.targetArtist, busking: viewModel.selectedBusking ?? Busking())
-                        .padding(4)
+                        .padding(.init(top: UIScreen.getHeight(0), leading: UIScreen.getWidth(4), bottom: UIScreen.getHeight(12), trailing: UIScreen.getWidth(4)))
                 }
             }
             .onTapGesture {
-                service.getTargetArtist(artistId: viewModel.selectedBusking?.artistId ?? 0)
                 viewModel.popModal = false
             }
             .background(backgroundView())
@@ -46,8 +45,9 @@ struct MapView: View {
             .navigationTitle("")
         }
         .onAppear {
-            service.getNowBusking()
-            viewModel.mapViewOn = true
+            service.getNowBusking{
+                    viewModel.mapViewOn = true
+            }
         }
         .onDisappear {
             viewModel.popModal = false

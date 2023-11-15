@@ -46,15 +46,15 @@ struct AddUserArtistView: View {
         .hideKeyboardWhenTappedAround()
         .ignoresSafeArea()
         .cropImagePicker(show: $viewModel.popImagePicker, croppedImage: $viewModel.croppedImage, isLoding: $viewModel.isLoading)
-        .onChange(of: viewModel.selectedItem) { newItem in
+        .onChange(of: viewModel.selectedItem) {
             Task {
-                if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                if let data = try? await viewModel.selectedItem?.loadTransferable(type: Data.self) {
                     viewModel.selectedPhotoData = data
                 }
             }
         }
-        .onChange(of: viewModel.selectedPhotoData) { newValue in
-            if let data = newValue, let uiImage = UIImage(data: data) {
+        .onChange(of: viewModel.selectedPhotoData) {
+            if let data = viewModel.selectedPhotoData, let uiImage = UIImage(data: data) {
                 viewModel.copppedImageData = data
                 viewModel.croppedImage = uiImage
                 viewModel.popImagePicker = false

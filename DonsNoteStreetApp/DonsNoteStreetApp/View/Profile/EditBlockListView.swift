@@ -24,14 +24,13 @@ struct EditBlockListView: View {
             LazyVGrid(columns: columns, spacing: 0) {
                 ForEach(service.blockList) { i in
                     NavigationLink {
-                        ArtistPageView(viewModel: ArtistPageViewModel(artist: i))
+                        BlockedArtistView(viewModel: BlockedArtistViewModel(artist: i))
                     } label: {
                         ProfileRectangle(image: i.artistImageURL, name: i.artistName)
                     }
                     .overlay(alignment: .topTrailing) {
                         if isEditMode {
                             Button {
-                                //TODO: 팔로우리스트에서 지우기
                                 deleteAlert = true
                             } label: {
                                 Image(systemName: "xmark.circle.fill")
@@ -44,7 +43,9 @@ struct EditBlockListView: View {
                     } .scaleEffect(0.8)
                         .alert(isPresented: $deleteAlert) {
                             Alert(title: Text(""), message: Text("Do you want to unBlock?"), primaryButton: .destructive(Text("UnBlock"), action: {
-                                service.unblock(artistId: i.id)
+                                service.unblock(artistId: i.id) {
+                                    feedback.notificationOccurred(.success)
+                                }
                             }), secondaryButton: .cancel(Text("Cancle")))
                         }
                 }
