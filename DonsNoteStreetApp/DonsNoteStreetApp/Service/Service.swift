@@ -32,6 +32,7 @@ class Service : ObservableObject {
     
     @Published var allArtist : [Artist] = []
     @Published var allBusking : [Busking] = []
+    @Published var followingInt : [Int] = []
     
     @Published var croppedImage : UIImage?
     @Published var userArtistCroppedImage : UIImage?
@@ -65,6 +66,7 @@ class Service : ObservableObject {
                     self.isLogin = true
                     UserDefaults.standard.set(true, forKey: "isLogin")
                     print("Apple Login Success")
+                    print("Check for Session ST : \(self.serverToken)")
                 case .failure(let error):
                     self.isLogin = false
                     UserDefaults.standard.set(false, forKey: "isLogin")
@@ -141,6 +143,7 @@ class Service : ObservableObject {
                 case .success(let userProfile):
                     self.user = userProfile
                     print("Get User Profile Success")
+                    print(self.user)
                 case .failure(let error):
                     if let statusCode = response.response?.statusCode {
                         switch statusCode {
@@ -178,8 +181,19 @@ class Service : ObservableObject {
             case .success:
                 self.getUserProfile()
                 print("User Profile Update Success!")
+                print(parameters)
+                feedback.notificationOccurred(.success)
             case .failure(let error):
-                print("Error : \(error.localizedDescription)")
+                if let statusCode = response.response?.statusCode {
+                    switch statusCode {
+                    case 401:
+                        self.extToken()
+                    default:
+                        print("Error: \(error)")
+                    }
+                } else {
+                    print("Error : \(error.localizedDescription)")
+                }
             }
         }
     }
@@ -212,7 +226,16 @@ class Service : ObservableObject {
                 self.getUserProfile()
                 print("Post User Artist Profile Success!")
             case .failure(let error):
-                print("Error : \(error.localizedDescription)")
+                if let statusCode = response.response?.statusCode {
+                    switch statusCode {
+                    case 401:
+                        self.extToken()
+                    default:
+                        print("Error: \(error)")
+                    }
+                } else {
+                    print("Error : \(error.localizedDescription)")
+                }
             }
         }
     }
@@ -226,7 +249,16 @@ class Service : ObservableObject {
                     self.userArtist = reData
                     print("Get User Artist Profile Success")
                 case .failure(let error):
-                    print("Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
     }
@@ -258,7 +290,16 @@ class Service : ObservableObject {
                 self.getUserArtistProfile()
                 print("User Artist Profile Update Success!")
             case .failure(let error):
-                print("Error : \(error.localizedDescription)")
+                if let statusCode = response.response?.statusCode {
+                    switch statusCode {
+                    case 401:
+                        self.extToken()
+                    default:
+                        print("Error: \(error)")
+                    }
+                } else {
+                    print("Error : \(error.localizedDescription)")
+                }
             }
         }
     }
@@ -272,7 +313,16 @@ class Service : ObservableObject {
                     self.getUserProfile()
                     print("Delete User Artist Acount Success")
                 case .failure(let error):
-                    print("Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
     }
@@ -290,7 +340,16 @@ class Service : ObservableObject {
                     self.getMyArtist()
                     print("Followed Success")
                 case .failure(let error):
-                    print("Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
     }
@@ -308,7 +367,16 @@ class Service : ObservableObject {
                     self.getMyArtist()
                     print("Unfollow Success")
                 case .failure(let error):
-                    print("Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
     }
@@ -327,12 +395,21 @@ class Service : ObservableObject {
                     self.getMyArtist()
                     print("Blocked Success")
                 case .failure(let error):
-                    print("Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
     }
     
-    func unblock(artistId : Int) {
+    func unblock(artistId : Int, completion: @escaping () -> Void) {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         let parameters: [String : Int] = [
             "artistId" : artistId
@@ -345,9 +422,19 @@ class Service : ObservableObject {
                     self.getBlockList()
                     print("Unblocked Success")
                 case .failure(let error):
-                    print("Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
+        completion()
     }
     
     func getBlockList() {
@@ -359,24 +446,46 @@ class Service : ObservableObject {
                     self.blockList = reData
                     print("Get Block List Success")
                 case .failure(let error):
-                    print("Get Block List fail Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
     }
     
-    func getTargetArtist(artistId : Int) {
+    func getTargetArtist(artistId : Int, completion: @escaping () -> Void) {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         let parameters: [String: Int] = [
             "artistId" : artistId
         ]
-        AF.request("\(serverDomain)artists/target/", method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        AF.request("\(serverDomain)artists/target/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .responseDecodable(of: Artist.self) { response in
                 switch response.result {
                 case .success(let reData):
                     self.targetArtist = reData
                     print("Get Target Artist Profile Success")
+                    completion()
                 case .failure(let error):
-                    print("Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                            completion()
+                        default:
+                            print("Error: \(error)")
+                            completion()
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                        completion()
+                    }
                 }
             }
     }
@@ -392,7 +501,16 @@ class Service : ObservableObject {
                     self.allArtist = reData.filter { artist in !blockedArtistIds.contains(artist.id) && !followedArtistIds.contains(artist.id) }
                     print("Get All Artist Profile Success")
                 case .failure(let error):
-                    print("Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
         
@@ -407,10 +525,20 @@ class Service : ObservableObject {
                     let blockedArtistIds = Set(self.user.block)
                     self.myArtist = reData.filter { !blockedArtistIds.contains($0.id) }
                     self.myArtistBuskingInt = self.myArtist.flatMap {$0.buskings ?? []}
+                    self.followingInt = self.myArtist.map {$0.id}
                     self.getMyArtistBusking()
                     print("Get My Artist Profile Success")
                 case .failure(let error):
-                    print("Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
     }
@@ -419,28 +547,38 @@ class Service : ObservableObject {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
         let StartTime = dateFormatter.string(from: self.busking.startTime)
         let EndTime = dateFormatter.string(from: self.busking.endTime)
         let parameters: [String: Any] = [
-            "buskingName" : self.busking.buskingName,
+            "buskingName" : self.userArtist.artistName,
+//            "buskingInfo" : self.userArtist.artistName,
             "buskingInfo" : self.busking.buskingInfo,
-            "startTime" : StartTime,
-            "endTime" : EndTime,
             "latitude" : self.busking.latitude,
-            "longitude" : self.busking.longitude
+            "longitude" : self.busking.longitude,
+            "startTime" : StartTime,
+            "endTime" : EndTime
+            
         ]
-        
-        AF.request("\(serverDomain)buskings/", method: .post, parameters: parameters, headers: headers)
+        AF.request("\(serverDomain)buskings/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .response { response in
                 switch response.result {
                 case .success :
+                    self.getMyBusking()
                     print("Post Busking Success")
+                    print("#\(parameters)")
                 case .failure(let error):
-                    print("Post Busking fail Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
     }
@@ -449,7 +587,7 @@ class Service : ObservableObject {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         
@@ -461,39 +599,61 @@ class Service : ObservableObject {
                 switch response.result {
                 case .success(let reData):
                     self.myBusking = reData
-                    print("Get My Artist Busking Success")
+                    print("Get My Busking Success")
                 case .failure(let error):
-                    print("Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
     }
     
-    func getNowBusking() {
+    func getNowBusking(completion: @escaping () -> Void) {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         
-        AF.request("\(serverDomain)buskings/now/", method: .get, headers: headers)
+        AF.request("\(serverDomain)buskings/now/", method: .get, encoding: JSONEncoding.default, headers: headers)
             .responseDecodable(of: [Busking].self, decoder: decoder) { response in
                 switch response.result {
                 case .success(let reData):
                     let blockedArtistIds = Set(self.user.block)
                     self.nowBusking = reData.filter { !blockedArtistIds.contains($0.artistId) }
-                    print("Get Now Busking Success")
+                    print("Get Now Busking Success : \(self.nowBusking)")
+                    completion()
                 case .failure(let error):
-                    print("Get Now Busking fail Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                            completion()
+                        default:
+                            print("Error: \(error)")
+                            completion()
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                        completion()
+                    }
                 }
             }
-    }
+        }
     
     func getAllBuskings() {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         
@@ -505,7 +665,16 @@ class Service : ObservableObject {
                     self.allBusking = reData.filter { !blockedArtistIds.contains($0.artistId) }
                     print("Get All Busking Success")
                 case .failure(let error):
-                    print("Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
     }
@@ -514,7 +683,7 @@ class Service : ObservableObject {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         
@@ -528,7 +697,43 @@ class Service : ObservableObject {
                     self.myArtistBusking = reData
                     print("Get My Artist Busking Success")
                 case .failure(let error):
-                    print("Error : \(error)")
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
+                }
+            }
+    }
+    
+    func deleteBusking(buskingId : Int) {
+        let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        
+        let parameters : [String : Int] = [
+            "buskingId" : buskingId
+        ]
+        AF.request("\(serverDomain)buskings/", method: .delete, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .response { response in
+                switch response.result {
+                case .success:
+                    self.getMyBusking()
+                    print("Delete Busking Success")
+                case .failure(let error):
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
                 }
             }
     }

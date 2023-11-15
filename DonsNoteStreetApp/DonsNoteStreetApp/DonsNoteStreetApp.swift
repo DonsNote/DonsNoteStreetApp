@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import GoogleMaps
+import GooglePlaces
 import AuthenticationServices
 
 @main
 struct DonsNoteStreetAppApp: App {
 //MARK: - 1. PROPERTY
-    
     @StateObject var service = Service()
+    
+    let APIKey = "AIzaSyA40AwM5IZVWhlkPqVKCipY7GHQfNqX_LI"
+    
+    init() {
+        GMSServices.provideAPIKey(APIKey)
+        GMSPlacesClient.provideAPIKey(APIKey)
+    }
     
 //MARK: - 2. BODY
     

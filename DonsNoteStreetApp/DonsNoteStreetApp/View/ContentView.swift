@@ -15,34 +15,48 @@ struct ContentView: View {
     
     //MARK: - 2. BODY
     var body: some View {
-        TabView(selection: $selection) {
-            MyArtistView()
-                .tabItem {
-                    Image(systemName: "music.note.list")
-                    Text("My Artist")
-                }
-                .tag(0)
-            
-            MapView()
-                .tabItem {
-                    Image(systemName: "map")
-                    Text("Map")
-                }
-                .tag(1)
-            
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person.crop.circle")
-                    Text("Profile")
-                }
-                .tag(2)
+//        ZStack{
+//            if service.user.userName == "" {
+//                backgroundView()
+//                ProgressView()
+//            } else {
+                TabView(selection: $selection) {
+                    MyArtistView()
+                        .tabItem {
+                            Image(systemName: "music.note.list")
+                            Text("My Artist")
+                        }
+                        .tag(0)
+                    
+                    MapView()
+                        .tabItem {
+                            Image(systemName: "map")
+                            Text("Map")
+                        }
+                        .tag(1)
+                    
+                    ProfileView()
+                        .tabItem {
+                            Image(systemName: "person.crop.circle")
+                            Text("Profile")
+                        }
+                        .tag(2)
+//                }
+//            }
         }
-        .onChange(of: selection) { newSelection in
-            switch newSelection {
+        .onAppear {
+            service.getUserProfile()
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithDefaultBackground()
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+        }
+       
+        .onChange(of: selection) {
+            switch selection {
             case 0 :
                 service.getMyArtist()
             case 1 :
-                service.getNowBusking()
+                service.getNowBusking{}
             case 2 :
                 service.getUserProfile()
                 service.getBlockList()

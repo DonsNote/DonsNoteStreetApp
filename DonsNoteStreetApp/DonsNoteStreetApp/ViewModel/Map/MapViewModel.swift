@@ -5,52 +5,108 @@
 //  Created by Kimdohyun on 10/28/23.
 //
 
-import SwiftUI
-import MapKit
-import CoreLocation
-import Combine
+import Foundation
+import GoogleMaps
+import GooglePlaces
 
-class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+class MapViewModel: ObservableObject {
+    @Published var text: String = ""
+    @Published var popModal: Bool = false
+    @Published var mapViewOn: Bool = false
     
-    @Published var region = MKCoordinateRegion()
+    @Published var selectedArtist: Artist? = nil
+    @Published var selectedBusking: Busking? = nil
     
-    var locationManager: CLLocationManager?
+    @Published var buskingStartTime: Date = Date()
+    @Published var buskingEndTime: Date = Date()
+    @Published var BuskingInfo: String = ""
     
-    override init() {
-        super.init()
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-    }
+    @Published var address: String = "Enter the place."
+    @Published var showSearchbar: Bool = false
+    @Published var showAutocompleteModal: Bool = false
+    @Published var selectedCoordinate: CLLocationCoordinate2D?
+    @Published var query: String = ""
+    @Published var results: [GMSAutocompletePrediction] = []
     
-    func requestAuthorization() {
-        locationManager?.requestWhenInUseAuthorization()
-    }
     
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        case .notDetermined, .restricted, .denied:
-            // Handle each case accordingly
-            break
-        case .authorizedWhenInUse, .authorizedAlways:
-            manager.startUpdatingLocation()
-        default:
-            break
+    private var fetcher: GMSAutocompleteFetcher
+    private var coordinator: Coordinator
+    
+    init() {
+        let filter = GMSAutocompleteFilter()
+        self.fetcher = GMSAutocompleteFetcher(filter: filter)
+        self.coordinator = Coordinator()
+        self.fetcher.delegate = coordinator
+        self.coordinator.updateHandler = { [weak self] predictions in
+            self?.results = predictions
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        updateRegion(with: location)
+    func sourceTextHasChanged(_ newValue: String) {
+        fetcher.sourceTextHasChanged(newValue)
+    }
+    
+    func getPlaceCoordinate(placeID: String, completion: @escaping (CLLocationCoordinate2D) -> Void) {
+        let placesClient = GMSPlacesClient.shared()
+        placesClient.lookUpPlaceID(placeID) { (place, error) in
+            if let error = error {
+                print("MapViewModel.getPlaceCoordinate.error: \(error.localizedDescription)")
+                return
+            }
+            if let place = place {
+                completion(place.coordinate)
+                self.query = ""
+            }
+        }
+    }
+    
+    class Coordinator: NSObject, GMSAutocompleteFetcherDelegate {
+        var updateHandler: (([GMSAutocompletePrediction]) -> Void)?
+        
+        func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
+            updateHandler?(predictions)
+        }
+        
+        func didFailAutocompleteWithError(_ error: Error) {
+            print("MapViewModel.getPlaceCoordinate.error: \(error.localizedDescription)")
+        }
+    }
+    
+    func formatDate() -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "yyyy년 M월 d일"
+        if let busking = selectedBusking?.startTime {
+            return formatter.string(from: busking)
+        }
+        return ""
     }
 
-    func updateRegion(with location: CLLocation) {
-        DispatchQueue.main.async {
-            self.region = MKCoordinateRegion(
-                center: location.coordinate,
-                span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-            )
-            self.locationManager?.stopUpdatingLocation()
+    
+    func formatStartTime() -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "a h시 mm분"
+        if let busking = selectedBusking?.startTime{
+            return formatter.string(from: busking)
         }
+        return ""
+    }
+    
+    func formatEndTime() -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "h시 mm분"
+        if let busking = selectedBusking?.endTime{
+            return formatter.string(from: busking)
+        }
+        return ""
+    }
+    
+    func makeBuskingTime() -> String{
+        let startTime = formatStartTime()
+        let endTime = formatEndTime()
+        
+        return "\(startTime) ~ \(endTime)"
     }
 }

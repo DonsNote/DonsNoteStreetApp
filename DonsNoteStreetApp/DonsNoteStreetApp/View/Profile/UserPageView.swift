@@ -48,16 +48,20 @@ struct UserPageView: View {
             ToolbarItem(placement: .topBarTrailing) { secondToolbarItem.opacity(viewModel.isEditName || viewModel.isEditInfo ? 0 : 1) }
         }
         .cropImagePicker(show: $viewModel.popImagePicker, croppedImage: $viewModel.croppedImage, isLoding: $viewModel.isLoading)
-        
-        .onChange(of: viewModel.selectedItem) { newItem in
+        .onAppear{
+            
+            viewModel.EditUsername = service.user.userName
+            viewModel.EditUserInfo = service.user.userInfo
+        }
+        .onChange(of: viewModel.selectedItem) {
             Task {
-                if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                if let data = try? await viewModel.selectedItem?.loadTransferable(type: Data.self) {
                     viewModel.selectedPhotoData = data
                 }
             }
         }
-        .onChange(of: viewModel.selectedPhotoData) { newValue in
-            if let data = newValue, let uiImage = UIImage(data: data) {
+        .onChange(of: viewModel.selectedPhotoData) {
+            if let data = viewModel.selectedPhotoData, let uiImage = UIImage(data: data) {
                 viewModel.copppedImageData = data
                 viewModel.croppedImage = uiImage
                 viewModel.popImagePicker = false
@@ -167,9 +171,11 @@ extension UserPageView {
         if viewModel.isEditMode {
             return AnyView(Button{
                 service.croppedImage = viewModel.croppedImage
+                service.user.userName = viewModel.EditUsername
+                service.user.userInfo = viewModel.EditUserInfo
+                
                 service.patchUserProfile()
                 viewModel.isEditMode = false
-                feedback.notificationOccurred(.success)
             } label: {
                 toolbarButtonLabel(buttonLabel: "Save").shadow(color: .black.opacity(0.5),radius: UIScreen.getWidth(8))
             })

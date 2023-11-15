@@ -55,11 +55,31 @@ fileprivate struct CustomImagePicker<Content: View>: View {
     var body: some View {
         content
             .photosPicker(isPresented: $show, selection: $photosItem)
-            .onChange(of: photosItem) { newValue in
+//            .onChange(of: photosItem) { newValue in
+//                isLoading = true // 이미지 로드 시작
+//                if let newValue {
+//                    Task {
+//                        if let imageData = try? await newValue.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
+//                            await MainActor.run(body: {
+//                                selectedImage = image
+//                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                                    showCropView = true
+//                                    isLoading = false // 이미지 로드 완료
+//                                }
+//                            })
+//                        } else {
+//                            isLoading = false // 이미지 로드 실패
+//                        }
+//                    }
+//                } else {
+//                    isLoading = false // 이미지 선택 취소
+//                }
+//            }
+            .onChange(of: photosItem) {
                 isLoading = true // 이미지 로드 시작
-                if let newValue {
+                if let photosItem {
                     Task {
-                        if let imageData = try? await newValue.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
+                        if let imageData = try? await photosItem.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
                             await MainActor.run(body: {
                                 selectedImage = image
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -160,50 +180,30 @@ struct CropView: View {
                         GeometryReader { proxy in
                             let rect = proxy.frame(in: .named("CROPVIEW"))
                             Color.clear//so since i used ovelay before the .frame() , it will give the image natural size thus helping us find its edges (top , left ,right , and bottom). ; ; coordinateSpace ensures that it will calculate its rect from the given view and not from the global view
-                                .onChange(of: isInteracting) { newValue in//so why no to use onEnded(),instead of this ?  , Because of my usage , onEnd() does not always call ,but updating() is called whenever a gesture is updated , so i didn't use onEnded()
-                                    //true dragging
-                                    //false stopped Dragging
-                                    //We can now read the minX,Y of the image
+                                .onChange(of: isInteracting) {
                                     withAnimation(.easeInOut(duration: 0.2)){
                                         
-                                        ///so consider that min X is above zero , like 45 ,and if we set offset to 0, then it will reset to its initial state ,so reducing the minX from the offset will set image to its start
-                                        ///example : minX= 45 ; width of offset = 145; as a result we must remove the excess 45 by doing offset.width - minX
-                                        ///#minX;minY
-                                        
-                                        
                                         if rect.minX > 0{
-                                            //resetting to last location
                                             offset.width = (offset.width - rect.minX)
                                             haptics(.medium)
                                         }
                                         
                                         if rect.minY > 0{
-                                            //resetting to last location
                                             offset.height = (offset.height - rect.minY)
                                             haptics(.medium)
                                         }
                                         
-                                        ///so , since maxX is less than the images width , say 230 ,and images width is 300 , we need to reset at its its extent , lets see how
-                                        ///example: offset.width= -110 ,image width= 300 ,minX=-150,maxX= 230;
-                                        ///Thus doing (imageWidth-maxX) + offset.width will give the extend's offset, but instead of doing this ,
-                                        ///we simply did (minX-offset.width) - - - essentially we will get the same resutl.
-                                        ///(300-230) - 110 = -40 || (-150+110) = -40
-                                        
-                                        /// - Doing the same for maxX,Y
-                                        //resetting to last location
                                         if rect.maxX < size.width{
                                             offset.width = (rect.minX - offset.width)
                                             haptics(.medium)
                                         }
                                         
-                                        //resetting to last location
                                         if rect.maxY < size.height{
                                             offset.height = (rect.minY - offset.height)
                                             haptics(.medium)
                                         }
                                     }
-                                    if !newValue{
-                                        //storing last offset
+                                    if !isInteracting{
                                         lastStoredOffset = offset
                                     }
                                 }

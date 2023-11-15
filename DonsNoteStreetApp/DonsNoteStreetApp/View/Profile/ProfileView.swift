@@ -25,13 +25,10 @@ struct ProfileView: View {
                 customDivider()
                 profileSetting
                 artistSetting
-                donationList
-                customDivider()
-                notificationSetting
+                blockSetting
                 customDivider()
                 artistAccount
                 accountSetting
-                blockSetting
                 Spacer()
                 
             }
@@ -51,12 +48,11 @@ extension ProfileView {
         HStack(spacing: UIScreen.getWidth(20)) {
             CircleBlur(image: service.user.userImageURL, width: 120)
             VStack(alignment: .leading) {
-                Text(service.user.userName)
-                    .font(.custom20bold())
-                    .padding(.bottom, UIScreen.getWidth(15))
                 HStack{
-                    DonationBar()
+                    Image(systemName: "person.circle.fill").font(.custom18semibold())
+                    Text(service.user.userName).font(.custom21black())
                 }
+                    .padding(.bottom, UIScreen.getWidth(15))
             }.padding(.top, UIScreen.getWidth(15)).shadow(color: .black.opacity(0.4),radius: UIScreen.getWidth(5))
             Spacer()
         }.padding(.init(top: UIScreen.getWidth(30), leading: UIScreen.getWidth(20), bottom: UIScreen.getWidth(10), trailing: UIScreen.getWidth(20)))
@@ -78,17 +74,6 @@ extension ProfileView {
             EditFollowingListView()
         } label: {
             Text("아티스트 관리")
-                .font(.custom13bold())
-                .padding(UIScreen.getWidth(20))
-                .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
-        }
-    }
-    
-    var donationList: some View {
-        NavigationLink {
-            DonationListView()
-        } label: {
-            Text("후원 목록")
                 .font(.custom13bold())
                 .padding(UIScreen.getWidth(20))
                 .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
@@ -122,7 +107,6 @@ extension ProfileView {
                 Button {
                     service.getUserArtistProfile()
                     isartistDelete = true
-
                 } label: {
                     Text("아티스트 계정 전환")
                         .font(.custom13bold())

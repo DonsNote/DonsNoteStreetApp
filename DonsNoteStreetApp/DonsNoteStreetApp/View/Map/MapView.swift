@@ -6,29 +6,58 @@
 //
 
 import SwiftUI
-import MapKit
+import GoogleMaps
 
 struct MapView: View {
-//MARK: -1.PROPERTY
     
-    @EnvironmentObject var service : Service
-    @StateObject private var viewModel = MapViewModel()
-
-//MARK: -2.BODY
+    //MARK: -1.PROPERTY
+    @EnvironmentObject var service: Service
+    @StateObject var viewModel = MapViewModel()
     
+    //MARK: -2.BODY
     var body: some View {
-        Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: service.nowBusking, annotationContent: { item in
-            MapAnnotation(coordinate: item.location) {
-                MapAnnotationView(busking: item)
+        NavigationView {
+            ZStack(alignment: .bottom){
+                if viewModel.mapViewOn {
+                    GoogleMapView(viewModel: viewModel)
+                        .ignoresSafeArea(.all, edges: .top)
+                    
+                        .overlay(alignment: .top) {
+                            MapViewSearchBar(viewModel: viewModel)
+                                .padding(UIScreen.getWidth(4))
+                        }
+                } else {
+                    backgroundView()
+                        .overlay{
+                            ProgressView()
+                        }
+                }
+                if viewModel.popModal {
+                    MapBuskingLow(artist: service.targetArtist, busking: viewModel.selectedBusking ?? Busking())
+                        .padding(.init(top: UIScreen.getHeight(0), leading: UIScreen.getWidth(4), bottom: UIScreen.getHeight(12), trailing: UIScreen.getWidth(4)))
+                }
             }
-        })
+            .onTapGesture {
+                viewModel.popModal = false
+            }
+            .background(backgroundView())
+            .ignoresSafeArea(.keyboard)
+            .navigationTitle("")
+        }
         .onAppear {
-            viewModel.requestAuthorization()
+            service.getNowBusking{
+                    viewModel.mapViewOn = true
+            }
+        }
+        .onDisappear {
+            viewModel.popModal = false
+            viewModel.mapViewOn = false
         }
     }
 }
 
-//MARK: -3.PREVIEW
+
+//MARK: - 3.PREVIEW
 #Preview {
-    MapView().environmentObject(Service())
+    MapView()
 }

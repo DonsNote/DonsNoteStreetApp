@@ -13,7 +13,6 @@ struct UserArtistProfileView: View {
     @EnvironmentObject var service : Service
     @StateObject var viewModel = UserArtistProfileViewModel()
     @Environment(\.dismiss) var dismiss
-    
     @Binding var isartistDelete : Bool
     
     //MARK: -2.BODY
@@ -24,18 +23,23 @@ struct UserArtistProfileView: View {
                 customDivider()
                 firstSection
                 customDivider()
-                secondSection
-                customDivider()
                 thirdSection
                 Spacer()
             }
             .background(backgroundView().ignoresSafeArea())
-            .overlay(alignment: .topLeading) {}
             .navigationTitle("")
-            .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
+//            .navigationBarBackButtonHidden(true)
+//            .navigationBarHidden(true)
+            .overlay(alignment: .topLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "chevron.down").font(.custom20semibold())
+                            .padding(20)
+                    }
+            }
             .fullScreenCover(isPresented: $viewModel.popAddBusking, content: {
-                AddBuskingView()
+                AddBuskingPageView()
             })
         }
     }
@@ -54,14 +58,17 @@ extension UserArtistProfileView {
             CircleBlur(image: service.userArtist.artistImageURL, width: 120)
             
             VStack(alignment: .leading) {
-                Text(service.userArtist.artistName)
-                    .font(.custom20bold())
-                Text(service.userArtist.artistInfo)
-                    .font(.custom13semibold())
-                    .padding(.bottom, UIScreen.getWidth(15))
                 HStack{
-                    DonationBar()
+                    Image(systemName: "person.circle.fill").font(.custom18semibold())
+                    Text(service.userArtist.artistName).font(.custom21black())
+                    Spacer()
                 }
+                HStack{
+                    Image(systemName: "bubble.left.circle.fill").font(.custom18semibold())
+                    Text(service.userArtist.artistInfo).font(.custom13semibold())
+                    Spacer()
+                }
+                    .padding(.bottom, UIScreen.getWidth(15))
             }.padding(.top, UIScreen.getWidth(15)).shadow(color: .black.opacity(0.4),radius: UIScreen.getWidth(5))
             Spacer()
         }
@@ -78,14 +85,16 @@ extension UserArtistProfileView {
                     .padding(UIScreen.getWidth(20))
                     .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
             }
+            
             NavigationLink {
-                AddBuskingView()
+                AddBuskingPageView()
             } label: {
                 Text("공연 등록")
                     .font(.custom13bold())
                     .padding(UIScreen.getWidth(20))
                     .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
             }
+            
             NavigationLink {
                 EditBuskingView()
             } label: {
@@ -94,22 +103,24 @@ extension UserArtistProfileView {
                     .padding(UIScreen.getWidth(20))
                     .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
             }
-            NavigationLink {
-                EditFanView()
-            } label: {
-                Text("팬 관리")
-                    .font(.custom13bold())
-                    .padding(UIScreen.getWidth(20))
-                    .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
-            }
-            NavigationLink {
-                EditDonationView()
-            } label: {
-                Text("후원 관리")
-                    .font(.custom13bold())
-                    .padding(UIScreen.getWidth(20))
-                    .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
-            }
+            
+//            NavigationLink {
+//                EditFanView()
+//            } label: {
+//                Text("팬 관리")
+//                    .font(.custom13bold())
+//                    .padding(UIScreen.getWidth(20))
+//                    .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
+//            }
+//            
+//            NavigationLink {
+//                EditDonationView()
+//            } label: {
+//                Text("후원 관리")
+//                    .font(.custom13bold())
+//                    .padding(UIScreen.getWidth(20))
+//                    .shadow(color: .black.opacity(0.7),radius: UIScreen.getWidth(5))
+//            }
             
         }
     }
