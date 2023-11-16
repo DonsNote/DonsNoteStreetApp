@@ -66,7 +66,6 @@ class Service : ObservableObject {
                     self.isLogin = true
                     UserDefaults.standard.set(true, forKey: "isLogin")
                     print("Apple Login Success")
-                    print("Check for Session ST : \(self.serverToken)")
                 case .failure(let error):
                     self.isLogin = false
                     UserDefaults.standard.set(false, forKey: "isLogin")
@@ -116,6 +115,9 @@ class Service : ObservableObject {
     }
     
     func report(artistId : Int) {
+        if self.user.follow.contains(artistId) {
+                self.unfollow(artistId: artistId)
+            }
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         let parameters: [String: Any] = [
             "userId" : self.user.id,
@@ -168,9 +170,6 @@ class Service : ObservableObject {
         AF.upload(multipartFormData: { multipartFormData in
             if let imageData = self.croppedImage?.jpegData(compressionQuality: 1) {
                 multipartFormData.append(imageData, withName: "image", fileName: "avatar.jpg", mimeType: "image/jpeg")
-            }
-            else if let defaultImageData = UIImage(named: "Default")?.jpegData(compressionQuality: 1) {
-                multipartFormData.append(defaultImageData, withName: "image", fileName: "avatar.jpg", mimeType: "image/jpeg")
             }
             for (key, value) in parameters {
                 multipartFormData.append(value.data(using: .utf8)!, withName: key)
@@ -242,7 +241,7 @@ class Service : ObservableObject {
     
     func getUserArtistProfile() {
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
-        AF.request("\(serverDomain)artists/", method: .get, headers: headers)
+        AF.request("\(serverDomain)artists/", method: .get, encoding: JSONEncoding.default, headers: headers)
             .responseDecodable(of: Artist.self) { response in
                 switch response.result {
                 case .success(let reData):
@@ -276,9 +275,6 @@ class Service : ObservableObject {
         AF.upload(multipartFormData: { multipartFormData in
             if let imageData = self.patchUserArtistCroppedImage?.jpegData(compressionQuality: 1) {
                 multipartFormData.append(imageData, withName: "image", fileName: "avatar.jpg", mimeType: "image/jpeg")
-            }
-            else if let defaultImageData = UIImage(named: "Default")?.jpegData(compressionQuality: 1) {
-                multipartFormData.append(defaultImageData, withName: "image", fileName: "avatar.jpg", mimeType: "image/jpeg")
             }
             for (key, value) in parameters {
                 multipartFormData.append(value.data(using: .utf8)!, withName: key)
@@ -381,7 +377,35 @@ class Service : ObservableObject {
             }
     }
     
+    func unfollowForBlock(artistId : Int) {
+        let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
+        let parameters: [String: Int] = [
+            "artistId" : artistId
+        ]
+        AF.request("\(serverDomain)users/unfollow/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .response { response in
+                switch response.result {
+                case .success:
+                    print("Unfollow Success")
+                case .failure(let error):
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 401:
+                            self.extToken()
+                        default:
+                            print("Error: \(error)")
+                        }
+                    } else {
+                        print("Error : \(error.localizedDescription)")
+                    }
+                }
+            }
+    }
+    
     func block(artistId : Int) {
+        if self.user.follow.contains(artistId) {
+                self.unfollowForBlock(artistId: artistId)
+            }
         let headers: HTTPHeaders = [.authorization(bearerToken: serverToken ?? "")]
         let parameters: [String : Int] = [
             "artistId" : artistId
@@ -565,9 +589,9 @@ class Service : ObservableObject {
             .response { response in
                 switch response.result {
                 case .success :
+                    self.getUserArtistProfile()
                     self.getMyBusking()
                     print("Post Busking Success")
-                    print("#\(parameters)")
                 case .failure(let error):
                     if let statusCode = response.response?.statusCode {
                         switch statusCode {
